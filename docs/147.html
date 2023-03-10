@@ -1,0 +1,236 @@
+<html>
+<head>
+<title>5 Advanced Tips for How to Use GitLens in VS Code</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在VS代码中使用GitLens的5个高级技巧</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/gitlens-advanced-tips#0001-01-01">https://www.gitkraken.com/blog/gitlens-advanced-tips#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>GitLens是一个Git扩展，与<a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer noopener"> Visual Studio代码</a>无缝集成。事实上，有超过1400万的安装量，它是VS代码市场上最受欢迎的Git扩展之一。GitLens之所以广受欢迎，是因为它能够解锁有价值的作者信息，帮助用户浏览项目的修订历史，等等。</p>
+
+
+
+<p>即使你是GitLens的长期用户，你可能会发现本文中的提示将揭示你以前不知道的GitLens的功能。如果你是GitLens新手，不用担心！虽然这些都是高级技巧，但你可以在今天的工作流程中应用这些技巧。<a href="https://www.gitkraken.com/gitlens/plus-features">免费注册git lens+</a>,这样你就可以遵循本文中的提示。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-embed aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper"><iframe title="GitLens Tips | 5 Advanced Tips for Using GitLens in VS Code" src="https://www.youtube.com/embed/bOoLr3_8pco?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>在VS代码中释放Git的全部力量——注册GitLens+以访问强大的功能，如工作树和可视化文件历史！<br/></p>
+<a href="https://app.gitkraken.com/register?product=gitlens&amp;referrer=gitlens" class="button button--basic" target="_blank" rel="noopener">Sign up for GitLens+ for free!</a>
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>变怪怪怪</strong></h2>
+
+
+
+<p>GitLens在每一行代码上公开注释，通过hovers提供更多信息。悬停可以显示详细的责备信息，如<a href="https://www.gitkraken.com/learn/git/best-practices/git-commit-message" target="_blank" rel="noreferrer noopener">提交消息</a>、作者信息、提交ID等等。所有这些信息都可以通过将光标悬停在代码的特定部分来访问。</p>
+
+
+
+<p>要修改GitLens中的指责悬停行为，请在VS代码中通过键入<code>cmd+shift+P</code>打开命令面板，然后在命令面板中键入<code>GitLens settings</code>，并点击<kbd>enter</kbd>。</p>
+
+
+
+<p>接下来，向下滚动到<kbd>Hovers</kbd>部分。您可以通过选择和取消选择紧靠<kbd>Hovers</kbd>标题左侧的复选框来打开或关闭整个功能。此外，您可以通过选择<kbd>Hovers</kbd>部分后面的复选框来定制您的悬停显示内容以及它们的行为方式。</p>
+
+
+
+<p>要定制当鼠标悬停在一行文本而不仅仅是注释上时出现的光标，选择<kbd>Show hovers for the current line</kbd>下的下拉菜单并选择<kbd>line &amp; annotation</kbd>。</p>
+
+
+
+<p>现在，您可以将光标悬停在注释或一行代码的任何部分上，以访问GitLens悬停信息。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong> GitLens设置:配置日期和时间格式</strong></h2>
+
+
+
+<p>GitLens允许您修改日期和时间设置，使您非常容易地本地化时间和显示您喜欢的格式。要调整GitLens的日期和时间设置，请在VS代码中打开命令面板，键入<code>GitLens settings</code>，然后点击<kbd>enter</kbd>。然后，导航到位于屏幕右侧的<kbd>Jump to menu</kbd>部分，并选择右下角附近的<kbd>Dates &amp; Times</kbd>。</p>
+
+
+
+<p>从这里开始，您可以使用各种格式选项。只需点击<kbd>Allow relative date formatting</kbd>复选框，就可以将日期格式化为相对时间，类似于:<code>1 day ago</code>，或者绝对时间，类似于:<code>July 25th, 2018 7:18 PM</code>。</p>
+
+
+
+<p>您也可以在这里设置您的<kbd>Date locale</kbd>。您可以选择默认VS代码区域设置，或者手动设置您自己的区域设置。</p>
+
+
+
+<p>GitLens中默认的日期格式表示为<code>MMMM Do, YYY h:hmma</code>，看起来像是<code>July 25th, 2018 7:18 PM</code>。您可以通过点击<kbd>Date format</kbd>框并输入您想要的格式来轻松更新格式。例如，您可以选择这样反映日期:<code>YYYY-MM-DD</code>，如下所示:<code>2018-07-25</code>。</p>
+
+
+
+<p>您可以按照如下所示的过程设置所需的日期格式，以自定义<kbd>Short Date</kbd>和<kbd>Time</kbd>格式。如果您后来发现自己进行了想要恢复或更改的更改，您可以随时返回GitLens设置并进行这些更新。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="keybindings"><strong>为任何GitLens命令添加按键绑定</strong></h2>
+
+
+
+<p>您可以为任何可以从命令调板访问的GitLens命令添加按键绑定。键绑定或热键是一组执行特定操作的自定义键击。如果您发现自己一遍又一遍地在命令面板上寻找同一个命令，这个特性会非常有用。</p>
+
+
+
+<p>要创建一个keybinding，在VS代码中打开命令面板并输入<code>&gt;GitLens:</code>。这将显示所有可用的GitLens命令列表。接下来，将鼠标悬停在要为其创建热键的命令上，并选择出现在右侧的齿轮图标。这将带您进入所选命令的设置。</p>
+
+
+
+<p>在这里，选择屏幕顶部的<kbd>Keybinding</kbd>。将出现一个文本框，提示您创建自定义的组合键。输入与所选GitLens命令相关联的所需组合键，然后点击<kbd>enter</kbd>。现在，只要你输入你创建的组合键，GitLens就会运行相关的命令。</p>
+
+
+
+<p>按照这个过程为任何GitLens命令创建一个键绑定。但是，如果您试图为另一个GitLens或VS Code原生命令创建一个已经存在的keybinding，您会得到一个警告消息，建议您创建一个新的、唯一的keybinding。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>定制CodeLens </strong></h2>
+
+
+
+<p>GitLens利用了<a href="https://code.visualstudio.com/blogs/2017/02/12/code-lens-roundup" target="_blank" rel="noreferrer noopener"> CodeLens </a>，这是另一个暴露VS代码内部信息的工具。使用GitLens，您可以定制CodeLens操作的行为方式。</p>
+
+
+
+<p>要定制GitLens如何利用CodeLens，请执行以下操作:打开VS代码命令面板，键入<code>GitLens settings</code>，然后点击<kbd>enter</kbd>。接下来，向下滚动到标题为<kbd>Git CodeLens</kbd>的部分。从这里，您可以完全控制CodeLens，包括通过选择标题<kbd>Git CodeLens</kbd>左侧的复选框来打开和关闭整个功能，以及其他细粒度的控制。</p>
+
+
+
+<p>当您打开和关闭CodeLens功能时，您会注意到中间的预览窗口显示了您的自定义如何影响CodeLens显示的信息。</p>
+
+
+
+<p>有很多方法可以定制CodeLens以适应您的特定工作流，所以不要害怕探索这些选项并真正使它成为您自己的。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>使用令牌定制GitLens注释</strong></h2>
+
+
+
+<p>您可以完全控制GitLens公开注释的方式，并且可以使用一整套标记来完全个性化该信息在工具中的呈现方式。</p>
+
+
+
+<p>要开始定制GitLens注释，打开VS代码命令面板，输入<code>GitLens settings</code>，点击<kbd>enter</kbd>。在GitLens设置的顶部，你会发现一个标题为<kbd>Current Line Blame</kbd>的部分。像我们讨论过的其他功能一样，您可以通过<kbd>Current Line Blame</kbd>标题左侧的复选框打开或关闭整个功能。</p>
+
+
+
+<p>您会注意到在这一部分的底部，有一个定制GitLens注释格式的选项。默认的注释格式是<code>${author,}${agoOrDate}${via`pullRequest}${  • message|50?}</code>。但是，如果您单击注释格式框，将会显示几个可用的标记，允许您修改注释格式。</p>
+
+
+
+<p>例如，您可以通过用<code>|10</code>替换<code>|50</code>来修改<kbd>• message|50?}</kbd>字段，使其只显示10个字符。您还可以对序列中某些GitLens责备注释出现的位置进行完全重新排序。默认情况下，GitLens责备注释首先显示<code>${author,}</code>信息。但是，您可以将该字段移动到注释序列中的任何位置，只需简单地剪切和粘贴它以适应您想要的顺序。</p>
+
+
+
+<p>此外，您可以自定义注释在当前行责备和状态栏责备中的显示方式。要访问状态栏责备，只需在GitLens设置中向下滚动到标题为<kbd>Status Bar Blame</kbd>的部分。您可以选择配置两个选项的设置，以提供相同的GitLens责备信息，或者您可以调整它们以显示稍微不同的信息。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>定制GitLens以适应您独特的工作流程</strong></h2>
+
+
+
+<p>这5个技巧只是GitLens可定制性的一瞥。这个工具不仅功能极其丰富，而且您还可以通过裁剪它来满足您的开发需求。如果你正在寻找更多的方法来释放Git在VS代码中的全部力量，并增强你的GitLens体验，请查看这些额外的<a href="https://www.gitkraken.com/blog/gitlens-tips" target="_blank" rel="noreferrer noopener"> 11 GitLens技巧</a>。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>GitLens+特性减少了用VS代码完成复杂任务的时间。尝试可视化文件历史，以显示项目的贡献者和您的贡献的图形表示。<br/></p>
+<a href="https://app.gitkraken.com/register?product=gitlens&amp;referrer=gitlens" class="button button--basic" target="_blank" rel="noopener">Sign up for GitLens+ for free!</a>
+</div>
+</div>
+		</div>
+				</div>    
+</body>
+</html>

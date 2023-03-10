@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>Monorepo Challenges with CI | GitKon 2022 | Nitish Garg, Oscar Health</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Monorepo挑战CI | GitKon 2022 | Nitish Garg，Oscar Health</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/gitkon/monorepo-challenges-nitish-garg-oscar-health#0001-01-01">https://www.gitkraken.com/gitkon/monorepo-challenges-nitish-garg-oscar-health#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper"><iframe title="Monorepo Challenges with CI | GitKon 2022 | Nitish Garg, Oscar Health" src="https://www.youtube.com/embed/neP8TVHr4pc?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>使用大型Git monorepo会带来持续集成的挑战，但是您和您的团队可以使用一些技术来克服常见的障碍。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>什么是单向回购？</h2>
+
+
+
+<p>作为monorepo的一个例子，让我们看看Oscar Health的资料库背后的数字，这是一家全栈健康保险公司。该组织的Git monorepo包含:</p>
+
+
+
+<ul><li>10万份文件<ul><li>一千九百万行代码<ul><li>各500万行Python和SQL</li><li>77万行戈朗</li></ul></li></ul></li></ul>
+
+
+
+<ul><li>微服务<ul><li>2300个二元目标</li><li>12，000次库测试</li><li>6100个测试目标</li></ul></li></ul>
+
+
+
+<ul><li>CI/CD<ul><li>每月5000次部署</li><li>一个月400万次测试</li><li>每月15TB工件</li></ul></li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>与Monorepos的持续集成挑战</strong></p>
+
+
+
+<h2>随着大型monorepos的持续增长，团队可能会面临持续集成(CI)的挑战。例如，每天运行整个测试套件不再是一个选项。</h2>
+
+
+
+<p>monorepos常见的持续集成挑战包括:</p>
+
+
+
+<p>在<a href="https://www.gitkraken.com/learn/git/git-diff" target="_blank" rel="noreferrer noopener"> Git diff </a>(或pull请求)上计算更改的目标</p>
+
+
+
+<ul><li>远程CI服务器上的缓存:</li><li><a href="https://www.gitkraken.com/learn/git/git-clone" target="_blank" rel="noreferrer noopener"> Git克隆</a>整个monorepo以及在远程CI服务器上从零开始获取相关第三方随着您的repo增长需要更长时间<ul><li>您必须找出缓存技术，以确保可以在远程CI服务器上访问大型对象</li><li>您必须找出缓存技术，以确保可以在远程CI服务器上访问大型对象</li></ul></li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>计算变更目标</strong></p>
+
+
+
+<h3>第一步是在Git monorepo中找到更改的文件。接下来，您将需要从更改的文件中找到所有依赖于测试和二进制目标，并对它们进行repo测试。后一步可能会变得复杂。</h3>
+
+
+
+<p>计算单一回购变更目标的结构如下所示:</p>
+
+
+
+<p>你有四个改变的目标:A -&gt; B -&gt; C </p>
+
+
+
+<p>因此，如果文件C有变化；这将改变目标A、B、C和D；如果文件B有变化；这将改变A &amp; B的目标；如果文件A有变化；这会改变目标a。</p>
+
+
+
+<p>例如，在Oscar Health monorepo中，每个构建或diff都可能有10，000个需要测试的目标，但平均来说，他们只需要使用这个计算模型测试几百个目标。</p>
+
+
+
+<p>例如，在Oscar Health monorepo中，每个构建或diff都可能有10，000个需要测试的目标，但平均来说，他们只需要使用这个计算模型测试几百个目标。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>远程CI服务器上的缓存</strong></p>
+
+
+
+<h3>当您使用monorepo时，两种类型的对象将随着时间的推移继续线性增长:monorepo本身和monorepo中定义的第三方。</h3>
+
+
+
+<p>根据远程CI服务器的类型，缓存这些类型的大型对象的技术会有所不同，无论是长期运行的还是临时的，后者更复杂。</p>
+
+
+
+<p>对于长期运行的服务器，您可以采用以下策略:</p>
+
+
+
+<p>克隆monorepo一次，并使用<a href="https://www.gitkraken.com/learn/git/commands" target="_blank" rel="noreferrer noopener"> Git命令</a>获取新的更改</p>
+
+
+
+<ul><li>必要时同步第三方</li><li>必要时同步第三方</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Ad hoc服务器本质上是自动伸缩的，在工作流中使用它们时，您需要更加慎重，并且需要使用缓存技术。</p>
+
+
+
+<p>对于ad hoc服务器，您可以采取的一个步骤是在半夜构建一个Docker映像来备份基础包，克隆monorepo，然后<a href="https://www.gitkraken.com/learn/git/git-fetch" target="_blank" rel="noreferrer noopener"> Git fetch </a>所有第三方。接下来，将它提交给一个容器以获得一个图像，然后缓存该图像。</p>
+
+
+
+<p>对于ad hoc服务器，您可以采取的一个步骤是在半夜构建一个Docker映像来备份基础包，克隆monorepo，然后<a href="https://www.gitkraken.com/learn/git/git-fetch" target="_blank" rel="noreferrer noopener"> Git fetch </a>所有第三方。接下来，将它提交给一个容器以获得一个图像，然后缓存该图像。</p>
+		</div>
+				</div>    
+</body>
+</html>

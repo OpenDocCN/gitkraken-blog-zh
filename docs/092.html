@@ -1,0 +1,602 @@
+<html>
+<head>
+<title>How to Write a Good Git Commit Message | Git Best Practices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何编写一个好的Git提交消息| Git最佳实践</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/best-practices/git-commit-message#0001-01-01">https://www.gitkraken.com/learn/git/best-practices/git-commit-message#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>在我们进入编写顶层Git提交消息的最佳实践之前，让我们先快速回顾一下Git中的提交是什么。</p>
+
+
+
+<p>Git提交是一种“记录对存储库的变更”的方式一个<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository" target="_blank" rel="noreferrer noopener"> Git库</a>是在。项目的git文件夹。简单地说，提交是本地存储库的快照。</p>
+
+
+
+<p>将提交视为项目的检查点或保存点可能会有所帮助。在许多视频游戏中，在完成特定的动作或挑战后，会到达检查点并保存您的进度。类似地，Git提交通常是在对项目做出重大贡献之后执行的，并且您希望保存您的进度。</p>
+
+
+
+<p>从这个角度来看，很容易理解为什么“git commit”是最常用的<a href="https://www.gitkraken.com/learn/git/commands" target="_blank" rel="noreferrer noopener"> Git命令</a>之一。每次开发人员执行提交时，他们都可以选择编写所谓的提交消息。Git提交消息用于解释提交的功能。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">什么是好的承诺</p>
+
+
+
+<h3>如果通过快速查看以前的提交消息，您可以辨别每个提交做了什么以及为什么做出更改，那么您就在正确的轨道上。但是，如果您的提交消息令人困惑或杂乱无章，那么您可以通过这篇文章的帮助来改进您的提交消息实践，从而帮助您未来的自己和您的团队。<strong><br/>T2】</strong></h3>
+
+
+
+<p>例如，如果您在对项目的自述文件进行简单更新后提交，您可能会包含类似于以下内容的消息:“更新自述文件的标点符号”。现在想象一个README文件更新，包含以下任何提交消息:“更新标点符号”、“进行了修复”或“Chipotle规则”。很容易看出这种类型的提交消息是如何失去控制的。虽然您可能会得到一两个跑题或不清楚的提交信息，但当它们开始累积后，很快就会回来困扰您和您的团队。在本文中，我们将介绍如何使用GitKraken客户端的CLI和GUI编写良好的Git提交消息，以及您可以应用于提交消息的提示和技巧，以改善团队沟通和存储库健康。尽管我们将引用的例子是在GitKraken客户端中，但是这些提示同样适用于VS代码用户。</p>
+
+
+
+<p>例如，如果您在对项目的自述文件进行简单更新后提交，您可能会包含类似于以下内容的消息:“更新自述文件的标点符号”。现在想象一个README文件更新，包含以下任何提交消息:“更新标点符号”、“进行了修复”或“Chipotle规则”。很容易看出这种类型的提交消息是如何失去控制的。虽然您可能会得到一两个跑题或不清楚的提交信息，但当它们开始累积后，很快就会回来困扰您和您的团队。在本文中，我们将介绍如何使用GitKraken客户端的CLI和GUI编写良好的Git提交消息，以及您可以应用于提交消息的提示和技巧，以改善团队沟通和存储库健康。尽管我们将引用的例子是在GitKraken客户端中，但是这些提示同样适用于VS代码用户。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">GitKraken客户端的提交图，在CLI和GUI中都可用，可以很容易地可视化引用您的提交和相关消息。<br/></p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>Git提交工作流</p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在开始编写一流的提交消息之前，首先需要理解与Git提交相关的工作流。为了进行提交，开发人员必须:</p>
+
+
+
+<h2>更改</h2>
+
+
+
+<p>阶段变化</p>
+
+
+
+<ol><li>提交更改</li><li>进行更改包括添加、删除或更改本地分支上的任何内容。该分支上的任何更改都包含在所谓的工作目录中。</li><li>暂存更改意味着获取您已经更改的文件，并将它们移动到“准备提交”状态，称为暂存目录。您可能还会听到开发人员将临时目录称为临时区域或索引。您可以存放任意数量的文件，但请注意，多个文件存放在一起将共享相同的提交消息，这一点很重要。</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">这意味着您将希望确保所有的提交都以对您和您的团队有意义的方式相互关联。例如，可行的做法是，将一组文件集中在您正在处理的特定修补程序上。相反，如果每个文件关注于项目的完全不同的范围，那么存放多个文件是没有意义的。</p>
+
+
+
+<p>正如我们所介绍的，提交是创建本地存储库快照的行为。这是开发人员保存工作的方式，也是一个常见的Git命令。</p>
+
+
+
+<p>提交历史记录</p>
+
+
+
+<p>一个项目中包含的所有提交的记录被称为<a href="https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History#:~:text=The%20most%20basic%20and%20powerful,is%20the%20git%20log%20command.&amp;text=By%20default%2C%20with%20no%20arguments,recent%20commits%20show%20up%20first." target="_blank" rel="noreferrer noopener">提交历史</a>，可以根据您使用的Git工具以多种方式访问。使用GitKraken客户端访问提交历史可以通过在内置CLI中运行<code>git log</code>来完成，或者通过简单地查看GUI的中央提交图来完成。</p>
+
+
+
+<p>如果您使用VS代码，您可以利用GitLens在每一行代码上公开项目的提交历史，如下所示。快速识别与一行代码相关的提交消息以及作者信息的能力非常有价值。编写好的提交消息，清楚地解释代码做了什么，使得这个功能更加有用。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">提交历史记录</p>
+
+
+
+<h2>使用GitLens for VS Code访问每一行代码中有价值的信息，包括作者信息、提交消息、差异视图等！<br/></h2>
+
+
+
+<p>如果您使用VS代码，您可以利用GitLens在每一行代码上公开项目的提交历史，如下所示。快速识别与一行代码相关的提交消息以及作者信息的能力非常有价值。编写好的提交消息，清楚地解释代码做了什么，使得这个功能更加有用。</p>
+
+
+
+<p>一个项目的提交历史对于你将来是有价值的，对于任何其他贡献代码的开发人员也是有价值的，因为它提供了关于项目中已经完成了什么的上下文。随着开发人员变得忙碌，已建立的项目文档往往会落后并变得陈旧。当这种情况发生时，许多开发人员转向提交历史来了解项目并识别最近的更新。有鉴于此，编写有意义且易于理解的提交消息变得更加重要。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git提交消息结构</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git提交消息有两个主要组成部分:标题或摘要，以及描述。提交消息标题限于72个字符，描述没有字符限制。虽然这是既定的字符限制，但大多数开发人员建议提交消息摘要不要超过50个字符，描述不要超过72个字符。</p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>最终，构造异常提交消息的技巧是在简洁和细节之间找到适当的平衡。简洁到易于阅读，但详细到易于理解。</p>
+<a href="https://www.gitkraken.com/gitlens/try-free" class="button button--basic">Download GitLens Free!</a>
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">一个项目的提交历史对于你将来是有价值的，对于任何其他贡献代码的开发人员也是有价值的，因为它提供了关于项目中已经完成了什么的上下文。随着开发人员变得忙碌，已建立的项目文档往往会落后并变得陈旧。当这种情况发生时，许多开发人员转向提交历史来了解项目并识别最近的更新。有鉴于此，编写有意义且易于理解的提交消息变得更加重要。</p>
+
+
+
+<p>标准化Git提交消息结构</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">编写提交消息时，一致性是关键。无论您是独自工作还是与数百名贡献者合作开发一个开源项目，保持一致的风格并遵守既定的提交消息约定都是至关重要的。</p>
+
+
+
+<h2>建立标准化的提交消息结构有助于保持您的存储库干净、清晰，并使项目参与者更容易理解每个提交背后的目的。</h2>
+
+
+
+<p>如果您在团队中工作，项目负责人应该传达预期的提交消息指南。大多数开源项目在其文档中都有关于提交消息最佳实践的说明。如果您找不到清晰的文档，您可以查看提交历史，并根据过去的提交对您的消息进行建模。</p>
+
+
+
+<p>诚然，遵循一个标准化的提交消息有时会令人感到乏味，但是现在花时间构建一个深思熟虑的消息不仅会在<a href="https://www.gitkraken.com/blog/code-review" target="_blank" rel="noreferrer noopener">代码审查</a>或项目审计期间节省你的时间，这是一个将你与你的同行区分开来的简单方法，并且受到项目经理的赞赏。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">ProTip:一些团队在他们的提交消息摘要中包含一个类似于<code>*</code>的特殊字符，以表示在提交消息描述中写入了更多信息。</p>
+
+
+
+<h3>编写提交消息时，一致性是关键。无论您是独自工作还是与数百名贡献者合作开发一个开源项目，保持一致的风格并遵守既定的提交消息约定都是至关重要的。</h3>
+
+
+
+<p>想要撰写具有个人风格的精彩提交消息吗？GitKraken客户端允许您在提交消息中使用表情符号！😍💥🦑<br/></p>
+
+
+
+<p>快速Git提交消息提示</p>
+
+
+
+<p>您可以做一些事情来立即改进Git提交消息:</p>
+
+
+
+<p>避免不必要的大写</p>
+
+
+
+<p>仔细检查你的拼写</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">不要用标点符号结束提交消息摘要</p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>不要用标点符号结束提交消息摘要</p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">遵循这些简单的指导方针可以更容易地搜索和过滤提交，并使您的存储库看起来更具视觉吸引力。这些步骤不仅快速简单，而且你的团队成员也会感谢你。</p>
+
+
+
+<h2>您可以做一些事情来立即改进Git提交消息:</h2>
+
+
+
+<p><meta charset="utf-8"/>使用祈使句动词形式</p>
+
+
+
+<ol><li>帮助您编写好的Git提交消息的另一个最佳实践是使用命令动词形式。使用命令式动词形式可以确保提交消息中使用的潜在动词，如“fixed”或“updated ”,以正确的时态写成“fix”和“updated”。</li><li>这已经成为许多Git项目事实上的标准。确保您的消息符合标准的一种方法是应用公式:“如果应用，我的提交将…”您可以将此应用于示例:</li><li>如果应用，我的提交将(插入提交消息文本)</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">总结:</p>
+
+
+
+<p><code>Add new Kief-the-kraken Keanu-Kief to keif gallery</code> <br/></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">描述:</p>
+
+
+
+<h3><code>Modify menu.yml and keif-gallery.md related to ticket #12345</code></h3>
+
+
+
+<p>这已经成为许多Git项目事实上的标准。确保您的消息符合标准的一种方法是应用公式:“如果应用，我的提交将…”您可以将此应用于示例:</p>
+
+
+
+<p>吉拉集成问题ID或票证编号</p>
+
+
+
+<p>在提交消息中包含附加上下文的一种方法是引用相关的吉拉问题ID。虽然这不应该作为高质量提交消息的替代，但是添加吉拉ID可以帮助您团队中的其他开发人员引用关于您的提交地址的附加信息。</p>
+
+
+
+<p>GitKraken Client Pro用户可以利用<a href="https://www.gitkraken.com/integrations/jira" target="_blank" rel="noreferrer noopener">吉拉集成</a>开始在他们的工作流程中使用这种做法。</p>
+
+
+
+<p>要使用GitKraken Client Pro编写与吉拉问题相关的提交消息，请按照以下步骤操作:</p>
+
+
+
+<p>从左侧面板中选择<kbd>JIRA ISSUES</kbd></p>
+
+
+
+<p>找到您要参考的问题</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">标识问题ID</p>
+
+
+
+<h3>选择问题旁边的省略号并点击<kbd>Copy issue link</kbd></h3>
+
+
+
+<p>GitKraken Client Pro用户可以利用<a href="https://www.gitkraken.com/integrations/jira" target="_blank" rel="noreferrer noopener">吉拉集成</a>开始在他们的工作流程中使用这种做法。</p>
+
+
+
+<p>要使用GitKraken Client Pro编写与吉拉问题相关的提交消息，请按照以下步骤操作:</p>
+
+
+
+<p>提交与问题相关的更改，并编写一条Git提交消息，如下例所示:</p>
+
+
+
+<ol><li>总结:</li><li><code>Update electron version to enable faster speeds &lt;closes Jira Issue #123&gt;</code></li><li>描述:</li><li><code>Changes the abc in order to comply with xyz. See Jira ticket #123 for further details. <kbd>paste issue link</kbd></code></li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">常规提交</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">传统的提交消息样式是另一种提升提交消息级别的方式。传统的提交结构包括用指定的提交类型开始提交消息。提交类型包括:</p>
+
+
+
+<p><code>Feat</code>–特征</p>
+
+
+
+<p><code>Fix</code>–错误修复</p>
+
+
+
+<p><code>Docs</code>–对自述文件等文档的更改</p>
+
+
+
+<p><code>Style</code>–样式或格式改变</p>
+
+
+
+<p><code>Perf</code>–提高代码性能</p>
+
+
+
+<p><code>Test</code>–测试一项功能</p>
+
+
+
+<p><code>Test</code>–测试一项功能</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">使用传统的提交方法，项目参与者可以轻松地筛选和搜索特定的提交，如下例所示:</p>
+
+
+
+<h3>总结:</h3>
+
+
+
+<p><code>Docs: Fixes typo on in-from-the-depths.md</code> <br/></p>
+
+
+
+<p>描述:</p>
+
+
+
+<p><code>Closes ticket #54321</code></p>
+
+
+
+<p>Git经常提交</p>
+
+
+
+<p>另一个显著提高提交消息质量和效用的简单方法是更频繁地提交。首先，提交通常是一个好主意，因为它可以确保你的工作被保存，它还可以使你的提交信息简洁明了。</p>
+
+
+
+<p>比方说，你已经完成了一整天的工作，但是还没有完成。精心制作一个清晰简洁的提交消息几乎是不可能的。</p>
+
+
+
+<p>另一方面，如果您经常提交，很容易写出一个简单的提交消息，如下所示，它清楚地表达了这一点，而不会占用太多时间或过于冗长。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">使用传统的提交方法，项目参与者可以轻松地筛选和搜索特定的提交，如下例所示:</p>
+
+
+
+<p>Using the conventional commit method makes it easy for project contributors to filter and search for specific commits, as shown in the example below: </p>
+
+
+
+<p>如何用命令行创建优秀的提交消息</p>
+
+
+
+<p>要在GitKraken中使用<a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener"> Git CLI </a>来使用您新发现的Git commit消息最佳实践，您首先需要从顶部工具栏中选择<kbd>Terminal</kbd>。</p>
+
+
+
+<p>描述:</p>
+
+
+
+<p><code>Closes ticket #54321</code></p>
+
+
+
+<p>现在，您需要从您的工作目录转移变更。运行<code>git status</code>是查看需要暂存的文件的好方法。从这里，您有两个选择:您可以使用<code>git add &lt;file name&gt;</code>暂存单个文件，这是通常推荐的，或者，您可以使用<code>git add -all</code>暂存工作目录中的所有文件。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<h3>另一个显著提高提交消息质量和效用的简单方法是更频繁地提交。首先，提交通常是一个好主意，因为它可以确保你的工作被保存，它还可以使你的提交信息简洁明了。</h3>
+
+
+
+<p>在GitKraken客户端中使用CLI的一个惊人优势是，您不必再次运行<code>git status</code>来确认您的文件是否被正确暂存。</p>
+
+
+
+<p>GitKraken客户端通过其著名的提交图和有用的提交面板，可以很容易地从视觉上确认预期的Git操作是否真正发生。提交图显示了项目的提交历史，而右侧的提交面板显示了文件从工作目录移动到暂存目录，最后到达提交消息的过程。</p>
+
+
+
+<p>从这里开始，您可以通过使用<code>git commit -m &lt;Summary&gt;</code>或更详细的<code>git commit -m &lt;Summary&gt; -m &lt;Description&gt;</code>来应用您所学到的Git提交消息最佳实践。决定使用哪一个将取决于您的团队同意的标准化提交消息机制，或者项目的默认消息结构。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">请记住，现在编写一个全面而详细的提交消息将在将来为您节省时间。</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如何用命令行创建优秀的提交消息</p>
+
+
+
+<h2>  </h2>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如何使用GitKraken客户端编写一个好的提交消息</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">使用GitKraken客户端中的GUI编写提交消息很简单。首先从您的工作目录中暂存您想要提交的文件。您会注意到GitKraken客户端在UI右侧的“提交面板”中保存了一个工作目录中所有未暂存文件的列表。</p>
+
+
+
+<p>  </p>
+
+
+
+<p class="video-responsive">
+
+</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如果您已经对工作目录中的多个文件进行了更改，但想要暂存一个特定的文件，请将鼠标悬停在文件名上，然后单击出现在文件名右侧的<kbd>Stage File</kbd>按钮。要准备您的所有更改，只需选择面板右上角的<kbd>Stage all changes</kbd>按钮。</p>
+
+
+
+<p>当文件从提交面板的<kbd>Unstaged Files</kbd>部分向下移动到正下方的<kbd>Staged Files</kbd>部分时，您可以使用GitKraken Client轻松验证文件是否已暂存。</p>
+
+
+
+<p>从这里开始，您可以通过使用<code>git commit -m &lt;Summary&gt;</code>或更详细的<code>git commit -m &lt;Summary&gt; -m &lt;Description&gt;</code>来应用您所学到的Git提交消息最佳实践。决定使用哪一个将取决于您的团队同意的标准化提交消息机制，或者项目的默认消息结构。</p>
+
+
+
+<p>  </p>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">一旦您的文件被暂存，您就可以编写顶层提交消息了。导航到提交面板底部标记为<kbd>Commit Message</kbd>的部分，并选择<kbd>Summary</kbd>。</p>
+
+
+
+<p class="video-responsive">这里，您有72个字符来总结您提交的目的，并应用本文中介绍的最佳实践。当您对提交摘要感到满意时，您可以选择下面的<kbd>Description</kbd>来提供额外的上下文。遵循您的团队或项目负责人制定的准则来填写详细描述。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">当您对提交消息感到满意时，选择绿色的<kbd>Commit changes to (#) file</kbd>按钮。您可以通过参考中央提交图来验证您的提交是否成功。</p>
+
+
+
+<h2>使用GitKraken客户端中的GUI编写提交消息很简单。首先从您的工作目录中暂存您想要提交的文件。您会注意到GitKraken客户端在UI右侧的“提交面板”中保存了一个工作目录中所有未暂存文件的列表。</h2>
+
+
+
+<p>Composing commit messages is simple using the GUI in GitKraken Client. Start by staging the files from your working directory that you want to commit. You’ll notice that GitKraken Client keeps a list of all the unstaged files in your working directory in the “Commit Panel” located on the right side of the UI. </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如何编辑Git提交消息</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">因为提交在Git工作流中非常常见，所以几乎可以肯定的是，在某些时候，您需要知道如何编辑Git提交消息。要求您更改Git提交消息的最常见原因包括打字错误和添加澄清内容。</p>
+
+
+
+<p>要在GitKraken客户端中编辑提交消息，只需选择提交，浏览提交面板，单击显示当前提交消息的框，进行必要的编辑，然后选择绿色的<kbd>Update Message</kbd>按钮。就这么简单！</p>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<p class="video-responsive">要在命令行中更改提交消息，可以使用:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><code>git commit --amend -m “new commit message”</code></p>
+
+
+
+<p>这里，您有72个字符来总结您提交的目的，并应用本文中介绍的最佳实践。当您对提交摘要感到满意时，您可以选择下面的<kbd>Description</kbd>来提供额外的上下文。遵循您的团队或项目负责人制定的准则来填写详细描述。</p>
+
+
+
+<p>  </p>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">您应该知道，您只能编辑最近的提交。这就是为什么确保仔细检查每个提交消息的拼写和格式如此重要。</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">更改与旧提交相关联的Git提交消息需要您<a href="https://www.gitkraken.com/learn/git/problems/revert-git-commit" target="_blank" rel="noreferrer noopener">恢复Git提交，</a>，这是一个更加核心的选项。</p>
+
+
+
+<h2>因为提交在Git工作流中非常常见，所以几乎可以肯定的是，在某些时候，您需要知道如何编辑Git提交消息。要求您更改Git提交消息的最常见原因包括打字错误和添加澄清内容。</h2>
+
+
+
+<p>想要帮助您的团队实现更好的沟通和可见性吗？查看GitKraken客户端的团队功能，包括查看团队成员正在处理的文件、深度链接、预防性合并冲突工具和灵活的许可管理。<br/></p>
+
+
+
+<p>  </p>
+
+
+
+<p class="video-responsive">高质量Git提交消息=以后节省时间</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">应用这些Git提交消息最佳实践将有助于提高您浏览项目历史、理解变更的能力，并为项目的未来提供有用的指导。编写全面的提交消息不一定是乏味的或者不合理的耗时。另外，像<a href="https://www.gitkraken.com/gitlens" target="_blank" rel="noreferrer noopener"> GitLens </a>和<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Client </a>这样的工具可以帮助你以直观和不引人注目的方式获得编写高质量提交消息的好处！</p>
+
+
+
+<p><code>git commit --amend -m “new commit message”</code></p>
+
+
+
+<p> <code>git commit --amend -m “new commit message”</code> </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<p class="video-responsive">
+
+</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">您应该知道，您只能编辑最近的提交。这就是为什么确保仔细检查每个提交消息的拼写和格式如此重要。</p>
+
+
+
+<p>更改与旧提交相关联的Git提交消息需要您<a href="https://www.gitkraken.com/learn/git/problems/revert-git-commit" target="_blank" rel="noreferrer noopener">恢复Git提交，</a>，这是一个更加核心的选项。</p>
+
+
+
+<p>Changing the Git commit message associated with an older commit requires you to <a href="https://www.gitkraken.com/learn/git/problems/revert-git-commit" target="_blank" rel="noreferrer noopener">revert a Git commit,</a> and is a much more nuclear option. </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">想要帮助您的团队实现更好的沟通和可见性吗？查看GitKraken客户端的团队功能，包括查看团队成员正在处理的文件、深度链接、预防性合并冲突工具和灵活的许可管理。<br/></p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>Want to help facilitate even better communication and visibility for your team? Check out GitKraken Client’s team features including the ability to see which files your team members are working on, deep linking, preventative merge conflict tool, and flexible license management.<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">高质量Git提交消息=以后节省时间</p>
+
+
+
+<h2>应用这些Git提交消息最佳实践将有助于提高您浏览项目历史、理解变更的能力，并为项目的未来提供有用的指导。编写全面的提交消息不一定是乏味的或者不合理的耗时。另外，像<a href="https://www.gitkraken.com/gitlens" target="_blank" rel="noreferrer noopener"> GitLens </a>和<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Client </a>这样的工具可以帮助你以直观和不引人注目的方式获得编写高质量提交消息的好处！</h2>
+
+
+
+<p>Applying these Git commit message best practices will help improve your ability to navigate your project’s history, understand changes, and provide useful direction for the future of your project. Writing comprehensive commit messages doesn’t have to be tedious or unreasonably time consuming. Plus, tools like <a href="https://www.gitkraken.com/gitlens" target="_blank" rel="noreferrer noopener">GitLens</a> and <a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener">GitKraken Client</a> are here to help you capture the benefits of writing high-quality commit messages in intuitive and unobtrusive ways! </p>
+		</div>
+				</div>    
+</body>
+</html>

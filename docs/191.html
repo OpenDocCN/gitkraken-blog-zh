@@ -1,0 +1,268 @@
+<html>
+<head>
+<title>How to Git Push to Remote Branch | Solutions to Git Problems</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何将Git推送到远程分支| Git问题的解决方案</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/problems/git-push-to-remote-branch#0001-01-01">https://www.gitkraken.com/learn/git/problems/git-push-to-remote-branch#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>您是否希望将本地分支推送到远程？将本地<a href="https://www.gitkraken.com/learn/git/branch" target="_blank" rel="noreferrer noopener"> Git分支</a>推送到<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-git-remote" target="_blank" rel="noreferrer noopener">远程</a>会用本地分支上的所有提交更新远程分支。推送是为了让其他人可以在远程设备上访问本地更改以获取或提取。</p>
+
+
+
+<p>在本文中，您将学习如何使用<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken客户端</a>将Git推送到远程分支，首先在GitKraken CLI中，然后在Git GUI中查看该过程。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>如果您是Git新手，管理和更新您的远程项目可能会很棘手。幸运的是，GitKraken Client通过清晰地可视化您的本地和远程分支使它变得容易，因此您确切地知道您在哪里推动变化。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>如何使用CLI推送至远程分支机构</strong></h2>
+
+
+
+<p>虽然您可以在任何终端中按照相同的基本步骤将Git推送到远程分支，但是我们将使用强大的<a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener"> GitKraken CLI </a>来回顾这个过程。</p>
+
+
+
+<p>在GitKraken客户端，可以通过顶部工具栏的<kbd>Terminal</kbd>按钮访问GitKraken CLI。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>在从CLI运行Git push操作之前，您应该首先使用<code>git status</code>。运行<a href="https://git-scm.com/docs/git-status" target="_blank" rel="noreferrer noopener"> git status </a>将返回索引文件和当前HEAD commit之间的差异，以及索引文件和工作树之间的差异。这是一个很好的方式来仔细检查您的工作，并确保您准备好将您的本地更改推送到远程。</p>
+
+
+
+<p>在下面的例子中，您可以看到本地主分支在远程主分支<em> origin/main </em>之前，或者包含一个额外的提交。这意味着您的计算机上本地包含的文件或更改在您的远程计算机上找不到，需要被推上来。</p>
+
+
+
+<p>此外，您可以看到消息:"<em> nothing to commit，working tree clean </em>"这表明没有未提交的工作要推送到远程分支。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>当您对本地分支的状态感到满意时，是时候将您的更改推送到远程分支了。</p>
+
+
+
+<p>如果您已经为这个分支设置了上游远程，那么Git push命令是您需要运行的唯一操作。设置默认上游分支的好处是，它消除了推送过程中需要您每次选择要推送到哪个分支的步骤。如果这是您选择遵循的流程，并且您已经设置了一个上游分支，只需运行<code>git push</code>将您的本地分支推到远程。</p>
+
+
+
+<p>因为本例中的<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository" target="_blank" rel="noreferrer noopener"> Git存储库</a>正在使用HTTPS，所以我们还必须填写远程用户名和密码来进行身份验证。一旦用户名和密码被接受，所有本地提交都被推送到远程分支。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>然而，重要的是要注意，许多开发人员宁愿不设置默认分支，而宁愿指定他们每次都将推送到哪个分支。一些人认为这是一个更加谨慎的过程，可以促进干净的远程存储库，避免设置和切换上游带来的麻烦。</p>
+
+
+
+<p>如果您属于不设置上游的阵营，您可以简单地告诉Git您每次推送时想要使用哪个远程和分支，使用:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p><code>git push &lt;remote&gt; &lt;branch-name&gt;</code></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>如何使用Git GUI将分支推送到远程</strong></h2>
+
+
+
+<p>要在GitKraken客户端中推送分支，请勾选所需的分支，然后只需选择工具栏中的<kbd>Push</kbd>按钮。</p>
+
+
+
+<p>或者，还有两种方法可以让Git推送远程分支:</p>
+
+
+
+<ol><li>使用带有键盘快捷键<code>command/ctrl + P </code>的命令面板，然后输入“Push”。</li><li>右键单击中心图的分支，并从上下文菜单中选择<kbd>Push</kbd>。</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>在下面的例子中，<a href="https://www.gitkraken.com/integrations/github" target="_blank" rel="noreferrer noopener"> GitHub集成</a>被用作通过HTTPS与遥控器一起工作的认证。这使得你不必每次在GitKraken客户端与远程回购程序交互时都输入你的GitHub帐户信息。</p>
+
+
+
+<p>GitKraken客户端用分支名称旁边的笔记本电脑图标来标识本地文件。在本例中，您可以看到本地分支“main”有一个名为“Update README.md”的提交，该提交尚未推送到远程。</p>
+
+
+
+<p>ProTip:在推送之前，确保没有WIP节点表明仍然需要提交更改。</p>
+
+
+
+<p>当您准备好推送时，从顶部工具栏中选择<kbd>Push</kbd> <em> </em>按钮。一旦推送完成，本地和远程分支将指向相同的提交，GitKraken客户端将显示一条<em>推送成功</em>的消息。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>还没有上游集吗？别担心，GitKraken的客户会支持你的。GitKraken客户端将提示您，并询问您希望将本地更改推送到哪个远程和分支。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>正如您在这个例子中所看到的，默认情况下，您的本地分支的名称是自动填充的，这样以后在您的远程存储库中就很容易找到。它可以保持不变，或者您可以选择输入一个新的远程分支名称。选择<kbd>Submit</kbd>完成推送。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>如何将分支推送到不同的远程上游</strong></h2>
+
+
+
+<p>有时，您将需要Git push到一个当前没有设置为上游的远程分支。如果这是一种特殊情况，您只想将本地分支推送到特定的远程分支一次，只需将本地分支拖放到所需的远程分支上，然后从自动生成的菜单中选择push。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>如果您想将默认上游更改为不同的远程分支，只需右键单击您想要的分支并选择<kbd>Set Upstream</kbd>。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>饭桶</strong> <strong>饭桶推之前先拉</strong></h2>
+
+
+
+<p>与他人协作时，最好的做法通常是在推送之前执行<a href="https://www.gitkraken.com/learn/git/problems/pull-remote-git-branch" target="_blank" rel="noreferrer noopener"> Git pull </a>。这将使用其他人推送到远程分支的任何更改来更新本地分支。如果远程上存在与本地更改冲突的更改，则可以在本地解决这些更改，以避免在远程上产生冲突。</p>
+
+
+
+<p>正如任何犯过这种错误并过早推进的人都知道的那样，试图解开并调试<a href="https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git" target="_blank" rel="noreferrer noopener">合并冲突</a>可能是一件非常头疼的事情，需要你和你的团队投入大量的时间。GitKraken Client可以帮助你避免这个错误，其他人也喜欢它，因为它有非常直观的<a href="https://www.gitkraken.com/blog/git-for-teams" target="_blank" rel="noreferrer noopener">团队Git</a>功能。当多个团队成员同时处理文件时，提交图左侧的团队视图会提供警告。此外，交互式<a href="https://www.gitkraken.com/learn/git/problems/github-pull-requests" target="_blank" rel="noreferrer noopener"> GitHub pull request </a>管理和各种问题跟踪集成只是GitKraken Client受到全球数万家组织信任的部分原因。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>想要帮助您的团队花更少的时间修复繁琐的问题，花更多的时间编写惊人的代码吗？尝试GitKraken客户端的Git for Teams特性来提高您的工作效率！<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>使用直观的GitKraken客户端使得Git对于初学者来说易于理解，对于Git专家来说更加强大。GitKraken Client具有拖放功能、传奇的UX和强大的可视化工具，可以将您的Git工作流提升到一个新的水平。</p>
+		</div>
+				</div>    
+</body>
+</html>

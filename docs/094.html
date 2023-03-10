@@ -1,0 +1,364 @@
+<html>
+<head>
+<title>What is Git Flow | How to use Git Flow | Learn Git</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>什么是Git流|如何使用Git流|学习Git</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/git-flow#0001-01-01">https://www.gitkraken.com/learn/git/git-flow#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>更新日期:2022年6月17日</p>
+
+
+
+<p><a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noreferrer noopener"> Git flow </a>是一种流行的<a href="https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy" target="_blank" rel="noreferrer noopener"> Git分支策略</a>，旨在简化发布管理，由软件开发人员Vincent Driessen于2010年推出。从根本上说，Git流包括将你的工作隔离到不同类型的<a href="https://www.gitkraken.com/learn/git/branch" target="_blank" rel="noreferrer noopener"> Git分支</a>。在本文中，我们将介绍Git flow工作流中的不同分支，<a href="https://www.gitkraken.com/learn/git/git-flow#how-to-use-git-flow">如何在GitKraken客户端中使用Git flow</a>，并简要讨论另外两种Git分支策略，GitHub flow和GitLab flow。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git流工作流</p>
+
+
+
+<h2>在Git流工作流中，有五种不同的分支类型:</h2>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-flow#main-branch">主</a></p>
+
+
+
+<ol><li><a href="https://www.gitkraken.com/learn/git/git-flow#develop-branch">开发</a></li><li><a href="https://www.gitkraken.com/learn/git/git-flow#feature-branch">功能</a></li><li><a href="https://www.gitkraken.com/learn/git/git-flow#release-branch">发布</a></li><li><a href="https://www.gitkraken.com/learn/git/git-flow#hotfix-branch">热修复</a></li><li><a href="https://www.gitkraken.com/learn/git/git-flow#hotfix-branch">热修复</a></li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">其他Git分支策略</p>
+
+
+
+<h2><a href="https://www.gitkraken.com/learn/git/git-flow#github-flow"> GitHub流量</a></h2>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-flow#gitlab-flow"> GitLab流程</a></p>
+
+
+
+<p>Git流程图</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><em>定制图片的灵感来自<a rel="noreferrer noopener" href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank">“一个成功的Git分支模型”</a>中的Vincent Driessen。</em></p>
+
+
+
+<h2>Git流程图</h2>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">GitKraken客户端使配置和定制您的Git流设置变得快速而简单。<br/></p>
+
+
+
+
+
+<p class="has-text-align-center">Git流:主分支</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><em>请注意:主枝俗称“主”；我们特意决定避免使用这个过时的术语，而是选择使用“main”。</em></p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>Git流工作流中主要分支的目的是包含可以发布的生产就绪代码。</p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在Git流中，主分支在项目开始时创建，并在整个开发过程中维护。可以在各种提交时标记分支，以表示代码的不同版本或发布，其他分支将在经过充分审查和测试后合并到主分支中。</p>
+
+
+
+<h2 id="main-branch">Git流:开发分支</h2>
+
+
+
+<p>开发分支是在项目开始时创建的，并在整个开发过程中进行维护，它包含预生产代码，以及正在测试的新开发的功能。</p>
+
+
+
+<p>新创建的特性应该基于开发分支，然后在准备好进行测试的时候合并回来。</p>
+
+
+
+<p>Git流:支持分支</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">当使用Git flow进行开发时，有三种类型的支持分支具有不同的预期目的:特性、发布和修补程序。</p>
+
+
+
+<h2 id="develop-branch">Git流:特性分支</h2>
+
+
+
+<p>特性分支是Git流程工作流中最常见的分支类型。向代码中添加新功能时会用到它。</p>
+
+
+
+<p>当处理一个新的特性时，您将从开发分支开始一个特性分支，然后当特性完成并被适当地评审时，将您的更改合并回开发分支。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git流:发布分支</p>
+
+
+
+<h2 id="supporting-branches">在准备新的产品发布时，应该使用发布分支。通常，在发布分支上执行的工作涉及到收尾工作和特定于发布新代码的小错误，代码应该与主开发分支分开处理。</h2>
+
+
+
+<p>Git流:修补程序分支</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在Git流中，hotfix分支用于快速处理主分支中的必要变更。</p>
+
+
+
+<h3 id="feature-branch">修补程序分支的基础应该是您的主分支，并且应该合并回主分支和开发分支。将来自hotfix分支的更改合并回develop分支是至关重要的，这样可以确保下次发布主分支时修复仍然有效。</h3>
+
+
+
+<p>特性分支是Git流程工作流中最常见的分支类型。向代码中添加新功能时会用到它。</p>
+
+
+
+<p>GitKraken客户端如何使用Git流</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">现在我们已经介绍了什么是Git flow，让我们来看看如何在GitKraken客户端中使用Git flow。</p>
+
+
+
+<h3 id="release-branch">要开始在GitKraken客户端中使用Git flow工作流，请执行以下步骤:</h3>
+
+
+
+<p>导航至顶部工具栏中的<kbd>Preferences</kbd></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在左侧面板中选择<kbd>Gitflow</kbd>并设置您偏好的分支命名约定</p>
+
+
+
+<h3 id="hotfix-branch">选择，然后点击绿色的<kbd>Initialize Gitflow</kbd>按钮</h3>
+
+
+
+<p>在Git流中，hotfix分支用于快速处理主分支中的必要变更。</p>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="how-to-use-git-flow">现在，当您退出首选项时，您会在左侧面板的顶部看到一个Gitflow部分。从这里，</h2>
+
+
+
+<p>GitKraken客户端将帮助您启动和完成功能、发布和修复分支。</p>
+
+
+
+<p>要开始在GitKraken客户端中使用Git flow工作流，请执行以下步骤:</p>
+
+
+
+<ol><li>导航至顶部工具栏中的<kbd>Preferences</kbd></li><li>例如，大多数开发人员可能会点击“Feature ”,然后命名并创建他们的特性分支:</li><li>选择，然后点击绿色的<kbd>Initialize Gitflow</kbd>按钮</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">然后，当您的功能分支被批准后，您可以使用Gitflow面板关闭功能分支。这将自动将特性分支合并到开发中，或者，您可以选择在开发中重新设置特性分支的基础。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>现在，当您退出首选项时，您会在左侧面板的顶部看到一个Gitflow部分。从这里，</p>
+
+
+
+<p>免费尝试使用Git flow和GitKraken客户端。<br/></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git流常见问题</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">问:什么是Git流？</p>
+
+
+
+<p>答:Git flow是一个Git分支策略，创建它是为了使发布新版本的软件更容易。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">问:如何安装Git flow？</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">答:Git flow是一个Git分支策略，因此不是一个可以下载的工具或软件。开发人员可以<em>使用</em> Git流来组织他们的Git分支和开发过程，以便更有效地发布版本。</p>
+
+
+
+<p>其他Git工作流</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">虽然Git flow自2010年问世以来人气飙升，但就连Driessen自己也承认，它可能不是每个开发团队或环境的最佳Git工作流，正如他在2020年3月的<a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noreferrer noopener">“反思笔记”</a>中所示。</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><em>“Web应用程序通常是连续交付的，而不是回滚的，并且您不必支持软件的多个版本。这不是我10年前想到的软件案例。”</em></p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>有两个比Git流更简单的Git工作流，可以允许连续交付。</p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong> <em> GitTip:了解更多关于<a href="https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy" target="_blank" rel="noreferrer noopener"> Git分支策略</a>，包括GitHub flow和GitLab flow的深入细节和工作流程图。</em> </strong></p>
+
+
+
+<h2 id="gitflow-faqs"><strong> GitHub流量</strong></h2>
+
+
+
+<h3>比Git flow更简单的是，<a href="https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy#github-flow-branch-strategy" target="_blank" rel="noreferrer noopener"> GitHub flow </a>非常适合小型团队和不需要支持多个版本的web应用程序或产品。由于其简单性，GitHub flow工作流允许持续交付和持续集成。</h3>
+
+
+
+<p>当然，也有相关的风险需要考虑。例如，缺乏专门的开发分支使得这个工作流程更容易在生产中出现错误。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">GitLab Flow</p>
+
+
+
+<h3>与GitHub flow工作流相比，<a href="https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy#gitlab-flow-branch-strategy" target="_blank" rel="noreferrer noopener"> GitLab flow </a>也比Git flow更简单，更有组织性和结构化。</h3>
+
+
+
+<p>GitLab flow根据您的情况引入了环境分支，比如生产和预生产，或者发布分支。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">稍加修改，GitLab flow可以支持版本化发布和持续交付。</p>
+
+
+
+<h2>其他Git工作流</h2>
+
+
+
+<p>GitKraken客户端Git流入门</p>
+
+
+
+<p>在其核心，Git流有助于更好地组织您的工作。将它与Git客户机的视觉能力结合起来，将您的工作流程提升到一个新的水平。</p>
+
+
+
+<p>GitKraken客户端支持Git流，并允许您在配置过程中根据自己的喜好定制分支名称和其他细节。这对于跨开发团队的标准化过程特别有帮助，以便更有效地协作。了解关于在GitKraken客户端中使用<a href="https://support.gitkraken.com/git-workflows-and-extensions/git-flow/" target="_blank" rel="noreferrer noopener"> Git flow的更多信息。</a></p>
+
+
+
+<p><strong> <em> GitTip:了解更多关于<a href="https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy" target="_blank" rel="noreferrer noopener"> Git分支策略</a>，包括GitHub flow和GitLab flow的深入细节和工作流程图。</em> </strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong> GitHub流量</strong></p>
+
+
+
+<h2 id="github-flow">比Git flow更简单的是，<a href="https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy#github-flow-branch-strategy" target="_blank" rel="noreferrer noopener"> GitHub flow </a>非常适合小型团队和不需要支持多个版本的web应用程序或产品。由于其简单性，GitHub flow工作流允许持续交付和持续集成。</h2>
+
+
+
+<p>当然，也有相关的风险需要考虑。例如，缺乏专门的开发分支使得这个工作流程更容易在生产中出现错误。</p>
+
+
+
+<p>GitLab Flow</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">与GitHub flow工作流相比，<a href="https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy#gitlab-flow-branch-strategy" target="_blank" rel="noreferrer noopener"> GitLab flow </a>也比Git flow更简单，更有组织性和结构化。</p>
+
+
+
+<h2 id="gitlab-flow">GitLab flow根据您的情况引入了环境分支，比如生产和预生产，或者发布分支。</h2>
+
+
+
+<p>稍加修改，GitLab flow可以支持版本化发布和持续交付。</p>
+
+
+
+<p>GitLab flow introduces environment branches, such as production and pre-production, or release branches, depending on your situation.</p>
+
+
+
+<p>GitKraken客户端Git流入门</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在其核心，Git流有助于更好地组织您的工作。将它与Git客户机的视觉能力结合起来，将您的工作流程提升到一个新的水平。</p>
+
+
+
+<h2 id="git-flow-in-gitkraken">GitKraken客户端支持Git流，并允许您在配置过程中根据自己的喜好定制分支名称和其他细节。这对于跨开发团队的标准化过程特别有帮助，以便更有效地协作。了解关于在GitKraken客户端中使用<a href="https://support.gitkraken.com/git-workflows-and-extensions/git-flow/" target="_blank" rel="noreferrer noopener"> Git flow的更多信息。</a></h2>
+
+
+
+<p>At its core, Git flow helps better organize your work. Combine that with the visual power of a Git client to take your workflow to the next level.</p>
+
+
+
+<p>GitKraken Client supports Git flow and allows you to customize branch names and other details to your liking during the configuration process. This can be particularly helpful for standardizing processes across development teams for more effective collaboration. Discover more about using <a href="https://support.gitkraken.com/git-workflows-and-extensions/git-flow/" target="_blank" rel="noreferrer noopener">Git flow with GitKraken Client.</a></p>
+		</div>
+				</div>    
+</body>
+</html>

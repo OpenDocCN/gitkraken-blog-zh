@@ -1,0 +1,242 @@
+<html>
+<head>
+<title>Git Integration for Jira Data Center Release: Automation for Jira</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>吉拉数据中心版本的Git集成:吉拉自动化</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/automation-for-jira-git-integration-for-jira-data-center#0001-01-01">https://www.gitkraken.com/blog/automation-for-jira-git-integration-for-jira-data-center#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>吉拉数据中心的Git集成在上一个季度有了一些重大更新，包括新的吉拉支持自动化:让您对存储库触发操作有更多的控制和权力。</p>
+
+
+
+<p>让我们深入了解一下针对吉拉数据中心的<a href="https://marketplace.atlassian.com/apps/4984/git-integration-for-jira?tab=overview&amp;hosting=datacenter" target="_blank" rel="noopener"> Git集成的新特性和改进:</a></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>吉拉触发器的自动化</strong></h2>
+
+
+
+<p>希望在用户创建拉取请求时自动创建吉拉问题？或者当一个拉取请求被合并时触发一封电子邮件呢？安装了吉拉Git集成和吉拉自动化应用程序的用户现在可以在吉拉自动完成所有这些操作。</p>
+
+
+
+<p>当管理员导航到项目自动化并创建规则时，以下DevOps automation for吉拉触发器现在可用:</p>
+
+
+
+<ul><li>分支已创建</li><li>提交已创建</li><li>已创建拉式请求</li><li>拒绝拉取请求</li><li>已合并拉取请求</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在选择吉拉触发条件的自动化后，用户可以选择以下自动发生的问题操作之一:</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">分配问题:选择要向其分配问题的用户</p>
+
+
+
+<p>克隆问题</p>
+
+
+
+<ul><li>对问题的评论</li><li>创建问题</li><li>创建子任务</li><li>删除评论</li><li>删除问题</li><li>删除问题链接</li><li>编辑问题</li><li>链接问题</li><li>为了在吉拉的Git集成中利用吉拉的自动化，需要来自Atlassian的吉拉应用程序的付费<a href="https://marketplace.atlassian.com/apps/1215460/automation-for-jira-data-center-and-server?hosting=datacenter&amp;tab=overview" target="_blank" rel="noreferrer noopener">自动化。</a><a href="https://community.atlassian.com/t5/Data-Center-articles/Automation-for-Jira-will-be-included-in-Jira-Data-Center/ba-p/1995867" target="_blank" rel="noreferrer noopener"> Atlassian已经宣布</a>他们将在2022年吉拉9出货时为吉拉数据中心免费提供该应用。吉拉的Automation服务器销售也将在那时结束，因此如果您想将吉拉的Automation用于吉拉服务器，您需要在销售结束前购买吉拉的Automation应用程序。</li><li>链接问题</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>吉拉用例的自动化</strong></p>
+
+
+
+<p>对于吉拉触发器组合的所有可能的自动化，这里有一些常见的使用案例供考虑:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>用例</strong></p>
+
+
+
+<h2><strong>触发</strong></h2>
+
+
+
+<p><strong>发布动作</strong></p>
+
+
+
+<figure class="wp-block-table aligncenter is-style-regular"><table class="has-black-color has-text-color has-background"><tbody><tr><td>创建提交时，将吉拉问题状态更新为“进行中”</td><td>提交已创建</td><td>编辑问题</td></tr><tr><td>创建拉式请求时创建吉拉问题。</td><td>已创建拉式请求</td><td>创建问题</td></tr><tr><td>创建分支机构时，将吉拉问题状态更新为“进行中”</td><td>分支已创建</td><td>编辑问题</td></tr><tr><td>当请求合并被拒绝时，关闭吉拉问题。</td><td>拒绝拉取请求</td><td>编辑问题</td></tr><tr><td><strong> Git存储库面包屑</strong></td><td>执行远程操作时，存储库名称现在将显示远程所有者或组的名称。这个面包屑应该帮助用户更好地识别要采取行动的正确回购协议，特别是对于拥有主存储库分支的团队。</td><td>编辑问题</td></tr></tbody></table></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>亚特兰蒂斯数据中心安全&amp;性能评估</strong></p>
+
+
+
+<h2>每年，Git Integration for吉拉团队都会进行一整套数据中心就绪性测试，以满足Atlassian市场对数据中心应用程序的性能和规模测试要求。这包括Atlassian数据中心安全审查和Atlassian性能审查。</h2>
+
+
+
+<p>代码分析扫描器是任何应用程序安全程序的重要组成部分，因为它们为开发人员提供了一种低成本的选择，可以在常见错误到达最终用户之前识别它们。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">我们自豪地报告，我们的测试结果得到了Atlassian的认可，证实我们已经满足了以下要求:</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">对其容量相当于数据中心客户的主机执行性能测试。测试环境是影响测试结果的关键点，它显示了对软件本身的性能影响。</p>
+
+
+
+<h2>使用预加载到主机的大型数据集运行测试。基础数据集必须模仿<a href="https://github.com/atlassian/dc-app-performance-toolkit" target="_blank" rel="noreferrer noopener">数据中心应用性能工具包</a>附带的数据集。</h2>
+
+
+
+<p>代码分析扫描器是任何应用程序安全程序的重要组成部分，因为它们为开发人员提供了一种低成本的选择，可以在常见错误到达最终用户之前识别它们。</p>
+
+
+
+<p><strong>为GitHub吉拉集成实施Git服务许可</strong></p>
+
+
+
+<p>使用吉拉GitHub集成的吉拉管理员现在可能要求吉拉用户提供GitHub个人访问令牌(PAT)来验证存储库权限。这使得管理员能够查看Git Integration for吉拉应用程序提供的所有开发信息。</p>
+
+
+
+<ol><li>启用安全模式后，用户需要吉拉GitHub权限才能查看:</li><li>仓库</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">承诺</p>
+
+
+
+<h2>分支</h2>
+
+
+
+<p>拉取请求</p>
+
+
+
+<p>标签</p>
+
+
+
+<ul><li><kbd>GitHub Permission Enforced</kbd>标签表示启用了安全模式，并且为当前用户配置了有效的PAT。</li><li>分支</li><li>拉取请求</li><li>即将推出:支持GitLab、Azure DevOps和AWS CodeCommit上的回购。</li><li>即将推出:支持GitLab、Azure DevOps和AWS CodeCommit上的回购。</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>吉拉Git集成的更多改进</strong></p>
+
+
+
+<p>通过为节点编制索引和SSH配置提供大量新选项，吉拉数据中心Git Integration中的集成管理变得更好。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">通过为节点编制索引和SSH配置提供大量新选项，吉拉数据中心Git Integration中的集成管理变得更好。</p>
+
+
+
+<figure class="wp-block-image size-full"><picture decoding="async" class="wp-image-7897">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira.png.webp 806w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20806%20511'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 806px) 100vw, 806px"/>
+<img decoding="async" src="" alt="Image shows Git Integration for Jira requiring a personal access token for the GitHub Jira integration" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira.png 806w, https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira-300x190.png 300w, https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira-768x487.png 768w" data-lazy-sizes="(max-width: 806px) 100vw, 806px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira.png"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-7897">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira.png.webp 806w" sizes="(max-width: 806px) 100vw, 806px"/>
+<img decoding="async" src="../Images/7aa8bc33e4cd1c8a848c4fb78e6f0e68.png" alt="Image shows Git Integration for Jira requiring a personal access token for the GitHub Jira integration" srcset="https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira.png 806w, https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira-300x190.png 300w, https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira-768x487.png 768w" sizes="(max-width: 806px) 100vw, 806px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2022/05/git-service-permissions-github-jira.png"/>
+</picture>
+</noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>吉拉数据中心专用索引节点</strong></p>
+
+
+
+<p>用户现在可以指定数据中心节点来为吉拉索引作业执行Git集成。要访问此选项，请导航至常规设置菜单。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>吉拉Git集成的更多改进</strong></p>
+
+
+
+<h2>通过为节点编制索引和SSH配置提供大量新选项，吉拉数据中心Git Integration中的集成管理变得更好。</h2>
+
+
+
+<p><strong>支持SSH配置文件</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">对于通过SSH使用存储库进行身份验证的用户，吉拉数据中心的Git集成现在支持<a href="https://linuxize.com/post/using-the-ssh-config-file/" target="_blank" rel="noreferrer noopener"> SSH配置文件</a>，以便更好地为您连接的每台远程机器存储不同的SSH选项。</p>
+
+
+
+<h2>用户现在可以指定数据中心节点来为吉拉索引作业执行Git集成。要访问此选项，请导航至常规设置菜单。</h2>
+
+
+
+<p><strong>更新吉拉数据中心的Git集成，享受此次发布</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">要访问所有这些新特性和更多特性，请将您的<a href="https://bigbrassband.atlassian.net/wiki/spaces/GIJDC/pages/1930395997/Installation+and+updating" target="_blank" rel="noopener"> Git Integration for吉拉数据中心</a>实例更新到最新版本！</p>
+
+
+
+<figure class="wp-block-image size-full"><picture decoding="async" class="wp-image-7898">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira.png.webp 857w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20857%20236'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 857px) 100vw, 857px"/>
+<img decoding="async" src="" alt="Image shows dedicated node indexing feature in Git Integration for Jira Data Center" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira.png 857w, https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira-300x83.png 300w, https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira-768x211.png 768w" data-lazy-sizes="(max-width: 857px) 100vw, 857px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira.png"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-7898">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira.png.webp 857w" sizes="(max-width: 857px) 100vw, 857px"/>
+<img decoding="async" src="../Images/bdbd925ca2f2cab5c22f50fae8d80c7a.png" alt="Image shows dedicated node indexing feature in Git Integration for Jira Data Center" srcset="https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira.png 857w, https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira-300x83.png 300w, https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira-768x211.png 768w" sizes="(max-width: 857px) 100vw, 857px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2022/05/dedicated-indexing-nodes-git-integration-for-jira.png"/>
+</picture>
+</noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>支持SSH配置文件</strong></p>
+
+
+
+<h2>对于通过SSH使用存储库进行身份验证的用户，吉拉数据中心的Git集成现在支持<a href="https://linuxize.com/post/using-the-ssh-config-file/" target="_blank" rel="noreferrer noopener"> SSH配置文件</a>，以便更好地为您连接的每台远程机器存储不同的SSH选项。</h2>
+
+
+
+<p>For users authenticating with repositories over SSH, Git Integration for Jira Data Center now supports the <a href="https://linuxize.com/post/using-the-ssh-config-file/" target="_blank" rel="noreferrer noopener">SSH Config File</a> to better store different SSH options for each remote machine you connect to.</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>更新吉拉数据中心的Git集成，享受此次发布</strong></p>
+
+
+
+<h2>要访问所有这些新特性和更多特性，请将您的<a href="https://bigbrassband.atlassian.net/wiki/spaces/GIJDC/pages/1930395997/Installation+and+updating" target="_blank" rel="noopener"> Git Integration for吉拉数据中心</a>实例更新到最新版本！</h2>
+
+
+
+<p>To access all these new features and more, update your <a href="https://bigbrassband.atlassian.net/wiki/spaces/GIJDC/pages/1930395997/Installation+and+updating" target="_blank" rel="noopener">Git Integration for Jira Data Center</a> instance to the latest version! </p>
+		</div>
+				</div>    
+</body>
+</html>

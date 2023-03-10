@@ -1,0 +1,357 @@
+<html>
+<head>
+<title>GitLab CI | How to use continuous integration with GitKraken Git GUI</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>GitLab CI |如何使用与GitKraken Git GUI的持续集成</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/gitlab-ci#0001-01-01">https://www.gitkraken.com/blog/gitlab-ci#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>这篇文章是一位客座作者写的。</p>
+
+
+
+<h2><strong>配合GitKraken使用git lab CI</strong></h2>
+
+
+
+<p>在当今的软件开发世界中，最受重视的实践之一是CI，即持续集成。</p>
+
+
+
+<p>持续集成是CI/CD管道的第一步，是整个DevOps思维和方法的推动者。竞争情报是现代软件开发的基础。鉴于这是正确安装DevOps的第一步，因此必须正确安装至关重要。</p>
+
+
+
+<p>假设您有一个应用程序，它的代码在GitLab存储库中。开发人员每天都会推送代码变更，甚至一天多次。随着每个变更提交到应用程序的代码库，必须创建和测试一个新的构建。</p>
+
+
+
+<p>涉及GitLab CI的最简单的持续集成流程之一包括以下阶段:</p>
+
+
+
+<ul><li>将更改推送到<a href="https://www.gitkraken.com/integrations/gitlab" target="_blank" rel="noreferrer noopener"> GitLab </a>。</li><li>构建应用——由<a href="https://docs.gitlab.com/runner/" target="_blank" rel="noreferrer noopener"> GitLab runner </a>执行的过程，包括将源代码打包到独立的软件工件中(我们将在本文后面提供一个带有Docker映像的例子)。</li><li>测试应用程序——由GitLab runner执行的过程，目的是在部署我们的应用程序之前验证我们的代码更改——在我们的例子中使用服务或工具pylint。</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>定义GitLab CI/CD </strong></h2>
+
+
+
+<p>我们想要实现的是一个零错误的稳定应用程序，同时遵守指导方针和代码遵从标准。</p>
+
+
+
+<p>基本上，我们希望不断地构建、测试和部署迭代代码变更。再往下，我们可以看到整个GitLab CI/CD流程的高级图。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="has-text-align-center"><img decoding="async" src="" data-lazy-src="https://lh6.googleusercontent.com/YVGkO-1VQKpRQ9TVDL-oQBOm0WS6uxzhKSeAhLEuqhZo1S9s3FpJFMWHj_hneQTeQ6jRSTyA_2DFWPr6BCBeO_yrR9LQXAd2El29xicwKijC0DC-tYKOQRowsx8pM4c-6AZvG8J7=s0"/></p><noscript><img decoding="async" src="../Images/7f9c2b97ed572f41cd2e186ea014ce8d.png" data-original-src="https://lh6.googleusercontent.com/YVGkO-1VQKpRQ9TVDL-oQBOm0WS6uxzhKSeAhLEuqhZo1S9s3FpJFMWHj_hneQTeQ6jRSTyA_2DFWPr6BCBeO_yrR9LQXAd2El29xicwKijC0DC-tYKOQRowsx8pM4c-6AZvG8J7=s0"/></noscript>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="has-text-align-left"><br/> <strong> <em>趣闻:<a href="https://gitlab.com/gitlab-org/gitlab" target="_blank" rel="noreferrer noopener"> GitLab本身</a>就是一个把持续集成作为软件开发方法#ouroboros的项目的例子。</em> </strong></p>
+
+
+
+<p>再往下，我们有<em>连续交付</em>，这意味着不仅我们的应用程序在每次代码变更被推送到存储库时都被构建和测试，而且应用程序也必须被连续部署。然而，使用<em>连续投放</em>，我们手动触发部署，而不是自动触发的连续部署。</p>
+
+
+
+<p>我们的目标是使部署可预测且稳定，无论是大规模分布式系统还是复杂的生产环境。<strong> <em>连续部署</em> </strong>下一步过去<strong> <em>连续交付。</em> </strong>部署测试过的变更不需要人工干预。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>如何实施GitLab CI </strong></h2>
+
+
+
+<p>从工具的角度来看，我们需要一个GitLab repo和<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Git GUI </a>来演示一个适当的GitLab CI/CD流。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>剧透:通过GitKraken的无缝集成和可视化提交图，实现CI/CD工作流要容易得多。你还在等什么？⬇️ <br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong> GitLab CI yml文件</strong></h2>
+
+
+
+<p>GitLab持续集成的主要组件之一是。gitlab-ci.yml，它位于存储库的根目录中，包含GitLab CI/CD配置。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>首先，我们来谈谈<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository" target="_blank" rel="noreferrer noopener"> Git仓库</a>的结构。我们有自己的应用程序，在本例中，是用Python编写的Prometheus exporter基本上是一个公开API的应用程序。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="" alt="gitlab.yml viewed in GitKraken" data-lazy-src="https://lh5.googleusercontent.com/_jlC5Q6ydNSYWjScBG2r1vt5US3pojoCjCsZxi62khSC1UbMp6ZWxGTixx5X4WN7J0jKp-UNxxS12kiVYgskj_MsbDhyczBot_XcqhiVJkUPx2uDMANiX2uRWMvzNq6N87fOHpeT=s0"/><noscript><img decoding="async" src="../Images/41c64c8d4a8be0e0bd9b4f1eccf55266.png" alt="gitlab.yml viewed in GitKraken" data-original-src="https://lh5.googleusercontent.com/_jlC5Q6ydNSYWjScBG2r1vt5US3pojoCjCsZxi62khSC1UbMp6ZWxGTixx5X4WN7J0jKp-UNxxS12kiVYgskj_MsbDhyczBot_XcqhiVJkUPx2uDMANiX2uRWMvzNq6N87fOHpeT=s0"/></noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>我们存储库的布局包括:</p>
+
+
+
+<ul><li>app.py + requirements.txt(我们的应用和依赖项)</li><li>Docker file–包含将我们的应用程序打包成Docker映像所需的所有命令的文件</li><li>curl _ test . sh——我们的端点的一些基本测试</li><li>。git ignore–从git跟踪中排除某些文件</li><li>。git lab-ci . yml–描述我们的管道流程</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>正如我们之前提到的，我们需要对构建过程进行一些扩展。我们构建过程的核心是<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noreferrer noopener"> Dockerfile </a>，它提供了将我们的应用程序打包成Docker映像的方法(命令)。构建使用Dockerfile文件和“上下文”。上下文是构建映像的目录中的一组文件；基本上，Docker会通过读取Docker文件中的指令来自动构建映像。</p>
+
+
+
+<p>GitLabs CI/CD核心组件:</p>
+
+
+
+<ul><li><strong>管道</strong>:持续集成、交付和部署的顶层组件。</li><li><strong> runner </strong> : GitLab使用不同服务器上的runner来实际执行一个管道中的作业；GitLab提供了runner来使用，但是你也可以作为<a href="https://docs.gitlab.com/runner/install/" target="_blank" rel="noreferrer noopener">runner</a>来运行你自己的服务器。</li><li><strong>作业</strong>:定义做什么的基本配置组件(如编译或测试代码)。</li><li><strong>阶段</strong>:定义何时运行作业。</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>简而言之，<strong>作业</strong>正由<strong>运行者</strong>执行，<strong>阶段</strong>提供了一种组织<strong>作业</strong>的方式(例如，如果多个作业在同一个阶段，它们被并行执行)。如果一个<strong>阶段</strong>中的所有<strong>作业</strong>成功，则<strong>流水线</strong>移动到下一个<strong>阶段；</strong>否则，一个作业失败，整个流水线都会失败。</p>
+
+
+
+<p>下面是一个具体的例子，我们有三个阶段(构建、测试、部署)。在测试级阶段，有两个并行执行的测试作业，如果其中一个失败，管道将失败，部署阶段将不会执行。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="" alt="Pipeline flow" data-lazy-src="https://lh6.googleusercontent.com/4HMNOhYF3KyyGV-318GkzOSFqd_AI26gAHNily-vWmn9ZbJzcy_EBLUpwxsQSnBsQkP0gvgvT3cK-wVW0pxcPT9wZq39HwED4GVQkb6Ta4k0SABu_DvHjgKlnltLUn-suvUwXT_J=s0"/><noscript><img decoding="async" src="../Images/bd75c0c5b0d3173fbef0379fe2ea952b.png" alt="Pipeline flow" data-original-src="https://lh6.googleusercontent.com/4HMNOhYF3KyyGV-318GkzOSFqd_AI26gAHNily-vWmn9ZbJzcy_EBLUpwxsQSnBsQkP0gvgvT3cK-wVW0pxcPT9wZq39HwED4GVQkb6Ta4k0SABu_DvHjgKlnltLUn-suvUwXT_J=s0"/></noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p/>
+
+
+
+<h2><strong>从GitKraken触发git lab CI</strong></h2>
+
+
+
+<p>gitlab-ci.yml文件根据构成管道的作业描述了我们的工作流，后者是GitLab CI/CD的顶级组件。</p>
+
+
+
+<p>当我们在<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Git GUI </a>中添加一个. gitlab-ci.yml文件到我们的存储库时，gitlab会自动检测它，一个名为GitLab Runner的应用程序会运行阶段中定义的步骤。</p>
+
+
+
+<p>下面我们可以看到。gitlab-ci.yml文件显示在GitKraken的应用内文本编辑器中。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>从一个高层次的角度来看，我们的管道有四个由运行者执行的主要任务，其中两个是并行执行的:test-code-job1和test-code-job2。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>我们的目标是触发GitLab CI流程；这意味着直接从GitKraken构建/打包、测试并最终部署我们的应用程序。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>使用GitKraken这样的工具，可视化CI/CD工作流更加直观，因此您的整个团队都可以做出贡献，无论他们的技能水平如何。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>为了更好地查看我们的工作流，我们将使用<strong>标签，</strong>标签对于标记特定的部署和发布以供以后参考非常有用。</p>
+
+
+
+<p><em> <strong> GitTip:了解如何在GitKraken中使用标签，包括如何<a href="https://www.gitkraken.com/learn/git/problems/git-push-tag"> Git推送标签</a>以及如何<a href="https://www.gitkraken.com/learn/git/problems/git-checkout-tag">结帐Git标签</a>。</strong> </em></p>
+
+
+
+<p>标签的创建和注释都是直接从GitKraken中完成的，所以不需要使用像<code>git tag -a v1.0 -m 'Version X.Y'</code>这样的命令。</p>
+
+
+
+<p>Git标签提供了将历史中的特定点——提交——标记为重要点并将其“标记”为发布版本的能力。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>在我们推送我们的更改之后，我们可以看到构建过程已经被触发，因此，在repository<strong>Container Registry</strong>选项卡下，我们可以看到我们的工件:带有所需标签的Docker图像。在GitLab CI中，每个项目都可以有自己的容器注册空间来存储图像。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="" alt="GitLab container registry" data-lazy-src="https://lh3.googleusercontent.com/hsnD-jdCleItyBoneQNvaWmCRyZSCotJeb6aLJs1anI55dpU79xRbp1B2sz_VMGO1o2eUTNUb2565TYdzSrBcmCD1elGLKpXU2d6yTFt_X6p-lYC9IjVmIaqBtnNFTB1mR8TzvBx=s0"/><noscript><img decoding="async" src="../Images/897391a297f86db4e08703705b5f13d6.png" alt="GitLab container registry" data-original-src="https://lh3.googleusercontent.com/hsnD-jdCleItyBoneQNvaWmCRyZSCotJeb6aLJs1anI55dpU79xRbp1B2sz_VMGO1o2eUTNUb2565TYdzSrBcmCD1elGLKpXU2d6yTFt_X6p-lYC9IjVmIaqBtnNFTB1mR8TzvBx=s0"/></noscript></figure>
+
+
+
+<p/>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>根据前面提到的概念，我们可以看到用正确的工具发布新的代码变更(升级到<strong>9.0</strong>版本)是多么容易💻关于CI/CD最佳实践。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper"><iframe title="GitKraken and Gitlab CI/CD" src="https://www.youtube.com/embed/putJq1WZ9eU?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>准备好配合GitKraken使用GitLab CI了吗？</strong></h2>
+
+
+
+<p>正如所料，GitLab CI工作流有多种风格/变化，但是一旦您有了一个稳定和清晰的工作流，您将能够在以后轻松地扩展它。</p>
+
+
+
+<p>GitLab使我们能够建立和发展健康的CI/CD实践，而<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Git GUI </a>通过提供灵活性和简化整个流程，为整个生态系统带来附加值，使管理整个管道变得更加容易，并具有更好的可见性。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>开始持续集成可能看起来势不可挡，但是在GitKraken的帮助下，您和您的团队将很快开始CI/CD工作流。<br/></p>
+
+</div>
+</div>
+		</div>
+				</div>    
+</body>
+</html>

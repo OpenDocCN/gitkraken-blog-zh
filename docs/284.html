@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>Learning Git with GitKraken</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>用GitKraken学习Git</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/learning-git-with-gui#0001-01-01">https://www.gitkraken.com/blog/learning-git-with-gui#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>我已经在Axosoft工作了将近两年，当我开始工作的时候，GitKraken，该公司的Git GUI(T1)是如此的新，以至于它还处于私人测试阶段。在营销团队工作时，主要是在web项目上，我需要协同工作并每天使用Git。</p>
+
+
+
+<p>我以前使用过Git，但是在Axosoft之前，我是一个单独的web团队，这意味着我很少(如果有的话)在项目中与其他开发人员合作。因此，我的Git知识范围是<code>git status</code>、<code>git commit</code>，并且，当我感到无礼时:</p>
+
+
+
+<pre class="wp-block-code"><code>git commit -a -m 'look at me condensing my actions into one command like a big boy.'</code></pre>
+
+
+
+<p>正当我写这篇文章的时候，我刚刚读完Avdi Grimm 的一篇博客文章(碰巧引用了GitKraken)，他在文章中提出了一个我从未真正考虑过的观点:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<blockquote class="wp-block-quote"><p>多年来，我学到的一个困难的、有时令人沮丧的教训是，在软件中，实际上增加你的杠杆作用的技能和只是让你感觉更聪明的技能之间有一条细微的界限。</p><cite>– Avdi Grimm, <a href="http://www.virtuouscode.com/2017/01/30/having-the-appearance-of-good-design-sigavdi-30/" target="_blank" data-type="URL" data-id="http://www.virtuouscode.com/2017/01/30/having-the-appearance-of-good-design-sigavdi-30/" rel="noreferrer noopener">Having the appearance of good design</a></cite></blockquote>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>来自命令行的Git，对我来说，实现了后者；当使用Git的CLI时，我可以执行简单的命令，让我觉得我正在做一些强大的事情，也许我正在做一些强大的事情，但事实是，<em>我真的不知道我在做什么</em>。我理解了一些基础知识，但是除了这些简单的命令之外，我对任何东西都没有一个很好的概念理解。阅读Git激起了我足够深入的兴趣，但是我遇到了一个障碍，开始觉得无法学习。</p>
+
+
+
+<p>当我开始使用Axosoft时，我们被要求使用GitKraken，因为a) Axosoft相信这个产品，相信它的性能有多强(甚至在应用程序开发的早期阶段也是如此)；b) Axosoft希望整个公司的开发人员对应用进行测试，并识别bug、UX问题等。</p>
+
+
+
+<p>所以，我用了GitKraken，我第一次真正协作地使用了Git。我不仅开始习惯快速完成任务，而且开始真正理解这些任务是如何工作的。过程变得更简单了，我的工作效率大大提高了，而且我终于有了一个我觉得自己可以理解的Git的可视化表示。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong>合并vs重置</strong></h3>
+
+
+
+<p>这是一个很好的例子，也是我最满意的“啊哈！”瞬间，是合并和重置。合并是一个非常容易理解的概念:你取一个分支，合并到另一个分支，目标分支现在有两个分支的变更。直到我真正看到这个过程，我才明白这是由合并提交促成的。要理解为什么这在协作环境中有用，最好用一个例子来解释。</p>
+
+
+
+<p>在下面的示例设置中，我有一个分支和<code>master</code>。这个设置举例说明了一个常见的情况:我已经分支了<code>master</code>，做了一些更改，但是还没有完成分支上的工作。与此同时，<code>master</code>已经发生了变化，我发现这些变化对我的部门很有用。</p>
+
+
+
+
+
+
+
+<p>我有两个选择:我可以把<code>master</code>合并成<code>branch-from-master</code>，或者我可以把<code>branch-from-master</code>换成<code>master</code>。前者完全是非破坏性的，并且会留下过程的痕迹:</p>
+
+
+
+
+
+
+
+<p>然而，很容易看出，当你周围发生大量更新时，频繁地应用这种方法，保持整洁会变得多么困难。为了避免合并提交这种潜在的概念混乱，一个朋友推荐我改改基。</p>
+
+
+
+
+
+
+
+<p>哇哦。<em>我真的能看出区别，这是有道理的！</em><code>master</code>的变化已经被槽进了<code>branch-from-master</code>，好像我在那个分支，还有<code>master</code>的变化，都是在我一个分支上进行的。<code>master</code>仍然保持提交不变，但是好像这些提交是同时在两个分支上进行的。</p>
+
+
+
+<p>虽然这种方式没有合并的痕迹，但它让每个人的回复看起来都很干净，历史记录更容易遍历和解释。我们确实重写了提交历史。</p>
+
+
+
+<p>这就是为什么，当要按我的分支时，它告诉我我在遥控器后面。我可以看到我是如何改写那个分支的历史的，所以我可以理解为什么在这种情况下对我的遥控器使用<code>force push</code>是可以接受的。我也想在那里反映出历史的修正，所以我必须变得有点破坏性。然而，我现在也能理解为什么会有<a href="/blog/golden-rule-of-rebasing-in-git" target="_blank" rel="noreferrer noopener">重定基准的黄金法则</a>。</p>
+
+
+
+<p>使用GitKraken为我提供了一种学习一些Git基础知识的可视化方法，这让我在协作使用Git时更有能力和信心。使用Git的GUI允许我从知道<em>如何</em>和<em>何时</em>做某事，到知道<em>为什么</em>和<em>它实际在做什么</em>。</p>
+		</div>
+				</div>    
+</body>
+</html>

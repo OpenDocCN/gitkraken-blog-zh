@@ -1,0 +1,480 @@
+<html>
+<head>
+<title>Git Commit - How to Git Commit | Learn Git</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Git Commit -如何Git Commit |学习Git</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/commit#0001-01-01">https://www.gitkraken.com/learn/git/commit#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>术语提交是Git作为版本控制系统的基础。在学习如何执行Git commit命令以及如何在Git中执行与提交相关的其他操作之前，首先理解什么是提交是很重要的。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">什么是Git提交？</p>
+
+
+
+<h2>在Git中，提交是您的回购在特定时间点的快照。</h2>
+
+
+
+<p>为了帮助进一步理解什么是Git提交，我们需要回顾一下您的<kbd>Working Directory</kbd>和<kbd>Staging Directory</kbd>以及文件更改是如何反映在您的Git存储库中的。</p>
+
+
+
+<p>把你的工作目录想象成你“进行中”的工作区域；这里，创建或修改的文件还没有反映在您的Git repo中。对工作目录中的文件所做的更改只存在于本地计算机上。</p>
+
+
+
+<p>Git阶段文件</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">为了将工作目录中的更改应用到Git存储库中，您必须首先将它们暂存在暂存目录中。</p>
+
+
+
+<h2>在这里，您的更改可以通过执行Git commit保存在repo中。</h2>
+
+
+
+<p>为了将工作目录中的更改应用到Git存储库中，您必须首先将它们暂存在暂存目录中。</p>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">现在，每个Git提交将代表您的repo在该时间点的快照，并且您的所有提交将汇集在一起形成您的存储库的历史。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git工作流</p>
+
+
+
+<p>传统上，Git工作流包括以下步骤:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在你的工作目录中进行修改</p>
+
+
+
+<p class="video-responsive"><strong>暂存目录中的暂存更改</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>提交变更</strong>以将它们应用到您的Git存储库中</p>
+
+
+
+<h2>Git工作流</h2>
+
+
+
+<p>好了，现在我们已经回答了什么是Git提交的问题，让我们深入了解如何使用跨平台GitKraken Git GUI进行Git提交，以及您可以在CLI中使用<a href="https://www.gitkraken.com/learn/git/commands#git-commit-commands" target="_blank" rel="noreferrer noopener" class="rank-math-link"> Git提交命令</a>执行的相关操作。</p>
+
+
+
+<ol><li>在你的工作目录中进行修改</li><li>你每天在Git中提交多少次？GitKraken将把这个过程加快2.5倍🤯。不相信我们？你自己试试。⬇️ <br/></li><li>如何在GitKraken中提交</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">让我们回顾一下使用GitKraken可以轻松执行的许多操作，包括如何添加、修改、删除等等。</p>
+
+
+
+<p>在GitKraken中，当您修改、添加、删除或重命名存储库中的任何文件时，您的工作进展或WIP将显示在图形的顶部。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">当您在GitKraken中单击WIP节点时，所有受影响的文件都会在右侧的提交面板中列出。此外，GitKraken会在每个文件旁边显示一个彩色编码图标来表示变更类型:<span class="has-inline-color has-vivid-green-cyan-color">增加</span>、<span class="has-inline-color has-luminous-vivid-amber-color">修改</span>、<span class="has-inline-color has-vivid-cyan-blue-color">更名</span>或<span class="has-inline-color has-vivid-red-color">删除</span>。</p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>你每天在Git中提交多少次？GitKraken将把这个过程加快2.5倍🤯。不相信我们？你自己试试。⬇️ <br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>这非常有用，因为它为您提供了存储库中文件的即时上下文；不需要运行命令！</h2>
+
+
+
+<p>GitKraken中的暂存文件</p>
+
+
+
+<p>要在GitKraken中暂存文件，只需将鼠标悬停在右侧提交面板中的文件名上，然后点击<kbd>Stage File</kbd>。</p>
+
+
+
+<p>当您在GitKraken中单击WIP节点时，所有受影响的文件都会在右侧的提交面板中列出。此外，GitKraken会在每个文件旁边显示一个彩色编码图标来表示变更类型:<span class="has-inline-color has-vivid-green-cyan-color">增加</span>、<span class="has-inline-color has-luminous-vivid-amber-color">修改</span>、<span class="has-inline-color has-vivid-cyan-blue-color">更名</span>或<span class="has-inline-color has-vivid-red-color">删除</span>。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">GitKraken提供的一个命令行所没有的优点是只能存放文件的单行或大块内容。您可以通过查看文件的差异来实现这一点。</p>
+
+
+
+<p>这非常有用，因为它为您提供了存储库中文件的即时上下文；不需要运行命令！</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在GitKraken中查看文件差异</p>
+
+
+
+<h2>要在GitKraken中查看文件的差异，只需在右侧提交面板中单击一个文件。从这里，您可以选择暂存或丢弃单独的代码行或代码块。</h2>
+
+
+
+<p>要在GitKraken中暂存文件，只需将鼠标悬停在右侧提交面板中的文件名上，然后点击<kbd>Stage File</kbd>。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">放弃GitKraken中的更改</p>
+
+
+
+<figure class="wp-block-image size-large"><picture decoding="async" class="wp-image-1103">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-1024x534.jpg.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-300x157.jpg.webp 300w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-768x401.jpg.webp 768w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken.jpg.webp 1200w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20534'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="" alt="Staging a file in GitKraken" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-1024x534.jpg 1024w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-300x157.jpg 300w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-768x401.jpg 768w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken.jpg 1200w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-1024x534.jpg"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-1103">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-1024x534.jpg.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-300x157.jpg.webp 300w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-768x401.jpg.webp 768w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken.jpg.webp 1200w" sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="../Images/7e4cbb1a7855b85bda4d65338269104e.png" alt="Staging a file in GitKraken" srcset="https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-1024x534.jpg 1024w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-300x157.jpg 300w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-768x401.jpg 768w, https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken.jpg 1200w" sizes="(max-width: 1024px) 100vw, 1024px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2021/03/stage-file-gitkraken-1024x534.jpg"/>
+</picture>
+</noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">您可以通过在提交面板上右键单击文件并选择<kbd>Discard changes</kbd>来放弃在GitKraken中对文件所做的所有更改。</p>
+
+
+
+<p>GitKraken提供的一个命令行所没有的优点是只能存放文件的单行或大块内容。您可以通过查看文件的差异来实现这一点。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>此外，您还可以通过单击“提交”面板左上角的垃圾箱图标🗑来放弃对WIP中所有文件所做的所有更改。</h2>
+
+
+
+<p>要在GitKraken中查看文件的差异，只需在右侧提交面板中单击一个文件。从这里，您可以选择暂存或丢弃单独的代码行或代码块。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如果你在GitKraken中不小心丢弃了什么东西呢？</h2>
+
+
+
+<p>使用GitKraken这样的工具来管理项目的最大好处之一就是能够快速撤销或恢复错误的操作。GitKraken只需点击一下就能让它变得完全神奇。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如果您错误地放弃更改或文件，只需单击顶部工具栏中的<kbd>Undo</kbd>按钮即可恢复放弃。</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>此外，您还可以通过单击“提交”面板左上角的垃圾箱图标🗑来放弃对WIP中所有文件所做的所有更改。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在GitKraken中添加Git提交消息</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">当您准备好在GitKraken中提交您的临时更改时，请确保在单击按钮提交之前，在提交消息字段中键入提交摘要和描述。也可以使用键盘快捷键<kbd>Cmd</kbd> / <kbd>Ctrl</kbd> + <kbd>Enter</kbd>。</p>
+
+
+
+<h2>如果你在GitKraken中不小心丢弃了什么东西呢？</h2>
+
+
+
+<p>  </p>
+
+
+
+<p>如果您错误地放弃了一个更改或文件，只需点击顶部工具栏中的<kbd>Undo</kbd>按钮即可恢复放弃。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">提交更改后，WIP节点将被转换为提交。在这里，您可以单击您的提交来查看从这个特定时间点开始的更改。</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>用GitKraken恢复Git提交</h2>
+
+
+
+<p>类似于你如何恢复你因失误而放弃的东西，GitKraken使用神奇的<kbd>Undo</kbd>按钮使<a href="https://www.gitkraken.com/learn/git/problems/revert-git-commit#undo-git-commit" target="_blank" rel="noreferrer noopener" class="rank-math-link">撤销Git提交</a>变得快速而简单。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong> <em> GitTip:了解更多关于<a href="https://www.gitkraken.com/learn/git/problems/revert-git-commit" target="_blank" rel="noreferrer noopener" class="rank-math-link">如何恢复Git提交</a>，包括丢弃或修改历史的其他选项。</em> </strong></p>
+
+
+
+<p>提交更改后，WIP节点将被转换为提交。在这里，您可以单击您的提交来查看从这个特定时间点开始的更改。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在GitKraken中修改Git提交</p>
+
+
+
+<h2>假设您在Git提交消息中犯了一个错误，需要进行更正。您可以通过从中心图中选择提交来修改GitKraken中最近提交的提交消息。从这里，单击提交消息开始编辑文本，然后单击<kbd>Update Message</kbd>保存您的更改。</h2>
+
+
+
+<p>如果你意识到上一次犯了一个错误，这可能是一个救命稻草。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<p><strong> <em> GitTip:了解更多关于<a href="https://www.gitkraken.com/learn/git/problems/revert-git-commit" target="_blank" rel="noreferrer noopener" class="rank-math-link">如何恢复Git提交</a>，包括丢弃或修改历史的其他选项。</em> </strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">提交速度提高2.5倍🏎💨与命令行相比，使用GitKraken。说真的。自己测试一下。⬇️ <br/></p>
+
+
+
+<h2>Git Status</h2>
+
+
+
+<p>如果您没有使用功能强大的GitKraken Git客户端来可视化您的回购历史，您总是可以在CLI中运行<kbd>git status</kbd>命令来检查哪些文件已经暂存并且存在于您的暂存目录中。</p>
+
+
+
+<p>如果你意识到上一次犯了一个错误，这可能是一个救命稻草。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在这个例子中，在执行了<kbd>git status</kbd>命令之后，您可以看到除了另外两个文件之外，<kbd>trial-activation.md</kbd>文件也被修改了。</p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>提交速度提高2.5倍🏎💨与命令行相比，使用GitKraken。说真的。自己测试一下。⬇️ <br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如何在命令行中Git提交</p>
+
+
+
+<h2>为了在CLI中提交这些更改，您需要使用<kbd>git add</kbd>命令，后跟文件的名称来暂存这些更改。</h2>
+
+
+
+<p>如果您没有使用功能强大的GitKraken Git客户端来可视化您的回购历史，您总是可以在CLI中运行<kbd>git status</kbd>命令来检查哪些文件已经暂存并且存在于您的暂存目录中。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">这将暂存<kbd>trial-activation.md</kbd>文件。啊，但是你还没说完呢！您仍然需要通过执行<kbd>git commit</kbd>命令将更改保存到您的存储库中。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>如何添加Git提交消息？</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">要将Git提交消息添加到您的提交中，您将使用<kbd>git commit</kbd>命令，后跟<kbd>-m</kbd>标志，然后用引号将您的消息括起来。添加Git提交消息应该如下所示:</p>
+
+
+
+<h2>如何修改Git提交？</h2>
+
+
+
+<p>现在，如果你能从上面的例子中看到，最后一个词有一个错别字。那么，如何更改Git提交消息呢？</p>
+
+
+
+<pre class="wp-block-code"><code>git add trial-activation.md</code></pre>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">为了<a href="https://www.gitkraken.com/learn/git/problems/git-commit-amend" target="_blank" rel="noreferrer noopener" class="rank-math-link">修改Git提交</a>，您将使用<kbd>git commit</kbd>命令，后跟<kbd>--amend</kbd>，然后是修改后的Git提交消息。它应该是这样的:</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>我可以使用Git commit命令添加多个修改过的文件吗？</h2>
+
+
+
+<p>如果您的工作目录中有许多修改过的文件，那么一次添加一个文件会很费时间。通过使用<kbd>git commit</kbd>命令后跟<kbd>-a</kbd>标志来加速该过程。这将把工作目录中所有修改或删除的文件添加到当前提交中。它应该是这样的:</p>
+
+
+
+<pre class="wp-block-code"><code>git commit -m “Add an anchor for the trial end sectionnn.”</code></pre>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">准备好用更简单的方式在Git中提交代码更改了吗？</p>
+
+
+
+<h2>GitKraken Git GUI 将通过其简单的用户界面和清晰的组织结构，让您更有信心在Git中暂存、保存和提交文件更改。</h2>
+
+
+
+<p>现在，如果你能从上面的例子中看到，最后一个词有一个错别字。那么，如何更改Git提交消息呢？</p>
+
+
+
+<p>为了<a href="https://www.gitkraken.com/learn/git/problems/git-commit-amend" target="_blank" rel="noreferrer noopener" class="rank-math-link">修改Git提交</a>，您将使用<kbd>git commit</kbd>命令，后跟<kbd>--amend</kbd>，然后是修改后的Git提交消息。它应该是这样的:</p>
+
+
+
+<pre class="wp-block-code"><code>git commit --amend “Add an anchor for the trial end section.”</code></pre>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>我可以使用Git commit命令添加多个修改过的文件吗？</h2>
+
+
+
+<p>如果您的工作目录中有许多修改过的文件，那么一次添加一个文件会很费时间。通过使用<kbd>git commit</kbd>命令后跟<kbd>-a</kbd>标志来加速该过程。这将把工作目录中所有修改或删除的文件添加到当前提交中。它应该是这样的:</p>
+
+
+
+<pre class="wp-block-code"><code>git commit -a -m “Update trial-activate page with changes from release."</code></pre>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>准备好用更简单的方式在Git中提交代码更改了吗？</h2>
+
+
+
+<p>GitKraken Git GUI 将通过其简单的用户界面和清晰的组织结构，让您更有信心在Git中暂存、保存和提交文件更改。</p>
+		</div>
+				</div>    
+</body>
+</html>

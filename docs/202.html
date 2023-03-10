@@ -1,0 +1,264 @@
+<html>
+<head>
+<title>How to use Git LFS Large File Storage | Learn Git</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何使用Git LFS大文件存储|学习Git</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/git-lfs#0001-01-01">https://www.gitkraken.com/learn/git/git-lfs#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>Git LFS代表大文件存储，是许多开发人员在处理二进制文件时用来节省空间的工具。</p>
+
+
+
+<p>简而言之，Git LFS是一个Git扩展，它允许用户通过将二进制文件存储在不同的位置来节省空间。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<iframe src="https://www.youtube.com/embed/jXsvFfksvd0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; modestbranding=1" allowfullscreen="">VIDEO</iframe>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+        <p>GitKraken使得在现有的存储库上初始化LFS和指定想要跟踪的文件类型变得很容易。<br/></p>
+        
+    </div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>Git LFS的好处</strong></h2>
+
+
+
+<p>当处理包含音频、视频或图像文件(也称为二进制文件)的存储库时，对这些文件所做的任何更改都不会像跟踪非二进制文件那样通过Git进行跟踪。</p>
+
+
+
+<p>虽然Git在跟踪文本文件中的更改集方面做得很好，但是对二进制文件的更改是作为文件的附加副本来跟踪的。</p>
+
+
+
+<p>假设您正在处理一个占用100MB存储空间的二进制映像，并且您对该文件进行了更改。Git将跟踪一个占用100MB空间的文件的变化，并将继续跟踪每一个变化。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="" alt="" data-lazy-src="https://lh5.googleusercontent.com/Q8fmVvk7d0OuqmiioWdLGQeg00mgDtW68HMfGhrQKJOPprL5vC525_iKwvz6SeSfLilS-Q6CeXQiGhyGkiaO7of-rpOKQCDWKZt454Aw2HnAX5TRoGswEeD50RTkvLbP8epmyZOc"/><noscript><img decoding="async" src="../Images/c4d56b259048e4c9f2717c07247e4cb7.png" alt="" data-original-src="https://lh5.googleusercontent.com/Q8fmVvk7d0OuqmiioWdLGQeg00mgDtW68HMfGhrQKJOPprL5vC525_iKwvz6SeSfLilS-Q6CeXQiGhyGkiaO7of-rpOKQCDWKZt454Aw2HnAX5TRoGswEeD50RTkvLbP8epmyZOc"/></noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>如果您想做一些快速计算…对二进制100MB文件进行四次文件更改将导致总共使用500 MB(100 MB原始文件+ 100MB更改文件+ 100MB更改文件+ 100MB更改文件+ 100MB更改文件= 500MB)。</p>
+
+
+
+<p>因为这些更改也会被推送到您的遥控器，所以您的遥控器也会变大，从而降低您克隆、推、拉或执行其他回购操作的速度。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>使用Git LFS节省时间</strong></h2>
+
+
+
+<p>当使用Git LFS时，您的提交将指向一个轻量级引用对象，而不是指向二进制文件(您实际上是将原始二进制文件推送到一个LFS repo)。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="" alt="" data-lazy-src="https://lh5.googleusercontent.com/p9g9Ex6Q6HHZ1E4AERHOio0lcLkjYdHlx9f8XbkgaaIjOXm7jzbY5O-wH0kqcs85d7rdz8A5PenKpMI9shJd7IjyXGijBX6bJy5WXoNGMDoL4cI54u4coVN1PMkYnCbaf1kJM4To"/><noscript><img decoding="async" src="../Images/f8481d59b6108d80212a6578a5bcf2c2.png" alt="" data-original-src="https://lh5.googleusercontent.com/p9g9Ex6Q6HHZ1E4AERHOio0lcLkjYdHlx9f8XbkgaaIjOXm7jzbY5O-wH0kqcs85d7rdz8A5PenKpMI9shJd7IjyXGijBX6bJy5WXoNGMDoL4cI54u4coVN1PMkYnCbaf1kJM4To"/></noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>现在，当您克隆LFS回购协议或签出LFS回购协议中的一个分支时，您将只从Git LFS服务器获取您需要的二进制文件版本，从而节省空间和时间。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+        <p>GitKraken揭开了高级Git概念的神秘面纱，如LFS，因此您的团队可以更有信心地使用Git，即使是讨厌的二进制文件。<br/></p>
+        
+    </div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong> Git LFS安装</strong></h2>
+
+
+
+<p>在GitKraken中使用Git LFS之前，你必须首先在你的机器上安装<a href="https://git-lfs.github.com/" target="_blank" rel="noreferrer noopener"> Git LFS </a>。您还需要设置您的Git LFS服务器。</p>
+
+
+
+<p>如果你刚刚开始使用Git LFS，<a href="https://docs.github.com/en/github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage" target="_blank" rel="noreferrer noopener"> GitHub有一个内置的免费选项</a>。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>去LFS在gitkraken】中的应用</strong></h2>
+
+
+
+<p>一旦你安装了Git LFS，导航到GitKraken中的<kbd>Preferences</kbd>来访问LFS选项。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>然后，您可以为现有的repo初始化Git LFS，并指定需要应用程序跟踪的文件类型。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>完成初始化过程后，工具栏中会出现一个<kbd>LFS</kbd>图标，允许您与Git LFS服务器上的文件进行交互。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>查看Git LFS文件</strong></h2>
+
+
+
+<p>Git LFS追踪的所有文件都会在GitKraken中心图的右面板用<kbd>LFS</kbd>图标标记。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>当你点击查看这样一个文件的<a href="https://www.gitkraken.com/learn/git/git-diff" target="_blank" rel="noreferrer noopener"> Git diff </a>时，你会看到SHA引用而不是你的大文件。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>最后，当您从GitKraken进行任何回购时，您可以选择初始化Git LFS应用程序。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>我们希望这有助于解释使用Git大型文件服务器的好处，以及使用<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Git GUI </a>有多容易。</p>
+		</div>
+				</div>    
+</body>
+</html>

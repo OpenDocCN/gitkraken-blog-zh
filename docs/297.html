@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>Doing Gitflow in Node:  nodegit-flow</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在节点中执行git flow:Node git-flow</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/nodegit-flow#0001-01-01">https://www.gitkraken.com/blog/nodegit-flow#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>在GitKraken V0.5中，我们增加了对GitFlow的支持。在这个过程中，我们创建了一个包装NodeGit的库，它允许我们通过一个函数调用来执行GitFlow命令。该库现在是开源的，可以节省其他开发人员在Node.js中进行GitFlow操作的时间。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>什么是GitFlow？</strong></h2>
+
+
+
+<p>GitFlow是一种分支和合并策略，可以在任何Git repo中使用。它是一个规则列表，用于组织回购的历史，也用于简化发布过程、错误修复和功能创建。</p>
+
+
+
+<p>在使用GitFlow的repo中，将始终存在两个分支:<code>master</code>和<code>develop</code>:</p>
+
+
+
+<ul><li><code>master</code>:生产中的版本</li><li>当前正在为下一个版本开发的版本</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>其他支持分支是特定的类型(即功能、修补程序或发布分支)，其中每个分支都有自己的分支和合并规则。</p>
+
+
+
+<p>正如你所想象的，这些规则执行起来可能会很乏味，违反规则的人迫在眉睫。幸运的是，<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noreferrer noopener"> GitFlow方法</a>的创建者意识到了这些问题，并创建了一个Git扩展来自动化启动和完成GitFlow分支的过程。Axosoft的开发人员只是实现了同样的想法；区别在于我们扩展了NodeGit而不是Git core。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>如何使用</strong></p>
+
+
+
+<h2><strong> <a href="https://github.com/smith-kyle/nodegit-flow" target="_blank" rel="noreferrer noopener"> Nodegit-flow </a>从初始化开始。</strong></h2>
+
+
+
+<p><code>nodegit.Flow.init</code>会将以下密钥添加到回购的Git配置中:</p>
+
+
+
+<pre class="wp-block-code"><code>const nodegit = require('nodegit-flow');
+const config = nodegit.Flow.getConfigDefault();
+nodegit.Flow.init(repo, config);</code></pre>
+
+
+
+<p><code>gitflow.branch.master</code></p>
+
+
+
+<ul><li><code>gitflow.branch.develop</code></li><li><code>gitflow.prefix.feature</code></li><li><code>gitflow.prefix.hotfix</code></li><li><code>gitflow.prefix.release</code></li><li><code>gitflow.prefix.versionTag</code></li><li><code>gitflow.prefix.versionTag</code></li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">这些键定义了GitFlow分支在启动某个功能、修补程序或版本时将拥有的前缀。他们还将确定nodegit-flow将与<code>master</code>和<code>develop</code>关联的本地分支名称。</p>
+
+
+
+<p>您可以选择坚持使用<code>.getConfigDefault()</code>提供的默认配置值，也可以修改这些值来满足您的偏好。</p>
+
+
+
+<p>下面是您的回购在初始化后的样子。</p>
+
+
+
+<p>现在让我们开始一个专题。</p>
+
+
+
+
+
+
+
+<p><code>nodegit.Flow.startFeature(repo, 'myFeature');</code></p>
+
+
+
+<p>我们刚刚创建并检查了一个名为<code>feature/myFeature</code>的分支，它指向与<code>develop</code>相同的提交。现在，在用vanilla NodeGit创建了一个commit之后，我们的图表将看起来像这样:</p>
+
+
+
+<p>一旦该功能完成，只需一行代码即可完成:</p>
+
+
+
+
+
+
+
+<p><code>nodegit.Flow.finishFeature(repo, 'myFeature');</code></p>
+
+
+
+<p>这已经将<code>feature/myFeature</code>合并到开发中，检出了<code>develop</code>，并删除了<code>feature/myFeature</code>。</p>
+
+
+
+<p>Nodegit-flow不仅包含特性的方法，还包含补丁、版本和所有其他git-flow的东西。</p>
+
+
+
+
+
+
+
+<p>通过扩展NodeGit以在单独的库中包含GitFlow函数，我们让GitKraken很好地与GitFlow问题分离，并为对扩展NodeGit感兴趣的开发人员提供一个小示例。</p>
+
+
+
+<p>虽然GitKraken不是开源的，但我们定期贡献和发布我们内部使用的工具，如nodegit-flow。其他示例包括NodeGit、libgit2和Electron。</p>
+
+
+
+<p>While GitKraken is not open source, we regularly contribute to and publish tools that we use internally such as nodegit-flow. Other examples include NodeGit, libgit2, and Electron.</p>
+		</div>
+				</div>    
+</body>
+</html>

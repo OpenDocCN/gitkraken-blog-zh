@@ -1,0 +1,214 @@
+<html>
+<head>
+<title>How do you Git checkout a commit? | Solutions to Git Problems</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>你如何签出一个提交？Git问题的解决方案</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/problems/git-checkout-commit#0001-01-01">https://www.gitkraken.com/learn/git/problems/git-checkout-commit#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>每当您想要检查特定行为何时被引入到代码中时，检查提交可能是完美的解决方案。</p>
+
+
+
+<p>在向您展示如何在命令行中执行操作之前，我们将介绍如何使用跨平台<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken客户端</a>来执行Git checkout提交。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>使用GitKraken客户端，只需点击两次即可完成结帐。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何用GitKraken检查提交？</h2>
+
+
+
+<p>在GitKraken中检查提交既快又简单。只需右键单击中间图形中的提交，并从上下文菜单中选择<kbd>Checkout this commit</kbd>。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">是的，就是这么简单。</p>
+
+
+
+<p class="video-responsive">用GitKraken检查提交时不需要提交散列。💥<br/></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>如何在命令行中检查提交？</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">要检验Git提交，您将需要提交散列。如果您使用的是终端，那么您无法直接看到您的提交信息。要调出提交及其相关散列的列表，可以运行<kbd>git log</kbd>命令。</p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>用GitKraken检查提交时不需要提交散列。💥<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<h2>如何在命令行中检查提交？</h2>
+
+
+
+<p>要检验以前的提交，您将使用Git checkout命令，后跟从Git日志中检索到的提交散列。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">Psst:我们知道你正在做一些重要的事情…你可能只是想完成你的行动，然后继续前进…但是<a href="https://www.gitkraken.com/download" target="_blank" rel="noreferrer noopener">把这个页面加入书签，稍后</a>看看GitKraken客户端终端中令人难以置信的自动建议和自动完成功能。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>  </p>
+
+
+
+<pre class="wp-block-code"><code>git checkout &lt;commit hash&gt;</code></pre>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>使用适用于Windows、Mac和Linux的<a href="https://www.gitkraken.com/git-client"> GitKraken Client </a>使检查提交的过程变得更加容易。可视化上下文允许您只需点击两次就可以签出提交，而不用担心散列。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">如何用GitLens检查提交？</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如果你在VS Code上安装了GitLens，打开一个repo，然后点击活动栏上的源代码控制图标。</p>
+
+
+
+<p>展开提交视图，右键单击任何提交以访问<strong> <kbd>Switch to Commit</kbd> </strong>操作。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何用GitLens检查提交？</h2>
+
+
+
+<p>这将有效地在分离的HEAD状态下检验提交，类似于上面的GitKraken客户端和CLI选项。</p>
+
+
+
+<p>或者，有一个有用的GitLens特性，可以帮助您在任何时候浏览作为虚拟文件夹的存储库。右键单击提交视图中的任何提交，但是这次单击<kbd><strong>Browse</strong></kbd>子菜单。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-image size-large"><picture decoding="async" class="wp-image-7610">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1024x757.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1536x1135.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit.png.webp 1678w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20757'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="" alt="" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1024x757.png 1024w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-300x222.png 300w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-768x568.png 768w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1536x1135.png 1536w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit.png 1678w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1024x757.png"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-7610">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1024x757.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1536x1135.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit.png.webp 1678w" sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="../Images/881b911e64c6c79d150ae3c23f78d89b.png" alt="" srcset="https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1024x757.png 1024w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-300x222.png 300w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-768x568.png 768w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1536x1135.png 1536w, https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit.png 1678w" sizes="(max-width: 1024px) 100vw, 1024px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2022/03/switch-commit-1024x757.png"/>
+</picture>
+</noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>这将允许您从指定的时间点打开一个新的VS代码窗口，而无需正式签出分支或提交。</p>
+
+
+
+<p>如果你想亲自体验一下这个功能，请进入<a href="https://vscode.dev/" target="_blank" rel="noreferrer noopener"> VS网页代码</a>，安装GitLens试试看！</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-image size-large"><picture decoding="async" class="wp-image-7611">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1024x658.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1536x986.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-2048x1315.png.webp 2048w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20658'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="" alt="" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1024x658.png 1024w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-300x193.png 300w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-768x493.png 768w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1536x986.png 1536w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-2048x1315.png 2048w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1024x658.png"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-7611">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1024x658.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1536x986.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-2048x1315.png.webp 2048w" sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="../Images/25eb1a4a76c080b823b994ad9233826c.png" alt="" srcset="https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1024x658.png 1024w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-300x193.png 300w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-768x493.png 768w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1536x986.png 1536w, https://www.gitkraken.com/wp-content/uploads/2022/03/browse-2048x1315.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2022/03/browse-1024x658.png"/>
+</picture>
+</noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">GitLens可以帮助您保持组织性，并跟踪您的任务和项目。免费解锁VS代码中Git的全部功能！<br/></p>
+
+
+
+<p>这将允许您从指定的时间点打开一个新的VS代码窗口，而无需正式签出分支或提交。</p>
+
+
+
+<p>如果你想自己<em>检验</em>这个特性，跳到<a href="https://vscode.dev/" target="_blank" rel="noreferrer noopener"> VS代码网站</a>并安装GitLens来试试吧！</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>GitLens可以帮助您保持组织性，并跟踪您的任务和项目。免费解锁VS代码中Git的全部功能！<br/></p>
+<a href="vscode:extension/eamodio.gitlens" class="button button--basic">Install GitLens for VS Code</a>
+
+</div>
+</div>
+		</div>
+				</div>    
+</body>
+</html>

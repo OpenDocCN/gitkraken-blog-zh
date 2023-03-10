@@ -1,0 +1,246 @@
+<html>
+<head>
+<title>Improving Your DevOps With GitKraken</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>用GitKraken提高你的DevOps</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/improving-devops-gitkraken#0001-01-01">https://www.gitkraken.com/blog/improving-devops-gitkraken#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<h2><strong>我在DevOps中遇到的问题</strong></h2>
+
+
+
+<p>我叫詹姆斯·奎励杰，是Axosoft的IT主管。在Axosoft，我实施了集中式日志记录基础架构，改进了我们的Jenkins构建以提高效率和并行化阶段，在内部实施了更严格的安全要求，利用多阶段Docker构建来缩小我们的映像大小，在Redis中设置了auth token缓存，等等。</p>
+
+
+
+<p>可以想象，我在这个过程中遇到了各种各样的问题，并找到了一些有用的解决方案。所以，让我们深入研究一下吧！</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong>配置作为代码的重要性</strong></h3>
+
+
+
+<p>在<em>空白即服务</em>的世界里(用基础设施、功能等来填充空白。)，您的整个系统的状态不仅仅是存储在您的高级开发人员头脑中的机构知识。它可以被编码和重用，以准确地重新创建您的系统。这意味着您可以将您的所有配置存储在一个版本控制系统(VCS)中，比如Git，这样您就可以恢复到过去的任何一点，并跟踪您配置的整个历史。</p>
+
+
+
+<p>我几乎立刻就发现了对VCS的需求；在AWS CloudFormation、Docker和Docker-Compose、Jenkins和Ansible之间，快速跳转到一个文件并找到一个配置的能力，而不是试图将它从我的脑海中拉出，是非常有价值的。当您考虑到该文件的价值可被其他团队成员共享或发现，以便他们也知道配置并可以在源代码控制中自由地进行更改时，这种重要性就更大了。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong>上下文切换</strong></h3>
+
+
+
+<p>另一件我在开始DevOps之旅时绝对低估的事情是，有多少工具存在，以及从一端到另一端，您可能使用多少工具来完成一项任务。在几分钟的时间里，我可能会用到:代码编辑器、源代码控制、<a href="https://www.gitkraken.com/resources/devops-report-2020#jenkins-build" target="_blank" rel="noreferrer noopener"> Jenkins </a>来检查我的构建、AWS来检查基础设施、Kibana来检查日志、<a href="https://www.gitkraken.com/resources/devops-report-2020#slack" target="_blank" rel="noreferrer noopener"> Slack </a>来检查警报和通信，等等。</p>
+
+
+
+<p>我有时会开始一项任务，发现一些新的东西，最后却掉进一个完全不同的兔子洞。有时候，这并不是一件坏事，因为我会发现错误或我们可以改进的东西，但其他时候，这是一个巨大的干扰，大大减慢了我的工作流程。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong>跟踪需要完成的事情</strong></h3>
+
+
+
+<p>当我深入兔子洞，发现了一堆其他可以改进的地方时，我会在心里记下回头再来。当我发现的时候，我不记得我发现了什么。</p>
+
+
+
+<p>即使我在便利贴上给自己做了一个<em>实际的</em>笔记，有时当我回过头来看时，缺乏上下文会使我非常不清楚前一天我在谈论什么。即“改进Dockerfile”只能给你这么多的提示。</p>
+
+
+
+<p>无论如何，这不是DevOps独有的问题，但这绝对是我在DevOps角色中遇到的问题，因为我负责处理许多不同的问题。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>输入要去的地方</strong></h2>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong>彩虹图美学</strong></h3>
+
+
+
+<p>GitKraken 是一个跨平台的Git GUI。在我开始在Axosoft工作之前，我个人使用过GitKraken。当时，我对Git还比较陌生，虽然基本的Git操作非常简单，但当涉及到合并冲突和其他更复杂的操作时，我不太确定自己是否有能力正确解决问题。</p>
+
+
+
+<figure class="wp-block-image size-large"><picture decoding="async" class="wp-image-3651">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1024x640.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1536x960.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot.png.webp 1600w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20640'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="" alt="" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1024x640.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-300x188.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-768x480.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1536x960.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot.png 1600w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1024x640.png"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-3651">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1024x640.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1536x960.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot.png.webp 1600w" sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="../Images/17468e209dec558b5f36af8032631310.png" alt="" srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1024x640.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-300x188.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-768x480.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1536x960.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot.png 1600w" sizes="(max-width: 1024px) 100vw, 1024px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-1024x640.png"/>
+</picture>
+</noscript></figure>
+
+
+
+<p>GitKraken有一个漂亮的Git树图，可以可视化你的分支、合并、隐藏，甚至其他远程操作。</p>
+
+
+
+<p>让我立刻爱上GitKraken的一个东西是应用内合并工具，它可以省去打开其他工具的麻烦。</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" src="" alt="" class="wp-image-3652" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2021/06/merge-conflicts.gif"/><noscript><img decoding="async" src="../Images/720a764edff02ad15739eff9ff463fca.png" alt="" class="wp-image-3652" data-original-src="https://www.gitkraken.com/wp-content/uploads/2021/06/merge-conflicts.gif"/></noscript></figure>
+
+
+
+<p>另外，如果你的团队正在使用<a href="/blog/gitflow" target="_blank" data-type="URL" data-id="/blog/gitflow" rel="noreferrer noopener"> Gitflow </a>，GitKraken有一个集成，可以自动为你以正确的顺序合并正确的分支。</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" src="" alt="" class="wp-image-3654" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gitflow-2.gif"/><noscript><img decoding="async" src="../Images/22ec1c71ccb110f8b043a0d672d7d875.png" alt="" class="wp-image-3654" data-original-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gitflow-2.gif"/></noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>电源编辑</strong></p>
+
+
+
+<h3>此外，在<a href="/blog/gitkraken-v4-0" target="_blank" data-type="URL" data-id="/blog/gitkraken-v4-0" rel="noreferrer noopener">版本4.0 </a>中，我们添加了摩纳哥代码编辑器，这带来了大量的功能:</h3>
+
+
+
+<p>在线差分</p>
+
+
+
+<ul><li>并排视图</li><li>语法突出显示</li><li>文件创建/删除</li><li>文件编辑</li><li>我发现很多时候，如果我在编辑一个CloudFormation模板，Dockerfile，Jenkinsfile等。实际上，我并不需要做很大的改变，也不需要写完整本书。相反，我只需要对文件做一个快速的单行编辑。或者我在编辑的时候犯了一个错误，当我提交的时候我发现了这一点。现在，不用切换回不同的应用程序，我可以在GitKraken中快速进行编辑。</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-image size-large"><picture decoding="async" class="wp-image-3655">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1024x578.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1536x867.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2.png.webp 1600w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20578'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="" alt="" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1024x578.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-300x169.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-768x433.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1536x867.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2.png 1600w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1024x578.png"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-3655">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1024x578.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1536x867.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2.png.webp 1600w" sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="../Images/335e864ee4f2c67808c266921ca25c83.png" alt="" srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1024x578.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-300x169.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-768x433.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1536x867.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2.png 1600w" sizes="(max-width: 1024px) 100vw, 1024px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-2-1024x578.png"/>
+</picture>
+</noscript></figure>
+
+
+
+<figure class="wp-block-image size-large"><picture decoding="async" class="wp-image-3656">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1024x577.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1536x866.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3.png.webp 1600w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20577'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="" alt="" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1024x577.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-300x169.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-768x433.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1536x866.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3.png 1600w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1024x577.png"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-3656">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1024x577.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1536x866.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3.png.webp 1600w" sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="../Images/4ac41224aa19686a4d8a4c349e7fcf4b.png" alt="" srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1024x577.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-300x169.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-768x433.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1536x866.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3.png 1600w" sizes="(max-width: 1024px) 100vw, 1024px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-screenshot-3-1024x577.png"/>
+</picture>
+</noscript></figure>
+
+
+
+<p><strong>带Glo的EZ任务跟踪</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Glo Boards 帮助我们的开发团队更加高效，因为我们从GitKraken Git客户端内部跟踪任务和问题。我喜欢还有VS代码和Atom的插件，如果我在路上，可以从浏览器或移动应用程序访问它！</p>
+
+
+
+<h2>Glo板与GitHub问题实时同步，这使得将任务分散到工作流中变得容易，并直观地跟踪项目的完成进度。与大多数<a href="https://www.gitkraken.com/resources/devops-report-2020#project-management" target="_blank" rel="noreferrer noopener">任务跟踪工具</a>不同，它实际上是为开发者设计的，所以它支持markdown并有大量的键盘快捷键。</h2>
+
+
+
+<p><a href="https://www.globoards.com/" target="_blank" rel="noreferrer noopener">Glo Boards</a> help our dev team be more productive because we track tasks and issues from inside the GitKraken Git Client. I love that there are also plugins for VS Code and Atom, and it can be accessed from a browser or the mobile apps if I’m on the go!</p>
+
+
+
+<p><strong>使用GitKraken的我的DevOps流</strong></p>
+
+
+
+<figure class="wp-block-image size-large"><picture decoding="async" class="wp-image-3657">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1024x576.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1536x864.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot.png.webp 1600w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20576'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="" alt="" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1024x576.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-300x169.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-768x432.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1536x864.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot.png 1600w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1024x576.png"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-3657">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1024x576.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1536x864.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot.png.webp 1600w" sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="../Images/915add7ab335b89e9d7fc9b4b3f6eb82.png" alt="" srcset="https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1024x576.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-300x169.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-768x432.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1536x864.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot.png 1600w" sizes="(max-width: 1024px) 100vw, 1024px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2021/06/boards-screenshot-1024x576.png"/>
+</picture>
+</noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">查阅我的Glo待办事项，选择一项任务，转到“进行中”</p>
+
+
+
+<h2>假设这是一个更长的任务，打开VS代码，进行我的修改。如果没有，就用<a href="https://support.gitkraken.com/start-here/tips/#4-create-open-and-edit-files-in-the-built-in-code-editor" target="_blank" rel="noreferrer noopener"> GitKraken代码编辑器</a>！</h2>
+
+
+
+<ol><li>打开GitKraken，在并排比较视图中查看我的更改。</li><li>使用GitKraken代码编辑器修复任何问题。</li><li>提交、推送、创建公关。</li><li>—切换到Glo，移动我的卡。</li><li><strong>解决方案</strong></li><li>我使用GitKraken工具为DevOps建立的工作流确实帮助我解决了我前面谈到的一些问题。</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><em> <strong>查看GitKraken工具套件在DevOps生命周期中的位置。</strong>T3】</em></p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" src="" alt="" class="wp-image-3658" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-and-glo-flow-1.gif"/><noscript><img decoding="async" src="../Images/50cdae3d47702999aafe5e38ffdae5d0.png" alt="" class="wp-image-3658" data-original-src="https://www.gitkraken.com/wp-content/uploads/2021/06/gk-and-glo-flow-1.gif"/></noscript></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><a href="https://www.gitkraken.com/resources/devops-report-2020" target="_blank" rel="noreferrer noopener"> <strong> 2020 DevOps工具报告</strong> </a></p>
+
+
+
+<h2>有了Glo板，我真的可以很快地添加足够上下文的卡片，这样我就知道当我回头再看它们时该做什么。</h2>
+
+
+
+<p>一旦我开始处理一个特定的任务，我就可以在同一个应用程序中处理基本的文件编辑、审阅、源代码控制和任务跟踪；所以我不需要太多的上下文切换。</p>
+
+
+
+<p class="has-text-align-center">GitKraken显然不会强制您将配置作为代码使用，但它可以增强您在repos之间快速切换、查看配置、进行编辑以及将更改存储在Git中的能力——提高您的整体工作质量。</p>
+
+
+
+<p class="has-text-align-center"><a href="https://www.gitkraken.com/resources/devops-report-2020" target="_blank" rel="noreferrer noopener"><strong>2020 DevOps Tools Report</strong></a></p>
+
+
+
+<ul><li>With Glo Boards, I can really quickly add cards with enough context so I know what to do when I come back to them later.</li><li>Once I’ve gotten to work on a specific task, I can handle basic file editing, reviewing, source control, and task tracking all within the same app; so I don’t have to context switch <em>quite</em> as much.</li><li>GitKraken obviously isn’t going to enforce that you use configuration as code, but it can enhance your ability to quickly switch between repos, look at that configuration, make edits, and store changes in Git—improving your quality of work overall.</li></ul>
+		</div>
+				</div>    
+</body>
+</html>

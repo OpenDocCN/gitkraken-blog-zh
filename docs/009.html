@@ -1,0 +1,344 @@
+<html>
+<head>
+<title>Common Challenges of Using Azure DevOps</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用Azure DevOps的常见挑战</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/common-challenges-azure-devops#0001-01-01">https://www.gitkraken.com/blog/common-challenges-azure-devops#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>您的组织正在经历DevOps转型吗？也许你甚至被指派负责这个项目。当然，这种转变的一部分将包括源代码控制管理。</p>
+
+
+
+<p>越来越多的企业使用Git来管理他们的代码和文件变更。对于大型团队，尤其是那些偏向于微软强大的开发工具套件的团队，最受欢迎的Git托管服务之一是Azure DevOps。</p>
+
+
+
+<p>但是采用Git，然后在您的组织内成功地扩展它以达到您的DevOps转换目标，看起来可能是一个不可完成的任务。别担心。我们有您的过渡到Git的剧本，成功地利用Azure DevOps作为您的Git托管服务，以及<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Git客户端</a>如何帮助解决开发人员和团队共同面临的相关挑战。</p>
+
+
+
+<p class="has-text-align-center"><em> <em> <strong>查看2020年DevOps工具报告中Azure DevOps和GitKraken如何融入DevOps生命周期。</strong> </em> </em></p>
+
+
+
+<p class="has-text-align-center"><a href="https://www.gitkraken.com/resources/devops-report-2020" target="_blank" rel="noreferrer noopener"> <strong>阅读报告</strong> </a></p>
+
+
+
+<p>已经在Git上了？你可以<a href="#GitKraken-Azure-DevOps" data-type="internal" data-id="#GitKraken-Azure-DevOps">跳下来了解更多关于使用GitKraken和Azure DevOps </a>的信息。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">迁移到Git</p>
+
+
+
+<h2>无论您目前使用的是SVN、Perforce还是TFS，迁移到Git都需要额外的开销。<a href="/blog/migrating-perforce-git" target="_blank" data-type="URL" data-id="/blog/migrating-perforce-git" rel="noreferrer noopener">了解如何将版本控制从Perforce迁移到Git </a>。</h2>
+
+
+
+<p>这样的转变需要组织、准备和一些耐心。😅但是，拥有一个像GitKraken这样强大的Git GUI，不仅可以使代码迁移和数据传输更快，还可以让您的团队在完成全面检查后立即开始使用Git。了解如何将您的版本控制从SVN迁移到Git 。</p>
+
+
+
+<p>相信我们；这是非常值得的。</p>
+
+
+
+<p>让团队成员加入Git</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">就像任何新事物一样，您的团队需要时间来适应学习Git。但幸运的是，有许多资源可以帮助您的开发人员快速启动并运行更高效的工作流。</p>
+
+
+
+<h2><em>访问我们的<a href="/learn/git" target="_blank" rel="noreferrer noopener"> Learn Git数据库</a>,访问所有经验水平的Git教程和教育资源。</em></h2>
+
+
+
+<p>对于经理和产品所有者来说，幸运的是，在你的公司里，你很可能已经有了一个Git冠军。雇佣他们来帮助他们的同事了解过渡到Git的好处。</p>
+
+
+
+<p>虽然学习Git命令对开发人员的基础知识是有益的，但他们的时间最终花在编程上比花在记忆命令上要好得多。这就是GitKraken的GUI方法的用武之地。</p>
+
+
+
+<p>类似于操作系统通过提供用于管理应用程序、拖放文件和点击图标来执行操作的用户界面而变得更加视觉化和直观，使用GitKraken Git GUI的开发人员将提高他们的工作效率，减少错误，并在日常工作流程中变得更加自信。</p>
+
+
+
+<p>虽然学习Git命令对开发人员的基础知识是有益的，但他们的时间最终花在编程上比花在记忆命令上要好得多。这就是GitKraken的GUI方法的用武之地。</p>
+
+
+
+<p>使用Git采用新的工作流程</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git将为您的开发团队和流程打开一个全新的世界。如果你想在飞毯上跳跃，我们不会责怪你。</p>
+
+
+
+<h2 id="GitKraken-Azure-DevOps">最好的新工作流机会之一涉及到克隆存储库。当使用Azure DevOps时，用户有两种选择来克隆Git repo。您可以选择通过CLI使用<code>git clone</code>命令，或者更简单地使用Git客户机，如GitKraken。</h2>
+
+
+
+<p>Git将为您的开发团队和流程打开一个全新的世界。如果你想在飞毯上跳跃，我们不会责怪你。</p>
+
+
+
+<p>使用Azure DevOps克隆您的Git Repo</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git最好的部分可以说是它让团队协作变得多么容易。Git的分布式特性提供了其他版本控制系统中没有的选项，特别是克隆存储库的能力。</p>
+
+
+
+<h3>这使得单个开发人员可以将整个工作项目复制到他们的本地机器上，并与团队成员并行工作。无需请求许可或等待签出文件或推送更改。此外，克隆的回购协议为开发人员提供了一个沙箱，在不影响原始代码库的情况下进行试验。</h3>
+
+
+
+<p>Git中的常见做法是在Git托管服务(如Azure DevOps)上指定主项目，即最终成为最终版本的项目副本。在Azure DevOps上托管存储库使得具有适当权限的合作者更容易访问项目。</p>
+
+
+
+<p>这使得单个开发人员可以将整个工作项目复制到他们的本地机器上，并与团队成员并行工作。无需请求许可或等待签出文件或推送更改。此外，克隆的回购协议为开发人员提供了一个沙箱，在不影响原始代码库的情况下进行试验。</p>
+
+
+
+<p>使用Azure DevOps验证您的Git Repo</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在GitKraken中打开或克隆Azure DevOps Git存储库之前，您需要首先设置集成。你可以通过导航到一个<kbd>New Tab</kbd>并点击<kbd>Start a hosted repo</kbd>下的<kbd>on Azure DevOps</kbd>按钮开始。</p>
+
+
+
+<h3>GitKraken随后会要求您提供Azure DevOps repo的主机域。只需将域复制并粘贴到必填字段中。</h3>
+
+
+
+<p>在我们的分步教程中查看集成Azure DevOps &amp; GitKraken的过程:</p>
+
+
+
+<p><iframe title="How to use Azure DevOps with GitKraken Git GUI" src="https://www.youtube.com/embed/cCSKKQo7brA?start=33&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p>
+
+
+
+<p>在我们的分步教程中查看集成Azure DevOps &amp; GitKraken的过程:</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper">生成您的Azure DevOps Git凭据</p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">使用Git时，有时会提示您输入用户凭证来执行操作。这可能需要通过HTTPS、<a href="/learn/git/tutorials/how-git-ssh-works" target="_blank" rel="noreferrer noopener"> SSH密钥</a>或通过个人访问令牌(PAT)访问远程回购的用户名和密码。</p>
+
+
+
+<h3>当你在GitKraken中的请求字段中输入你的Azure DevOps域后，我们的Git客户端会给你一个直接在Azure Devops上生成你的个人访问令牌的快捷方式。</h3>
+
+
+
+<p>一旦与Azure DevOps建立连接，您将获得一个额外的选项来生成SSH密钥，您可以将该密钥复制到您的剪贴板并粘贴到您的Azure DevOps帐户中。一旦你将新密钥添加到Azure DevOps中，它将立即反映在GitKraken中。</p>
+
+
+
+<p>在GitKraken中生成Git凭证的能力使用户不必手动创建SSH密钥对。</p>
+
+
+
+<p>一旦与Azure DevOps建立连接，您将获得一个额外的选项来生成SSH密钥，您可以将该密钥复制到您的剪贴板并粘贴到您的Azure DevOps帐户中。一旦你将新密钥添加到Azure DevOps中，它将立即反映在GitKraken中。</p>
+
+
+
+<p>用GitKraken克隆您的Azure DevOps Repo</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">一旦您成功地将GitKraken与Azure DevOps集成，您就可以开始克隆您的远程repo的本地副本了！</p>
+
+
+
+<h3>克隆在Azure DevOps上托管的远程存储库和您的本地机器之间建立连接，允许在两个存储库之间进行推和拉操作。可以在同一个遥控器上制作多个克隆，使您的团队能够在不损害原始代码完整性的情况下进行协作。</h3>
+
+
+
+<p>你不仅可以通过GitKraken克隆Azure DevOps远程，这种集成还允许你添加新的远程存储库。只需点击左侧面板中<kbd>Remote</kbd>部分的<kbd>+</kbd>按钮，并从主机的可用遥控器填充列表中进行选择。</p>
+
+
+
+<p>了解有关通过GitKraken的Azure DevOps集成添加远程设备的更多信息:</p>
+
+
+
+<p><iframe title="How to use Azure DevOps with GitKraken Git GUI" src="https://www.youtube.com/embed/cCSKKQo7brA?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p>
+
+
+
+<p>了解有关通过GitKraken的Azure DevOps集成添加远程设备的更多信息:</p>
+
+
+
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper">使用Azure DevOps在Git和GitKraken中进行分支</p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git和GitKraken用我们的分支特性打开了大量新的工作流可能性。开发人员被授权探索他们的存储库历史的分支之间的选项，为他们提供更多的灵活性和自由，而不会丢失重要的过程。</p>
+
+
+
+<h3>例如，假设您想从Azure DevOps的远程存储库中获取一个新的变更，并将其下载到GitKraken的本地repo中。您将通过执行<strong>获取</strong>来检测更改，然后您将执行<strong>拉取</strong>来将更改带到您的本地回购。</h3>
+
+
+
+<p>或者，假设您想要在本地存储库上进行新的更改，并将它们应用到远程存储库。这包括执行一次<strong>推送</strong>。</p>
+
+
+
+<p>一旦您的本地分支有了您想要推送到遥控器的更改，只需点击顶部工具栏中的<kbd>Push</kbd>按钮。然后GitKraken会提醒你这个分支在遥控器上不存在，并确认你想要添加它。</p>
+
+
+
+<p>或者，假设您想要在本地存储库上进行新的更改，并将它们应用到远程存储库。这包括执行一次<strong>推送</strong>。</p>
+
+
+
+<p>使用Azure DevOps拉取请求</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">我们刚刚学习了如何执行从GitKraken到Azure DevOps的推送。正是在工作流的这一点上，拉请求开始发挥作用。</p>
+
+
+
+<h3>拉请求是Git不可或缺的一部分；它们帮助您利用使用版本控制的预期好处。如果您正在使用Git，您很可能会遇到以下情况:您对一个克隆的存储库进行了本地更改，然后您将这些更改提交给项目维护人员，以便在它们被实现或合并之前进行审查。</h3>
+
+
+
+<p>本质上，拉请求就像它听起来的那样:您请求某人在您的更改成为最终更改之前对其进行审核和批准。</p>
+
+
+
+<p>在这个中级教程中，了解更多关于Git 中的<a href="/learn/git/tutorials/what-is-a-pull-request-in-git"> pull请求。</a></p>
+
+
+
+<p>GitKraken为您提供了启动拉请求的多个选项。您可以简单地从左侧面板的<kbd>Pull Request</kbd>部分点击<kbd>+</kbd>按钮，或者您可以将带有您想要推送的变更的分支拖放到您想要从中央提交图推送的分支上。如果您选择后者，GitKraken将预先填写您的<a href="/blog/enhancing-pull-request-descriptions-templates" target="_blank" rel="noreferrer noopener">拉请求模板</a>。</p>
+
+
+
+<p>GitKraken还为您提供了直接在Azure DevOps上查看pull请求的快捷方式，您可以在那里继续代码审查过程。</p>
+
+
+
+<p>如果一切正常，代码评审员将执行<strong>合并</strong>！变更既可以从Azure DevOps合并，也可以从GitKraken合并；这种集成将确保拉请求在两个应用程序中都得到更新。</p>
+
+
+
+
+
+<p>维护安全标准</p>
+
+
+
+<p>任何传输或托管数据的技术团队都普遍关注安全性。我们之前讨论过GitKraken如何帮助Azure DevOps用户生成他们的Git凭证，包括SSH密钥(生成pat是托管服务的责任)。这些将在维护团队代码的安全性方面发挥不可或缺的作用。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">使用代理服务器</p>
+
+
+
+<h2>当使用Azure DevOps和Git时，一些用户在处理代理服务器时会遇到问题。根据您团队的配置设置，Azure DevOps集成可能无法与某些代理设置一起工作。然而，大多数设置都可以直接通过HTTPS和SSH很好地工作，这意味着您的团队仍然可以访问您的存储库，并且能够使用所有传统的Git命令。</h2>
+
+
+
+<p>任何传输或托管数据的技术团队都普遍关注安全性。我们之前讨论过GitKraken如何帮助Azure DevOps用户生成他们的Git凭证，包括SSH密钥(生成pat是托管服务的责任)。这些将在维护团队代码的安全性方面发挥不可或缺的作用。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Azure DevOps的致命身份验证问题</p>
+
+
+
+<h3>一些Azure DevOps用户在第一次设置GitKraken和Azure DevOps之间的集成时会遇到问题。</h3>
+
+
+
+<p>如果在完成集成后，在尝试执行推送时陷入授权循环，您可能会看到以下消息:<code>Your OAuth token for “Azure DevOps” is invalid</code>。这可能意味着您的身份验证令牌出现了问题。在这种情况下，我们建议采取以下步骤:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">尝试手动断开集成。进入首选项→身份验证→Azure DevOps，点击<kbd>Disconnect</kbd>。</p>
+
+
+
+<h3>直接在您的默认web浏览器中注销您的Azure DevOps帐户。</h3>
+
+
+
+<p>尝试再次连接Azure DevOps集成。这将强制您登录并更新OAuth令牌。</p>
+
+
+
+<p>如果在完成集成后，在尝试执行推送时陷入授权循环，您可能会看到以下消息:<code>Your OAuth token for “Azure DevOps” is invalid</code>。这可能意味着您的身份验证令牌出现了问题。在这种情况下，我们建议采取以下步骤:</p>
+
+
+
+<ol><li>如果上述建议不能解决问题，我们建议您删除本地机器上文件系统中的<code>.gitkraken</code>文件夹。这将移除您所有的鉴定设置、描述文件和应用程序，使您能够重新开始。为此，我们建议采取以下步骤:</li><li>关闭您的GitKraken应用程序。</li><li>找到您的<code>.gitkraken</code>文件并删除它。或者，您可以将其移动到另一个位置进行备份。您的文件应该位于:</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">视窗:<code>c:\users\{USER}\appdata\roaming\.gitkraken</code></p>
+
+
+
+<p>Mac: <code>/Users/{user}/.gitkraken or ~/.gitkraken</code></p>
+
+
+
+<ol><li>Linux: <code>~/.gitkraken</code></li><li>重新打开gitkraken。<ol><li>请使用新的个人访问令牌设置Azure DevOps集成，然后重试。</li><li>Mac: <code>/Users/{user}/.gitkraken or ~/.gitkraken</code></li><li>如果您在完成上述步骤后仍然收到此错误，我们建议您联系位于<a href="mailto:support@gitkraken.com" target="_blank" rel="noreferrer noopener">support@gitkraken.com</a>的GitKraken支持团队。请注意:只有<a href="https://www.gitkraken.com/pricing" target="_blank" rel="noreferrer noopener"> GitKraken Enterprise和Pro </a>客户才能在24小时内获得有保证的电子邮件支持。</li></ol></li><li>重新打开gitkraken。</li><li>使用Azure DevOps和GitKraken扩展</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">现在，您已经准备好开始使用<a href="https://www.gitkraken.com/resources/devops-report-2020#azure-devops-code" target="_blank" rel="noreferrer noopener"> Azure DevOps </a>和GitKraken在您的组织中实现Git。如果您遇到任何问题，最好的跨平台Git GUI可以帮助您。</p>
+
+
+
+<p>GitKraken &amp; Azure DevOps资源:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>使用Azure DevOps和GitKraken扩展</h2>
+
+
+
+<p>现在，您已经准备好开始使用<a href="https://www.gitkraken.com/resources/devops-report-2020#azure-devops-code" target="_blank" rel="noreferrer noopener"> Azure DevOps </a>和GitKraken在您的组织中实现Git。如果您遇到任何问题，最好的跨平台Git GUI可以帮助您。</p>
+
+
+
+<p>GitKraken &amp; Azure DevOps资源:</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+		</div>
+				</div>    
+</body>
+</html>

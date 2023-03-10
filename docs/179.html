@@ -1,0 +1,195 @@
+<html>
+<head>
+<title>How do you rename a Git branch? | Solutions to Git Problems</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何重命名Git分支？Git问题的解决方案</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/problems/rename-git-branch#0001-01-01">https://www.gitkraken.com/learn/git/problems/rename-git-branch#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-embed aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper"><iframe title="How to Rename a Git Branch [Beginner Git Tutorial]" src="https://www.youtube.com/embed/cEfoB8Hl2gY?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>重命名Git分支</strong></h2>
+
+
+
+<p>当使用您的Git库时，可能会有这样的时候，您希望重命名您正在使用的Git分支。首先，我们将介绍重命名本地Git分支，然后重命名远程Git分支；我们将使用跨平台<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Git GUI </a>和CLI来回顾这个过程。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>只需两次点击，GitKraken就能让您快速重命名本地和远程分支机构。⬇️ <br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>如何用GitKraken给一个分支重新命名？</strong></h2>
+
+
+
+<p>让我们看看如何使用GitKraken Git GUI为Windows、Mac和Linux快速重命名Git分支。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何在GitKraken本地重命名分支？</h2>
+
+
+
+<p>要使用GitKraken重命名本地分支，只需右击分支并从上下文菜单中选择<kbd>Rename</kbd>选项。</p>
+
+
+
+<p>接下来，键入您想要的新分支名称并点击<kbd>Enter</kbd>。本地分支将被重命名。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何在GitKraken中重命名远程分支？</h2>
+
+
+
+<p>要更新GitKraken中的远程Git分支，您必须通过右键单击分支并从上下文菜单中选择<kbd>Set Upstream</kbd>来更改上游。</p>
+
+
+
+<p>接下来，输入新的分支名称并点击<kbd>Submit</kbd>。然后，您可以使用<kbd>Push</kbd>工具栏按钮，或者从上下文菜单中，将新的Git分支推送到远程。</p>
+
+
+
+<p>最后，您必须通过右键单击旧的远程分支并从上下文菜单中选择<kbd>Delete origin/branch-name</kbd>来删除它。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何在命令行中本地重命名Git分支？</h2>
+
+
+
+<p>当您想在本地重命名Git分支时，您可以使用带有<kbd>-m</kbd>选项的<kbd>git branch</kbd>命令来完成。</p>
+
+
+
+<p>如果您想要重命名您已经签出的当前分支，您可以简单地传递您想要的新名称:</p>
+
+
+
+<pre class="wp-block-code"><code>git branch -m &lt;new-branch-name&gt;</code></pre>
+
+
+
+<p><strong> <em> GitTip:了解更多关于如何<a href="https://www.gitkraken.com/learn/git/problems/switch-git-branch" target="_blank" rel="noreferrer noopener">结帐本地Git分支</a>的信息。</em> </strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如果你没有签出一个本地Git分支，你能重命名这个分支吗？</h2>
+
+
+
+<p>如果要重命名与已签出的当前分支不同的分支，可以使用相同的命令，但要传递分支的当前名称，后跟新的分支名称:</p>
+
+
+
+<pre class="wp-block-code"><code>git branch -m &lt;branch-name&gt;&lt;new-branch-name&gt;</code></pre>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何重命名远程Git分支？</h2>
+
+
+
+<p>如果您要重命名的分支已经被推送到远程，上游分支不会因为您重命名了本地分支而改变。</p>
+
+
+
+<p>您可以将新分支推送到远程，并使用带有<kbd>-u</kbd>(或<kbd>--set-upstream</kbd>)选项的<kbd>git push</kbd>命令更新上游:</p>
+
+
+
+<pre class="wp-block-code"><code>git push origin -u &lt;new-branch-name&gt;</code></pre>
+
+
+
+<p><strong> <em> GitTip:了解更多关于如何在Git 中设置分支上游的<a href="https://www.gitkraken.com/learn/git/problems/git-set-upstream-branch" target="_blank" rel="noreferrer noopener">。</a></em> </strong></p>
+
+
+
+<p>现在，您只需使用带有<kbd>-d</kbd>(或<kbd>--delete</kbd>)选项的<kbd>git push</kbd>命令从远程删除旧分支:</p>
+
+
+
+<pre class="wp-block-code"><code>git push origin -d &lt;branch-name&gt;</code></pre>
+
+
+
+<p><strong> <em> GitTip:了解更多关于<a href="https://www.gitkraken.com/learn/git/problems/delete-remote-git-branch" data-type="URL" class="rank-math-link">如何在Git </a>中删除远程分支。</em> </strong></p>
+
+
+
+<p>使用<a href="https://www.gitkraken.com/git-client"/> <a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener" class="rank-math-link"> GitKraken Git GUI </a>重命名Git分支的过程要快得多，也更直观，并且可以避免错误地修改错误的数据。</p>
+		</div>
+				</div>    
+</body>
+</html>

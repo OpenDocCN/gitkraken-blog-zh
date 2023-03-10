@@ -1,0 +1,287 @@
+<html>
+<head>
+<title>How to Enhance Pull Requests Using Templates</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何使用模板增强拉取请求</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/enhancing-pull-request-descriptions-templates#0001-01-01">https://www.gitkraken.com/blog/enhancing-pull-request-descriptions-templates#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>Syncfusion更喜欢使用Git工作流来管理我们跨各种平台的所有复杂产品。自从在我们的开发阶段采用<a href="/blog/gitflow" target="_blank" rel="noreferrer noopener"> Gitflow </a>模型以来，我们的日常工作已经被简化了。我假设这篇文章的读者已经熟悉了<a href="/blog/gitflow" target="_blank" data-type="URL" data-id="/blog/gitflow" rel="noreferrer noopener"> Gitflow </a>的基础知识，并且知道<a href="/blog/pull-requests-gitflow" target="_blank" rel="noreferrer noopener">拉请求</a>在每个开发阶段的重要性。</p>
+
+
+
+<p>作为开发人员，我们的责任不仅仅是修复问题或实现新的特性，而是将开发工作清楚地传达给评审人员。开发人员可以通过详细的文档或其他交流方式传达建议的代码更改及其目的。</p>
+
+
+
+<p>这里是拉或合并请求的不可避免的描述发挥作用的地方，代码贡献者分享他们代码的详细注释。</p>
+
+
+
+<p>GitKraken团队在开发其工具时仔细考虑了团队协作:GitKraken <a href="http://gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> Git客户端</a>和<a href="https://www.gitkraken.com/glo" target="_blank" rel="noreferrer noopener"> Glo板</a>。在GitKraken中有很多机会为您的文件更改和拉取请求添加重要的上下文，git kraken支持提交到GitHub、GitLab或VSTS(包括具有传统VSTS URL的Azure DevOps)上的远程回购的拉取请求模板。稍后会有更多相关信息…</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>描述在拉取请求中扮演什么角色？</h2>
+
+
+
+<p>为了更好的代码审查过程，强烈建议提供对拉请求的描述。描述清楚地回答:</p>
+
+
+
+<ul><li>评审者在评审提交的代码时可以期待什么？</li><li>在提交他们的代码供评审之前，开发人员考虑了哪些标准？</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>稍后，评审者可以在他们自己和开发人员之间发起一个公开的讨论，以便在那些变更被推进到存储库之前跟踪每一个代码变更。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">描述清单</p>
+
+
+
+<h2>为了使“拉”请求尽可能清晰，它应该包括一个关于建议的代码更改的相关信息的适当清单(而不是一行摘要)，例如:</h2>
+
+
+
+<p>如何修复bug以及解决方案的描述。</p>
+
+
+
+<ul><li>对新功能的描述或总结。</li><li>涵盖的单元测试用例。</li><li>这段代码是否破坏了现有的功能。</li><li>任何测试细节。</li><li>是否在所有设备和浏览器中进行了测试。</li><li>是否在所有设备和浏览器中进行了测试。</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如果每次您发出新的拉取请求时，这些清单都自动出现在描述字段中，这不是很好吗？好消息！Gitflow模型通过<strong>模板</strong>选项提供了这种能力。</p>
+
+
+
+<p>更好的是，GitKraken让您在整个工作流程中轻松访问模板。在本文的后面，我们将回顾如何在GitKraken中使用pull请求模板。</p>
+
+
+
+<p>更好的是，GitKraken让您在整个工作流程中轻松访问模板。在本文的后面，我们将回顾如何在GitKraken中使用pull请求模板。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">免费下载我们的Git GUI客户端，轻松访问拉请求模板。<br/></p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>免费下载我们的Git GUI客户端，轻松访问拉请求模板。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在下图中，您可以看到一个如何在拉取请求中查看这些描述的示例。</p>
+
+
+
+<p>在下图中，您可以看到一个如何在拉取请求中查看这些描述的示例。</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">什么是拉取请求模板？</p>
+
+
+
+<h2>当您为项目存储库中已实现的功能或错误修复启动新的pull请求时，您可以允许description字段预先填充与您的团队相关的项目的清单，就像上一节中提供的清单一样。在拉请求表单中显示预先填充的描述字段的过程通常被称为拉请求或合并请求模板。</h2>
+
+
+
+<p>对于description字段中详细信息的自动预填充，您必须首先定义自己的一组模板，然后将它们添加到项目的根目录中。您还可以为bug、特性、文档等分别创建多个模板..</p>
+
+
+
+<p>描述模板通常被起草为Markdown文件，并且应该被添加到项目存储库的适当目录中。目录的命名，以及项目存储库中单个和多个模板的处理，根据您更喜欢使用的服务(GitHub或GitLab)而有所不同。出于本文的目的，我们将重点关注GitHub。</p>
+
+
+
+<p><em> <strong>注</strong>:参考<a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="noopener">降价文档</a>了解如何根据提供的语法指南编写降价文件中的内容。</em></p>
+
+
+
+<p>例如，您可以使用下面屏幕截图中显示的任务列表语法，引用减价文件中定义的清单。</p>
+
+
+
+<p>相同的任务列表将显示在提交的合并请求页面中，如下所示。</p>
+
+
+
+
+
+<p>相同的任务列表将显示在提交的合并请求页面中，如下所示。</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如何在GitHub中创建单个拉请求模板</p>
+
+
+
+<h2>如果您的项目存储库在GitHub上，模板的名称和它在存储库中的位置非常重要。默认情况下，创建为Markdown文件的模板应该命名为<kbd>PULL_REQUEST_TEMPLATE.md</kbd>，并放在项目的根文件夹或<kbd>.github</kbd>目录中。</h2>
+
+
+
+<p>创建一个Markdown文件，将其命名为<kbd>PULL_REQUEST_TEMPLATE.md</kbd>，并将其放在项目的根文件夹中。</p>
+
+
+
+<p>或者，创建一个目录，命名为<kbd>.github</kbd>，并将Markdown文件放在这个文件夹中。</p>
+
+
+
+
+
+<p><em> <strong>注意</strong>:确保将Markdown文件放在前面提到的位置之一，并用相同的名称保存并合并。</em></p>
+
+
+
+
+
+<p>现在，当您创建一个新的pull请求时，您将看到模板内容自动加载到description字段中，如下图所示。</p>
+
+
+
+<p>现在，当您创建一个新的pull请求时，您将看到模板内容自动加载到description字段中，如下图所示。</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在GitKraken中使用拉请求模板</p>
+
+
+
+<h2>正如我们之前简单提到的，<a href="https://support.gitkraken.com/working-with-repositories/pull-requests/#pull-request-templates" target="_blank" rel="noreferrer noopener"> GitKraken支持pull请求模板</a>提交到GitHub、GitLab或VSTS上的远程回购(包括带有传统VSTS URL的Azure DevOps)。</h2>
+
+
+
+<p>当您在GitKraken中创建新的拉式请求时，将出现拉式请求模板下拉菜单，允许您选择您在其中一个存储库中创建的拉式请求。这使您可以使用预先起草的模板上指定的所有信息，轻松快速地填写拉动式请求。</p>
+
+
+
+<p><iframe title="GitKraken v4.1 Release - Pull Request Templates" src="https://www.youtube.com/embed/YUiz3uZ_2Gc?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper"><iframe title="GitKraken v4.1 Release - Pull Request Templates" src="https://www.youtube.com/embed/YUiz3uZ_2Gc?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如何在GitHub中创建多个拉请求模板</p>
+
+
+
+<h2>对不同类别的拉请求使用相同的描述模板是不明智的。例如，您可能需要发起一个pull请求来提交一个新实现的特性的代码变更、一个简单的bug修复、文档或者任何类型的配置工作。对于每个拉请求链接来说，最好根据提交的拉请求类别，在描述字段中加载和预填充不同的模板内容。</h2>
+
+
+
+<p>要使用不同的模板，您必须首先创建多个模板文件，并将它们作为单独的降价文件保存在存储库中，如以下步骤所述:</p>
+
+
+
+<p>创建一个名为<kbd>PULL_REQUEST_TEMPLATE</kbd>的文件夹，并将其放在根目录或名为<kbd>.github</kbd>的目录中。</p>
+
+
+
+<ol><li>创建多个模板降价文件，并将它们全部放在文件夹<kbd>PULL_REQUEST_TEMPLATE</kbd>中。</li><li>创建多个模板降价文件，并将它们全部放在文件夹<kbd>PULL_REQUEST_TEMPLATE</kbd>中。</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>注意</strong>:在这个过程中创建的Markdown文件可以随意命名，但是第一步中提到的文件夹必须有名称<kbd>PULL_REQUEST_TEMPLATE</kbd>。</p>
+
+
+
+<p>如果您在GitHub中有多个模板文件，您总是需要手动导航到您想要在pull request表单中预填充的特定Markdown文件的URL。</p>
+
+
+
+
+
+
+
+<p>例如，我正在创建一个Markdown文件，并将其命名为<kbd>bug-template.md</kbd>。我将它放在主存储库的<kbd>PULL_REQUEST_TEMPLATE</kbd>文件夹中。当我想将一些更改推入这个主存储库时，我将启动一个新的pull请求。为了用<kbd>bug-template.md</kbd>文件的内容预先填充我的拉取请求表单，我需要通过传递一个额外的模板参数导航到URL:</p>
+
+
+
+<p><kbd>https://github.com/Scheduler_Project/compare/master…Test_branch?expand=1&amp;template=bug-template.md</kbd></p>
+
+
+
+<p>这里，<kbd>Scheduler-Project</kbd>指的是我的主存储库的名称，我试图将来自<kbd>Test_branch</kbd>的代码变更合并到我的<kbd>master</kbd>分支中。在URL的末尾，有<kbd>template=bug-template.md</kbd>将<kbd>bug-template.md</kbd>文件的内容预填充到我的拉取请求表单中。</p>
+
+
+
+<p><em> <strong>注</strong>:也可以参考<a href="https://help.github.com/en/articles/about-automation-for-issues-and-pull-requests-with-query-parameters" target="_blank" rel="noopener"> GitHub帮助文档</a>，里面解释了如何在URL中使用模板查询参数。</em></p>
+
+
+
+<p>现在，在进行这些URL更改之后，您可以看到描述内容被加载到pull request表单中，如下所示。</p>
+
+
+
+<p>您可以使用相关详细信息编辑之前的描述，并单击<kbd>Create pull request</kbd>按钮，这将打开您提交的拉取请求页面，如下所示。</p>
+
+
+
+
+
+<p>您可以使用相关详细信息编辑之前的描述，并单击<kbd>Create pull request</kbd>按钮，这将打开您提交的拉取请求页面，如下所示。</p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在GitLab中创建合并请求模板</p>
+
+
+
+<h2>与GitHub存储库不同，GitLab允许您在合并请求表单的用户界面中选择多个模板。</h2>
+
+
+
+<p>你可以在<a href="https://docs.gitlab.com/ee/user/project/description_templates.html" target="_blank" rel="noreferrer noopener"> GitLab支持文档</a>中看到更多相关信息。</p>
+
+
+
+<p>结论</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">GitHub和GitLab提供了一种更好的方法来为pull请求创建预定义的模板。两者都提供了模板选项，允许开发人员在评审过程开始时共享他们提出的代码变更的准确细节。提供更清晰的代码描述使得代码审查过程更容易，这反过来有助于实现更好的代码质量，并限制未被注意到的错误的风险。</p>
+
+
+
+<h2>一旦您花时间在repo中创建拉式请求模板，您和您的团队就可以在使用<a href="https://www.gitkraken.com/" target="_blank" rel="noreferrer noopener"> GitKraken </a>时持续使用它们——节省您的时间，减少上下文切换，鼓励一致性，并提高生产率。</h2>
+
+
+
+<p>GitHub和GitLab提供了一种更好的方法来为pull请求创建预定义的模板。两者都提供了模板选项，允许开发人员在评审过程开始时共享他们提出的代码变更的准确细节。提供更清晰的代码描述使得代码审查过程更容易，这反过来有助于实现更好的代码质量，并限制未被注意到的错误的风险。</p>
+
+
+
+<p>一旦您花时间在repo中创建拉式请求模板，您和您的团队就可以在使用<a href="https://www.gitkraken.com/" target="_blank" rel="noreferrer noopener"> GitKraken </a>时持续使用它们——节省您的时间，减少上下文切换，鼓励一致性，并提高生产率。</p>
+		</div>
+				</div>    
+</body>
+</html>

@@ -1,0 +1,291 @@
+<html>
+<head>
+<title>Jira Git Tips | Git Integration for Jira</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>吉拉Git提示|吉拉Git集成</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/jira-git-tips#0001-01-01">https://www.gitkraken.com/blog/jira-git-tips#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>您可以使用针对吉拉的Git集成来集成Git和吉拉。吉拉Git Integration是一款允许用户使用Git驾驶吉拉的应用程序。这个吉拉Git集成工具允许你花更少的时间在吉拉和Git之间切换上下文，而花更多的时间编写和交付优秀的代码。</p>
+
+
+
+<p>许多开发团队在他们的常规开发过程中使用Git和吉拉来帮助和跟踪项目的进展。Git主要由团队的技术成员用来为项目贡献代码。另一方面，吉拉通常被技术和非技术用户用来查看和交流项目的状态。</p>
+
+
+
+<p>在本文中，我们将介绍使用Git和吉拉的各种技巧，这些技巧可以帮助您增强团队对项目的可见性，节省时间，并提高生产率。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>本文涵盖的吉拉Git技巧</h2>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p><em>*虽然本文关注的是如何将Git用于吉拉云，但本文中提到的许多特性也适用于吉拉服务器和吉拉数据中心。访问Git Integration for吉拉<a href="https://help.gitkraken.com/" target="_blank" rel="noreferrer noopener">官方文档</a>，找到关于吉拉服务器和吉拉数据中心的资源。</em></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper"><iframe title="Git Integration for Jira Tips | 5 Tips for Using Jira and Git" src="https://www.youtube.com/embed/9gizWzapCeI?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="How-to-Set-up-a-Jira-Git-Integration">如何设置吉拉Git集成</h2>
+
+
+
+<p>创建吉拉Git集成的第一步是<a href="https://www.gitkraken.com/git-integration-for-jira/try-free" target="_blank" rel="noreferrer noopener">为吉拉</a>安装Git集成。如果您想在购买订阅之前预览该工具，可以选择开始30天的免费试用。</p>
+
+
+
+<p>一旦安装了针对吉拉的Git Integration，您就可以通过从您首选的Git托管服务连接您的远程存储库来将Git连接到吉拉。吉拉的Git集成<a href="https://www.gitkraken.com/git-integration-for-jira/features" target="_blank" rel="noreferrer noopener">支持所有的Git服务器</a>，这意味着你可以集成GitHub、GitLab、Bitbucket等等！下面的例子详细说明了如何使用<a href="https://www.gitkraken.com/blog/jira-github-integration" target="_blank" rel="noreferrer noopener">吉拉GitHub集成</a>从GitHub连接远程存储库。</p>
+
+
+
+<ol><li>从吉拉的顶部工具栏中，选择<kbd>Apps</kbd></li><li>从出现的下拉菜单中选择<kbd>Git Integration: Manage integrations</kbd></li><li>点击屏幕中央附近的<kbd>Add integration</kbd>按钮</li><li>选择<kbd>Git service integration (Recommended)</kbd></li><li>选择<kbd>GitHub.com - OAth</kbd>或<kbd>GitHub.com - Personal Access Token</kbd></li><li>点击<kbd>Connect GitHub.com</kbd>按钮</li><li>输入您的GitHub帐户信息，然后选择<kbd>Sign in</kbd></li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>以上操作会将您带到一个页面，在该页面中，您可以通过简单地选中所需存储库名称旁边的复选框，将一个或多个存储库连接到Git Integration for吉拉。</p>
+
+
+
+<p>就这么简单！您现在已经学习了如何将Git与吉拉集成，以及如何使用吉拉添加Git存储库。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="Create-Git-Branch-from-Jira-Ticket">从吉拉票证创建Git分支</h2>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>针对吉拉的Git集成允许您直接从吉拉发行创建<a href="https://www.gitkraken.com/learn/git/branch" target="_blank" rel="noreferrer noopener"> Git分支</a>。你也可能听到人们把吉拉问题称为吉拉问题。虽然吉拉问题是官方术语，但票和问题可以互换使用，意思相同。从吉拉创建Git分支是一个过程，可以通过两种不同的方式启动，这取决于您的偏好。</p>
+
+
+
+<p>您可以通过使用问题中心的<kbd>Git Development</kbd>面板正下方的<kbd>Create branch</kbd>按钮开始创建Git分支的过程。或者，您可以通过选择<kbd>Details</kbd>面板底部的<kbd>Open Git Integration</kbd>按钮，然后选择<kbd>Create branch</kbd>，开始从吉拉创建Git分支。无论您使用哪个过程来开始分支创建过程，下面的选项都是相同的，用于从吉拉完成Git分支的创建。</p>
+
+
+
+<ol><li>从<kbd>Repository</kbd>下拉菜单中，选择您想要在其中创建分支的<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository" target="_blank" rel="noreferrer noopener"> Git库</a></li><li>从<kbd>Source branch</kbd>下拉菜单中选择一个分支</li><li>吉拉的Git Integration会在<kbd>Branch name</kbd>字段中自动填充一个建议的分支名称。对分支名称进行任何所需的调整</li><li>点击C <kbd>reate branch</kbd>按钮</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>您可以通过导航到<kbd>Details</kbd>面板，将鼠标悬停在<kbd># branch</kbd>上，并选择随后出现的<kbd>Open branch</kbd>图标来确认Git分支已经成功创建。这将把您带到Git托管服务上最近创建的Git分支。为了在本地与新创建的分支进行交互，您需要执行一个<a href="https://www.gitkraken.com/learn/git/problems/git-pull-vs-fetch" target="_blank" rel="noreferrer noopener"> Git fetch或Git pull </a>。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="Disable-the-Ability-to-Create-a-Git-Branch-from-Jira">禁用从吉拉创建Git分支的功能</h2>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>一些吉拉管理员更喜欢禁用从吉拉创建Git分支的功能，以避免非技术用户可能遇到的麻烦。例如，想象一下，如果您团队中的非技术用户无意中创建了10个随机的Git分支，那么存储库会变得多么混乱。</p>
+
+
+
+<p>虽然类似上面场景的错误肯定不是标准，但是如果您不希望用户能够从吉拉创建Git分支，您可以很容易地禁用这个特性。要禁用<kbd>Create branch</kbd>选项，遵循以下步骤:</p>
+
+
+
+<ol><li>从顶部工具栏选择<kbd>Apps</kbd></li><li>从下拉菜单中选择<kbd>Git Integration: Manage integrations</kbd></li><li>从左侧面板中，选择<kbd>General settings</kbd></li><li>向下滚动到<kbd>Git Integration Options</kbd>标题，取消选择<kbd>Enable create/delete branch</kbd></li><li>滚动到<kbd>General settings</kbd>选项的底部，选择蓝色的<kbd>Update</kbd>按钮</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">从吉拉创建拉式请求</p>
+
+
+
+<h2 id="Create-Pull-Request-from-Jira">  </h2>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">准备好提交您的作品供项目经理审阅了吗？您可以直接从吉拉机票发起<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-pull-request-in-git" target="_blank" rel="noreferrer noopener">拉取请求</a>！</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">要创建吉拉拉动请求，您可以点击问题中心<kbd>Git Development panel</kbd>的<kbd>Create pull request</kbd>按钮，或者点击<kbd>Details</kbd>面板底部的<kbd>Open Git Integration</kbd>按钮。从那里，选择<kbd>Create pull request</kbd>。就像从吉拉创建Git分支的过程一样，您选择哪条路径来发起pull请求并不重要，因为后续步骤是相同的。</p>
+
+
+
+<p>从<kbd>Repository</kbd>下拉菜单中选择您想要开始提取请求的存储库</p>
+
+
+
+<p>从<kbd>Source branch</kbd>下拉菜单中，选择包含您想要合并的变更的分支</p>
+
+
+
+<ol><li>从<kbd>Target branch</kbd>下拉菜单中，选择您想要将更改合并到的分支</li><li>吉拉的Git Integration自动使用以下格式填充<kbd>Title</kbd>字段:将密钥合并&lt;源分支&gt;发布到&lt;目标分支&gt;。如有必要，对提取请求标题进行调整</li><li>点击<kbd>Create pull request</kbd>按钮</li><li>吉拉的Git Integration自动使用以下格式填充<kbd>Title</kbd>字段:将密钥合并&lt;源分支&gt;发布到&lt;目标分支&gt;。如有必要，对提取请求标题进行调整</li><li>为了验证您已经从吉拉创建了一个拉取请求，导航到<kbd>Details</kbd>面板，将鼠标悬停在<kbd># pull request</kbd>上，并选择随后出现的<kbd>Open pull request</kbd>图标。这将允许您在Git托管服务上查看pull请求。</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>针对吉拉的Git集成允许团队查看与吉拉问题相关的所有pull请求的列表，帮助他们保持有组织和按部就班。<br/></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>禁用从吉拉创建拉式请求的选项</p>
+<a href="https://www.gitkraken.com/git-integration-for-jira/try-free" class="button button--basic">Install Git Integration for Jira</a>
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="Disable-the-Option-to-Create-Pull-Request-from-Jira">  </h2>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">正如一些吉拉管理员可能禁用从吉拉创建Git分支的选项一样，他们也可能选择禁用从吉拉创建pull请求的选项，以保护存储库免受非技术团队成员的意外更改。通过几个简单的步骤，您可以禁用从吉拉创建拉式请求:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">从顶部工具栏中，选择<kbd>Apps</kbd></p>
+
+
+
+<p>从下拉菜单中选择<kbd>Git Integration: Manage integrations</kbd></p>
+
+
+
+<ol><li>从左侧面板中选择<kbd>General settings</kbd></li><li>向下滚动到<kbd>Git Integration Options</kbd>标题，取消选择<kbd>Enable create pull/merge request</kbd></li><li>导航到<kbd>General settings</kbd>选项的底部，点击<kbd>Update</kbd>按钮</li><li>如何建立一个吉拉网钩</li><li>吉拉每隔8分钟就会自动对连接的Git库进行重新索引或检查更新。但是，您可以配置吉拉webhooks，也称为索引触发器，以更频繁地更新吉拉。吉拉webhooks可以被设置为当某些Git动作发生时自动重新索引存储库，例如<a href="https://www.gitkraken.com/learn/git/commit" target="_blank" rel="noreferrer noopener"> Git提交</a>或<a href="https://www.gitkraken.com/learn/git/git-push" target="_blank" rel="noreferrer noopener"> Git推送</a>。要在吉拉云中配置吉拉webhooks，请遵循以下步骤:</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">从吉拉的顶部工具栏中，选择<kbd>Apps</kbd></p>
+
+
+
+<h2 id="How-to-Set-Up-a-Jira-Webhook">从下拉菜单中选择<kbd>Git Integration: Manage integrations</kbd></h2>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">从左侧栏中选择<kbd>Indexing triggers</kbd></p>
+
+
+
+<p class="video-responsive">确保通过切换<kbd>Indexing triggers settings</kbd>下方的按钮启用步进触发器</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">导航到您的Git托管服务并选择您想要添加索引触发器的存储库</p>
+
+
+
+<p>从顶部工具栏中选择repo <kbd>Settings</kbd></p>
+
+
+
+<ol><li>从左侧栏中选择<kbd>Webhooks</kbd></li><li>点击右上角的<kbd>Add webhook</kbd>按钮</li><li>导航回吉拉</li><li>复制吉拉网页挂钩的网址</li><li>在你的Git托管服务上，将吉拉的webhook URL粘贴到<kbd>Payload URL field</kbd></li><li>点击<kbd>Content type</kbd>，从下拉菜单中选择<kbd>application/json</kbd></li><li>回到吉拉，复制标题下的密钥</li><li>导航到您的Git托管服务，并将密钥粘贴到<kbd>Secret</kbd>字段中</li><li>选择您想要触发吉拉webhook的事件，如提交、推送、拉取请求等。</li><li>点击<kbd>Add webhook</kbd>按钮</li><li>在你的Git托管服务上，将吉拉的webhook URL粘贴到<kbd>Payload URL field</kbd></li><li>现在，当您选择的事件(如Git提交)发生时，您的存储库将自动重新索引，这要感谢您的吉拉webhooks。</li><li>回到吉拉，复制标题下的密钥</li><li>通过Git集成为吉拉节省时间</li><li>在本文中，我们展示了如何使用吉拉Git集成创建吉拉Git集成。每次你从吉拉创建一个Git分支，从吉拉创建一个pull请求，或者创建一个吉拉webhook，你都在节省宝贵的时间。虽然这可能不会对一天产生巨大的影响，但是这些节省下来的时间会变成几个小时，在你意识到之前，你已经大大提高了你的整体效率。通过<a href="https://www.gitkraken.com/git-integration-for-jira" target="_blank" rel="noreferrer noopener">为吉拉</a>安装Git集成，从今天开始节省时间。</li><li>点击<kbd>Add webhook</kbd>按钮</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>现在，当您选择的事件(如Git提交)发生时，您的存储库将自动重新索引，这要感谢您的吉拉webhooks。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="Save-Time-with-Git-Integration-for-Jira">通过Git集成为吉拉节省时间</h2>
+
+
+
+<p>在本文中，我们展示了如何使用吉拉Git集成创建吉拉Git集成。每次你从吉拉创建一个Git分支，从吉拉创建一个pull请求，或者创建一个吉拉webhook，你都在节省宝贵的时间。虽然这可能不会对一天产生巨大的影响，但是这些节省下来的时间会变成几个小时，在你意识到之前，你已经大大提高了你的整体效率。通过<a href="https://www.gitkraken.com/git-integration-for-jira" target="_blank" rel="noreferrer noopener">为吉拉</a>安装Git集成，从今天开始节省时间。</p>
+		</div>
+				</div>    
+</body>
+</html>

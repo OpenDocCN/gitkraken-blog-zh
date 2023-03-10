@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>How do you undo a Git merge? | Solutions to Git Problems</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何撤销Git合并？Git问题的解决方案</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/problems/undo-git-merge#0001-01-01">https://www.gitkraken.com/learn/git/problems/undo-git-merge#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>它发生在我们最好的人身上。您刚刚进行了代码更改，提交了它们，并将这些更改合并到您的主分支中。<em>乐喘气！事后你意识到你不应该做那件事。</em></p>
+
+
+
+<p>当这种情况发生时，您将需要一种方法来让您的主分支返回到它以前的状态。谢天谢地，Git有这样的工具。</p>
+
+
+
+<p>我们将首先展示如何使用跨平台GitKraken Git GUI撤销Git合并，然后讨论如何使用命令行撤销Git中的合并。</p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+        <p>您过去是否进行过不恰当的合并，并且不确定如何修复它？GitKraken使撤销合并和解决冲突变得直观，所以你不用太担心。<br/></p>
+        
+    </div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何使用GitKraken撤销Git合并？</h2>
+
+
+
+<p>使用GitKraken Git客户端撤销Git合并非常简单且直观，因为您可以在同一个UI中查看repo中的每个分支。很容易识别何时发生了不适当的合并，并且只需点击几下就可以撤销。<a href="https://www.gitkraken.com/download" target="_blank" rel="noreferrer noopener">立即下载#1免费Git GUI】并继续阅读以了解如何撤销Git合并。</a></p>
+
+
+
+<p>在GitKraken的中心图中，只需双击您的更改被错误合并的分支。这将<a href="https://dev2.gitkraken.com/learn/git/problems/switch-git-branch" target="_blank" rel="noopener">检验Git分支</a>。</p>
+
+
+
+
+
+
+
+<p>在图形中查找上一个提交，或您希望重置为的另一个提交。然后从上下文菜单中选择<kbd>Reset &lt;branch name&gt; to this commit</kbd> &gt; <kbd>Hard - discard all changes</kbd>。</p>
+
+
+
+
+
+
+
+<p>现在，如果您已经将想要撤销的合并变更推送到您的远程存储库中，您可以右键单击合并提交并从上下文菜单中选择<kbd>Revert commit</kbd>。</p>
+
+
+
+<p>然后会询问您是否想要立即创建一个提交。</p>
+
+
+
+
+
+
+
+<p>一旦进行了新的提交以恢复您的合并更改，您可以通过从上下文菜单中选择<kbd>Push</kbd>将提交推送到远程存储库。</p>
+
+
+
+
+
+
+
+<p><em> <strong> GitTip:全面了解<a href="https://www.gitkraken.com/learn/git/problems/revert-git-commit" target="_blank" rel="noreferrer noopener">如何在Git </a>中恢复提交，以及如何安全地修改历史记录。</strong> </em></p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+        <p>如果您刚刚开始使用Git，撤销合并和恢复提交可能听起来很可怕，但是GitKraken使复杂的Git过程变得简单而安全。<br/></p>
+        
+    </div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何在命令行中撤销Git合并？</h2>
+
+
+
+<p>与GitKraken不同，如果您已经将更改推送到遥控器，那么在CLI中撤销Git合并可能会有点麻烦。如果新的变更被添加到目标分支，这个过程也会变得复杂，因为您已经意识到需要撤销您的合并。GitKraken Git GUI以清晰的布局提供了关于您的回购历史的详细可视上下文，使您更容易确定合并发生的时间，并允许您快速撤销合并，而不会冒进一步错误的风险。让看似复杂的撤销合并过程变得更容易、更安全:<a href="https://www.gitkraken.com/download" target="_blank" rel="noreferrer noopener">现在就下载GitKraken它是免费的！</a></p>
+
+
+
+<p>在这个撤销Git合并的例子中，我们将回顾如何撤销Git合并的基本步骤，以及一些额外的步骤来处理更复杂的情况。</p>
+
+
+
+<p>要在CLI中撤消Git合并，首先要检查您将更改合并到的分支。</p>
+
+
+
+<pre class="wp-block-preformatted">git checkout &lt;branch-name&gt;</pre>
+
+
+
+<p>从这里开始，您将需要获得重置分支所需的提交的ref。您将使用<kbd>git reflog</kbd>来完成这项工作。</p>
+
+
+
+<pre class="wp-block-preformatted">git reflog show --all</pre>
+
+
+
+<p>在运行<kbd>git reflog</kbd>之后，您将识别您想要返回的提交，并复制提交SHA。</p>
+
+
+
+<p>此时，您需要验证您的合并提交还没有被推送到您的远程。如果是这种情况，您将使用<kbd>git reset</kbd>命令向前移动。</p>
+
+
+
+<pre class="wp-block-preformatted">git reset --hard &lt;merge-commit-sha&gt;</pre>
+
+
+
+<p><em> <strong> GitTip:如果您碰巧有任何未提交的更改，请确保在运行Git reset之前使用<a href="https://dev2.gitkraken.com/learn/git/git-stash" target="_blank" rel="noopener"> Git stash </a>命令。</strong> </em></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何在推送更改后撤销Git合并？</h2>
+
+
+
+<p>如果您已经将合并提交推送到远程存储库，您将需要进行新的提交来恢复更改。</p>
+
+
+
+<pre class="wp-block-preformatted">git revert -m 1 &lt;merge-commit-sha&gt;</pre>
+
+
+
+<p>这将创建一个新的提交，该提交反转合并提交的更改。</p>
+
+
+
+<p>使用传奇的GitKraken Git客户端，撤销Git合并的过程要简单得多，步骤也少得多—<a href="https://www.gitkraken.com/download" target="_blank" rel="noreferrer noopener">Windows、Mac和Linux免费下载</a>。</p>
+		</div>
+				</div>    
+</body>
+</html>

@@ -1,0 +1,251 @@
+<html>
+<head>
+<title>How do you Git rebase a branch? | Solutions to Git Problems</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>你如何改变一个分支的基础？Git问题的解决方案</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/problems/git-rebase-branch#0001-01-01">https://www.gitkraken.com/learn/git/problems/git-rebase-branch#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p><a href="https://www.gitkraken.com/learn/git/git-rebase" class="rank-math-link"> Git rebase </a>动作有助于将一个分支的变更合并到另一个分支上，并有助于创建更清晰的回购历史，尤其是在比较<a href="https://www.gitkraken.com/learn/git/problems/git-rebase-vs-merge" class="rank-math-link"> Git rebase和merge </a>时。</p>
+
+
+
+<p>GitTip:如果你在寻找如何<a href="https://www.gitkraken.com/learn/git/problems/merge-git-branch" class="rank-math-link">合并Git分支</a>，我们有另一个页面。 </p>
+
+
+
+<p>在回顾如何在命令行中对分支进行Git重新基础化之前，我们将通过跨平台GitKraken Git GUI对分支进行重新基础化。</p>
+
+
+
+<p><em>虽然其他教程通常会展示如何将分支重设为master，但我们选择使用分支名称:<kbd>main</kbd>。</em></p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+	        <p>下面是一个使用GitKraken Git GUI的例子<br/></p>
+	        
+	    </div>
+    </div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何用GitKraken给树枝打基础？</h2>
+
+
+
+<p>使用直观的GitKraken Git客户端来重定Git分支的基础非常简单，并且允许您更清楚地看到您想要重定基础的分支的情况。</p>
+
+
+
+<p>只需将GitKraken中的一个分支拖放到您想要作为新基础的分支上，然后从上下文菜单中选择<kbd>Rebase &lt;source branch name&gt; onto &lt;target branch name&gt;</kbd>。</p>
+
+
+
+<p class="video-responsive">      </p>
+
+
+
+<p>或者，您也可以右键单击中央图形中的分支来访问相同的菜单选项。</p>
+
+
+
+<p class="video-responsive">      </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>如何用GitKraken重新设定远程分支的基础？</strong></h2>
+
+
+
+<p>在命令行中，如果目标分支不是最新的，就需要手动更新，与命令行不同，GitKraken会为您保持远程分支的最新状态。GitKraken中的rebase过程完全相同，无论您是否更新了base分支。</p>
+
+
+
+<p class="video-responsive">      </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>你如何解决与GitKraken的rebase冲突？</h2>
+
+
+
+<p>如果你的重置导致文件冲突，GitKraken会立即提醒你冲突，并为你提供一个在应用程序中解决冲突的工具，无需上下文切换。</p>
+
+
+
+<p class="video-responsive">      </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>GitKraken的合并解决工具将冲突文件并排呈现在您面前，您签出的分支在左边，您的目标分支在右边。底部还有一个输出部分。</p>
+
+
+
+<p>选中一行或一段代码旁边的框，将其添加到输出中。这使您能够清楚地看到您的选择，并做出最佳决定，保留哪些更改，放弃哪些更改。</p>
+
+
+
+<p>一旦冲突得到解决，您就可以通过单击按钮继续您的rebase。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何在终端中改变分支的基础？</h2>
+
+
+
+<p>要使用命令行重建Git分支的基础，首先要检出包含要重写到目标分支的变更的分支。在这个例子中，假设您想要将<kbd>feature</kbd>分支重新放在<kbd>main</kbd>分支的基础上。您将通过运行以下命令开始:</p>
+
+
+
+<pre class="wp-block-code"><code>git checkout feature-branch</code></pre>
+
+
+
+<pre class="wp-block-code"><code>git rebase main</code></pre>
+
+
+
+<p class="video-responsive">      </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>Git应该会显示如下消息:</p>
+
+
+
+<pre class="wp-block-code"><code>Successfully rebased and updated refs/head/feature-branch</code></pre>
+
+
+
+<p>这告诉我们<kbd>feature-branch</kbd>上的最后一次提交已经被更新。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何在终端中对远程分支进行重置？</h2>
+
+
+
+<p>现在，如果对目标分支的远程进行了更改，您将需要从该远程分支获取最新的更改。</p>
+
+
+
+<p>GitTip:如果你刚开始在偏远的分支机构工作，不要害怕。我们已经有了你学习如何<a href="https://www.gitkraken.com/learn/git/problems/pull-remote-git-branch">拉远程Git分支</a>所需的一切。 </p>
+
+
+
+<p>在这个例子中，你的目标分支仍然是<kbd>main</kbd>；首先执行一个Git pull来从遥控器获取更改。</p>
+
+
+
+<pre class="wp-block-code"><code>git checkout main</code></pre>
+
+
+
+<pre class="wp-block-code"><code>git pull origin main</code></pre>
+
+
+
+<p>在拉动完成后，您通过检查您的<kbd>hotfix</kbd>分支，然后返回到<kbd>main</kbd>来继续前进。</p>
+
+
+
+<pre class="wp-block-code"><code>git checkout hotfix</code></pre>
+
+
+
+<pre class="wp-block-code"><code>git rebase main</code></pre>
+
+
+
+<p class="video-responsive">      </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>如何解决终端中的Git rebase冲突？</h2>
+
+
+
+<p>有时，尝试重定Git分支的基础可能会导致冲突的更改，需要在操作完成之前解决这些冲突。当Git检测到冲突的更改时，它会在错误的提交处暂停rebase。</p>
+
+
+
+<p>不像在GitKraken中，解决冲突只需点击一下鼠标，当在CLI中工作时，您没有足够的上下文来立即识别冲突代码存在于何处。您将不得不离开终端，在您首选的外部编辑器中打开冲突文件，以决定您想要保留哪些代码，以及想要丢弃哪些代码。</p>
+
+
+
+<p>完成并保存您的更改后，您可以通过运行<kbd>git add</kbd>命令后跟文件名来暂存它们。接下来，您应该使用<kbd>git commit -m</kbd>为您的解析创建一个提交，后跟您的Git提交消息。</p>
+
+
+
+<pre class="wp-block-code"><code>git commit -m “my merge resolution commit message”</code></pre>
+
+
+
+<p>如果冲突确实得到了解决，您可以使用以下命令继续进行基础变更:</p>
+
+
+
+<pre class="wp-block-code"><code>git rebase --continue</code></pre>
+
+
+
+<p class="video-responsive">      </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>或者，如果您无法解决冲突，或者决定不希望继续进行重新调整，您可以使用:</p>
+
+
+
+<pre class="wp-block-code"><code>git rebase --abort</code></pre>
+
+
+
+<p>这将取消Git rebase操作，您的分支将回到开始rebase之前的状态。</p>
+
+
+
+<p>使用面向Windows、Mac、&amp; Linux的<a href="https://www.gitkraken.com/git-client"> GitKraken Git GUI </a>跨平台重建Git分支，使其具有更好的可视性和更大的信心。</p>
+		</div>
+				</div>    
+</body>
+</html>

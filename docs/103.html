@@ -1,0 +1,451 @@
+<html>
+<head>
+<title>Git Clone | Create a copy of an existing Git repository</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Git克隆|创建现有Git存储库的副本</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/git-clone#0001-01-01">https://www.gitkraken.com/learn/git/git-clone#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p class="has-text-align-left">更新日期:2022年6月15日</p>
+
+
+
+<p>Git clone用于将现有的<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository" target="_blank" rel="noreferrer noopener"> Git存储库</a>复制到一个新的本地目录中。</p>
+
+
+
+<p>Git clone命令将为存储库创建一个新的本地目录，复制指定存储库的所有内容，创建远程跟踪分支，并在本地签出一个初始分支。默认情况下，Git clone会创建一个对名为<kbd>origin</kbd>的远程存储库的引用。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如何Git克隆一个仓库</p>
+
+
+
+<h2>要Git克隆存储库，请导航到您喜欢的存储库托管服务，如GitHub，选择您想要克隆的存储库，通过HTTPS或SSH复制存储库URL，在命令行中键入<code>git clone</code>，粘贴URL，然后点击<kbd>enter</kbd>。</h2>
+
+
+
+<p>克隆一个存储库允许您在<a href="https://www.gitkraken.com/learn/git/commit" target="_blank" rel="noreferrer noopener">提交</a>和<a href="https://www.gitkraken.com/learn/git/git-push" target="_blank" rel="noreferrer noopener">将它们</a>推送到远程存储库之前，对存储库进行本地更改。</p>
+
+
+
+<p>这对于初学者来说尤其有益，因为克隆给了你一个实验的沙箱，而不会影响原始代码库(也不会激怒你的团队成员)😅).在本文中，我们将深入了解如何从GitKraken客户端的命令行以及GUI中进行Git clone。</p>
+
+
+
+<p>涵盖Git克隆主题</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><a href="https://www.gitkraken.com/learn/git/git-clone#url-protocols"> Git远程存储库URL协议</a></p>
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><a href="https://www.gitkraken.com/learn/git/git-clone#ssh-protocol"> Git SSH远程协议</a></p>
+
+
+
+<h2><a href="https://www.gitkraken.com/learn/git/git-clone#remote-protocol"> Git远程协议</a></h2>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-clone#https-protocol"> HTTP(S)远程协议</a></p>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-clone#git-clone-over-https-command-line">如何使用命令行在HTTPS上进行Git克隆</a></p>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-clone#git-clone-over-ssh">如何使用GitKraken客户端通过SSH进行Git克隆</a></p>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-clone#git-clone-over-https">如何使用GitKraken客户端在HTTPS上进行Git克隆</a></p>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-clone#git-clone-with-integrations"> Git克隆与GitKraken客户端集成</a></p>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-clone#git-clone-faqs"> Git克隆常见问题解答</a></p>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-clone#git-clone-easily-with-gitkraken-client"> GitKraken客户端使Git克隆变得更加容易</a></p>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-clone#git-clone-with-integrations"> Git克隆与GitKraken客户端集成</a></p>
+
+
+
+<p>不要冒险损害代码的安全性。GitKraken客户端允许安全连接到远程存储库——这是您不用担心的一件事。<br/></p>
+
+
+
+<p><a href="https://www.gitkraken.com/learn/git/git-clone#git-clone-easily-with-gitkraken-client"> GitKraken客户端使Git克隆变得更加容易</a></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git远程存储库URL协议</p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>Git中支持的远程URL协议有SSH、Git、HTTP和HTTPS。</p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git SSH远程协议</p>
+
+
+
+<h2 id="url-protocols">SSH代表安全外壳。使用Git SSH允许您使用密钥向远程存储库进行身份验证。</h2>
+
+
+
+<p>SSH URL的格式:<kbd>ssh://{user}@{host}:{port}/path/to/repo.git</kbd>或<kbd>{user}@host:path/to/repo.git</kbd></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">要在命令行中使用<a href="https://www.gitkraken.com/learn/git/tutorials/how-git-ssh-works"> Git SSH </a>，您需要生成一个公共和私有的SSH密钥，将密钥添加到您的SSH-agent中，并将公共密钥添加到远程托管服务中。</p>
+
+
+
+<h3 id="ssh-protocol">Git远程协议</h3>
+
+
+
+<p>Git协议是一种未经身份验证的方法，应该谨慎使用。</p>
+
+
+
+<p>Git URL的格式:<kbd>git://{host}:{port}/path/to/repo.git</kbd></p>
+
+
+
+<p>HTTP(S)远程协议</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">HTTP(S)代表超文本传输协议(安全)。通过使用HTTPS，您可以使用用户名和密码凭证向存储库进行身份验证。</p>
+
+
+
+<h3 id="remote-protocol">与HTTP相比，HTTPS是一个更安全的版本。</h3>
+
+
+
+<p>HTTPS网址的格式:<kbd>https://{host}:{port}/path/to/repo.git</kbd></p>
+
+
+
+<p><em> <strong> GitTip:通过我们的Git初学者教程视频系列，了解更多关于<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository">本地Git仓库</a>和<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-git-remote">远程仓库</a>的信息。</strong> </em></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3 id="https-protocol">使用GitHub练习报告，跟随GitKraken客户端和命令行中即将出现的克隆示例。<br/></h3>
+
+
+
+<p>HTTP(S)代表超文本传输协议(安全)。通过使用HTTPS，您可以使用用户名和密码凭证向存储库进行身份验证。</p>
+
+
+
+<p>如何使用命令行在HTTPS上进行Git克隆</p>
+
+
+
+<p>在这个例子中，我们将回顾在HTTPS克隆GitHub库的过程。要克隆Git存储库，首先要从存储库托管服务复制远程URL在本例中是GitHub。</p>
+
+
+
+<p><em> <strong> GitTip:通过我们的Git初学者教程视频系列，了解更多关于<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository">本地Git仓库</a>和<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-git-remote">远程仓库</a>的信息。</strong> </em></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>使用GitHub练习报告，跟随GitKraken客户端和命令行中即将出现的克隆示例。<br/></p>
+<a href="https://github.com/Axosoft/moby-git" class="button button--basic" target="_blank" rel="noopener">Practice Cloning</a>
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">然后，您将使用Git clone命令，后跟远程repo的URL。</p>
+
+
+
+<h2 id="git-clone-over-https-command-line">如何使用命令行在HTTPS上进行Git克隆</h2>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">如果您使用的是私有存储库，系统会提示您输入远程托管服务凭据。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">克隆之后，您可以将目录(<kbd>cd &lt;path&gt;</kbd>)更改到存储库中，开始在其中工作。有许多额外的标志可以在克隆时使用，比如命名本地目录、命名远程目录或检查分支。</p>
+
+
+
+<p>然后，您将使用Git clone命令，后跟远程repo的URL。</p>
+
+
+
+<pre class="wp-block-preformatted"><code>git clone &lt;repository-url&gt;</code></pre>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如何使用GitKraken客户端通过SSH进行Git克隆</p>
+
+
+
+<p class="video-responsive">如果在GitKraken客户机上使用URL通过SSH克隆，首先需要在Git客户机上配置Git SSH。GitKraken客户端有一个内置的SSH代理，使得使用SSH密钥(包括GitHub SSH密钥)变得非常容易。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">您的GitKraken客户端SSH设置可以在<kbd>Preferences</kbd> &gt; <kbd>SSH</kbd>下找到。在这里，您可以生成一个新的SSH密钥，指向一个现有的密钥，或者使用本地SSH代理来管理SSH。</p>
+
+
+
+<p>如果这是您第一次通过GitKraken客户端使用SSH，您需要将SSH密钥添加到远程托管服务——在本例中是GitHub。您只需从GitKraken客户端复制公钥，并将其添加到托管服务的设置部分。</p>
+
+
+
+<p>克隆之后，您可以将目录(<kbd>cd &lt;path&gt;</kbd>)更改到存储库中，开始在其中工作。有许多额外的标志可以在克隆时使用，比如命名本地目录、命名远程目录或检查分支。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<h2 id="git-clone-over-ssh">如何使用GitKraken客户端通过SSH进行Git克隆</h2>
+
+
+
+<p>完成这些步骤后，您将能够简单地提供SSH URL来用GitKraken客户端克隆远程存储库。</p>
+
+
+
+<p>您的GitKraken客户端SSH设置可以在<kbd>Preferences</kbd> &gt; <kbd>SSH</kbd>下找到。在这里，您可以生成一个新的SSH密钥，指向一个现有的密钥，或者使用本地SSH代理来管理SSH。</p>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">有关在GitKraken客户端使用SSH的更多信息，请参见我们的<a href="https://support.gitkraken.com/integrations/authentication/#ssh" target="_blank" rel="noreferrer noopener"> Git SSH文档</a>。GitHub也为<a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh" target="_blank" rel="noreferrer noopener">如何使用SSH </a>提供了很好的指南。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>如何使用GitKraken客户端在HTTPS上进行Git克隆</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如果你用GitKraken客户端使用URL来克隆HTTPS，你只需在提示时提供远程URL。</p>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<p>有关在GitKraken客户端使用SSH的更多信息，请参见我们的<a href="https://support.gitkraken.com/integrations/authentication/#ssh" target="_blank" rel="noreferrer noopener"> Git SSH文档</a>。GitHub也为<a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh" target="_blank" rel="noreferrer noopener">如何使用SSH </a>提供了很好的指南。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在这里，您还将设置克隆的本地路径和本地存储库目录名。</p>
+
+
+
+<h2 id="git-clone-over-https">如何使用GitKraken客户端在HTTPS上进行Git克隆</h2>
+
+
+
+<p>Git克隆与GitKraken客户端集成</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">GitKraken Client为以下远程存储库托管服务提供集成，使克隆和许多其他操作变得更加简单:</p>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如下所示，您连接到GitKraken客户端帐户的每个主机服务集成将列出所有可用于克隆的远程存储库。</p>
+
+
+
+<p>HTTPS是GitKraken客户端的默认远程协议。在连接到您的远程存储库托管服务之后，在HTTPS上工作时，您将不需要填写凭据，因为集成使用OAuth或PAT(个人访问令牌)进行身份验证。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="git-clone-with-integrations">  </h2>
+
+
+
+<p>GitKraken Client为以下远程存储库托管服务提供集成，使克隆和许多其他操作变得更加简单:</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">对于这些集成中的每一个，您都可以快速创建一个SSH密钥或指向一个现有的密钥。生成一个SSH密钥会自动将它添加到托管服务中，不再需要从一个平台手动复制它并将其添加到另一个平台。</p>
+
+
+
+<p>您可以通过导航至<kbd>Preferences</kbd> &gt; <kbd>Integrations</kbd>随时管理您的GitKraken客户端集成。在这个例子中，您可以看到GitKraken客户端正在创建一个GitHub SSH密钥。</p>
+
+
+
+<p>HTTPS是GitKraken客户端的默认远程协议。在连接到您的远程存储库托管服务之后，在HTTPS上工作时，您将不需要填写凭据，因为集成使用OAuth或PAT(个人访问令牌)进行身份验证。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">  </p>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">或者，如果您想指向一个现有的SSH密钥，您可以通过单击将公共SSH密钥添加到托管服务中。</p>
+
+
+
+<p>对于这些集成中的每一个，您都可以快速创建一个SSH密钥或指向一个现有的密钥。生成一个SSH密钥会自动将它添加到托管服务中，不再需要从一个平台手动复制它并将其添加到另一个平台。</p>
+
+
+
+<p>  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">测试你的新技能，并使用这个指导性的GitHub repo练习用GitKraken克隆一个库。<br/></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">常见问题</p>
+
+
+
+<p>问:如何克隆Git存储库</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">答:如果您想要克隆一个现有的Git存储库，请在您喜欢的代码托管服务(如GitHub或GitLab)上导航到您想要克隆的repo，并选择clone with SSH或HTTPS。</p>
+
+
+
+<p class="video-responsive">问:如何克隆Git</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">答:Git是一个分布式版本控制软件，允许你跟踪项目。您不太可能会遇到想要克隆Git本身的情况。相反，使用Git，您可以通过SSH或HTTPS从GitHub、GitLab等托管服务中克隆一个存储库。如需更多高级克隆选项，如使用Git clone-shared、Git clone-no check out等，请访问<a href="https://git-scm.com/docs/git-clone" target="_blank" rel="noreferrer noopener"> Git SCM </a>。</p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>测试你的新技能，并使用这个指导性的GitHub repo练习用GitKraken克隆一个库。<br/></p>
+<a href="https://github.com/Axosoft/moby-git" class="button button--basic" target="_blank" rel="noopener">Practice Cloning</a>
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">GitKraken客户端使Git克隆更容易</p>
+
+
+
+<h2 id="git-clone-faqs">你的Git投资组合越多，管理你的远程回购库就越难。GitKraken Git client 可以帮助您组织来自多个托管服务的远程信息，让您能够快速找到并克隆您需要的回购。</h2>
+
+
+
+<h3>问:如何克隆Git存储库</h3>
+
+
+
+<p>答:如果您想要克隆一个现有的Git存储库，请在您喜欢的代码托管服务(如GitHub或GitLab)上导航到您想要克隆的repo，并选择clone with SSH或HTTPS。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">问:如何克隆Git</p>
+
+
+
+<h3>答:Git是一个分布式版本控制软件，允许你跟踪项目。您不太可能会遇到想要克隆Git本身的情况。相反，使用Git，您可以通过SSH或HTTPS从GitHub、GitLab等托管服务中克隆一个存储库。如需更多高级克隆选项，如使用Git clone-shared、Git clone-no check out等，请访问<a href="https://git-scm.com/docs/git-clone" target="_blank" rel="noreferrer noopener"> Git SCM </a>。</h3>
+
+
+
+<p>A: Git is a distributed version control software that allows you to track projects. It is unlikely that you will run into a situation where you would want to clone Git itself. Instead, using Git, you can Git clone a repository from a hosting service like GitHub, GitLab, and others via SSH or HTTPS. For more advanced cloning options like using git clone –shared, git clone –no checkout, and more, visit <a href="https://git-scm.com/docs/git-clone" target="_blank" rel="noreferrer noopener">Git SCM</a>. </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">GitKraken客户端使Git克隆更容易</p>
+
+
+
+<h2 id="git-clone-easily-with-gitkraken-client">你的Git投资组合越多，管理你的远程回购库就越难。GitKraken Git client 可以帮助您组织来自多个托管服务的远程信息，让您能够快速找到并克隆您需要的回购。</h2>
+
+
+
+<p>The more your Git portfolio grows, the harder it will be to manage your library of remote repos. The <a href="https://www.gitkraken.com/git-client">GitKraken Git client</a> can help organize your remotes from multiple hosting services, giving you the ability to quickly find and clone the repo you need.</p>
+		</div>
+				</div>    
+</body>
+</html>

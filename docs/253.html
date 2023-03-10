@@ -1,0 +1,276 @@
+<html>
+<head>
+<title>What is GitOps? | Understand the methodology, workflow, and tools</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>什么是GitOps？|了解方法、工作流程和工具</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/what-is-gitops#0001-01-01">https://www.gitkraken.com/blog/what-is-gitops#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>这篇文章是一位客座作者写的。</p>
+
+
+
+<p>不久前，如果我们想将代码投入生产，我们需要手动配置服务器，即我们的基础设施，来托管我们的应用程序或数据库。这种手动过程不仅耗时，而且容易出错。这就是为什么目前开发人员选择创建负责配置基础设施的“脚本”。这些“脚本”被称为代码基础设施(IaC)。</p>
+
+
+
+<p>随着应用程序的发展，我们的代码基础设施也在发展。简单的Bash脚本或Python脚本已经不够了；这就是为什么像Terraform、Ansible、Chef或Puppet这样的工具来拯救我们。所有这些工具都允许我们轻松地指出我们的基础设施需要执行的指令，以便为托管我们的代码做好准备。</p>
+
+
+
+<p>这就是为什么今天，IaC是标准。它让我们的生活变得更容易，但是当…</p>
+
+
+
+<ul><li>我们有这种令人敬畏的基础设施作为代码，可以自动化这么多事情，但我们仍然在我们的云提供商(<a href="https://cloud.google.com/" target="_blank" rel="noreferrer noopener"> GCP </a>、<a href="https://aws.amazon.com/" target="_blank" rel="noreferrer noopener"> AWS </a>、<a href="https://azure.microsoft.com/" target="_blank" rel="noreferrer noopener"> Azure </a>等)中手动运行它们？</li></ul>
+
+
+
+<ul><li>我们对它进行了修改，然后不经过代码审查或测试就直接运行了？</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>可以想象，这是一个缓慢的过程，在这个过程中，很多事情都会出错。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>我们能为IaC做的最好的事情就是检查它，测试它并自动化部署过程。简而言之，使用GitOps实现代码❤️.一样漂亮的基础设施</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>什么是GitOps？</strong></h2>
+
+
+
+<p>GitOps是交付IaC的现代方法。在这种方法中，我们使用Git来跟踪代码的发展，我们审查变更，我们批准它们，然后我们部署这些变更，就像我们处理应用程序代码一样。</p>
+
+
+
+<p>GitOps流程并不复杂，所以没有理由不使用它。</p>
+
+
+
+<p>GitOps的流程如下所示:</p>
+
+
+
+<p>在这里，您可以看到<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Git GUI </a>处于暂存和提交阶段，因为它允许我们暂存和提交我们的更改。此外，GitKraken将允许我们打开一个拉请求，<a href="https://www.gitkraken.com/integrations/github" target="_blank" rel="noreferrer noopener"> GitHub </a>，<a href="https://www.gitkraken.com/integrations/gitlab" target="_blank" rel="noreferrer noopener"> GitLab </a>，以及<a href="https://www.gitkraken.com/integrations/bitbucket"> Bitbucket </a>。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>GitKraken在GitOps流程中起着至关重要的作用，并且能够在生产流水线的其他阶段之间实现无缝过渡。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>对于代码开发人员来说，这个流程听起来很熟悉，对吗？但是流动并没有就此结束；我们需要将IaC放在我们的服务器集群中。我们有两个选择来实现这一点:</p>
+
+
+
+<ol><li>推送模型</li><li>拉模型⭐️</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>推送模式</strong></p>
+
+
+
+<h3>这时，我们的CI/CD服务器在集群上执行一个命令来猜测…将新代码推送到部署环境。🥳</h3>
+
+
+
+<p><strong>拉动模式</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在另一个模型中，我们在集群中安装了一个代理(如Argo CD或Flux CD)。这个代理负责从我们的存储库中提取变更。🥳🥳</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong>Pull Model</strong></h3>
+
+
+
+<p><strong>gitop的工具</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">你可能在想:什么工具能够让GitOps流发生？</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">嗯，我已经(随机)提到了其中的一些，但我会列出一些行业内的标准。</p>
+
+
+
+<h2>当然，Git是这个流程的基石。记住，GitOps是关于交付高质量的代码。Git将允许我们跟踪和观察代码的发展。</h2>
+
+
+
+<p>当您完成对IaC的更改后，您可以在提交之前使用<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Git GUI </a>轻松查看它们。</p>
+
+
+
+<p>此外，GitKraken允许您轻松检查文件中的更改历史。下面显示的是GitKraken Diff视图，它使用颜色来显示添加和删除的行，因此您可以快速了解您正在查看的内容。</p>
+
+
+
+<p>Of course, Git is the cornerstone for this flow. Remember, that GitOps it’s about delivering quality code. Git will allow us to track and observe the evolution of our code. </p>
+
+
+
+<p>When you finish your changes to your IaC, you can effortlessly review them with the <a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener">GitKraken Git GUI</a> before you commit them. </p>
+
+
+
+<p>提交后，你可以从GitKraken 打开一个<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-pull-request-in-git" target="_blank" rel="noreferrer noopener"> Git pull请求，不管你使用的是GitHub、GitLab还是Bitbucket。同样在GitKraken中，您可以查看团队成员创建的拉动请求。</a></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">💡不需要浏览器:从GitKraken，你可以批准或者评论<a href="https://www.gitkraken.com/learn/git/problems/github-pull-requests" target="_blank" rel="noreferrer noopener"> GitHub pull请求</a>。这样节省了很多时间。</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img decoding="async" src="" alt="Side by side Diff view in GitKraken" data-lazy-src="https://lh3.googleusercontent.com/KDtPJleJEIuzt_LLpIPXwhXB489KZWuNfVL8l0HgUeCHZfXSMT-4OEj4kp7hR-vNZ4HjmAtaiznlL8D-HmhXPaG3TEyJh8tPXNZAuqP8F_ChHe_fySVKdXrbYdlm5GKZwycTTiO5=s0"/><noscript><img decoding="async" src="../Images/6df05b74f60b71d553688816f2d8b142.png" alt="Side by side Diff view in GitKraken" data-original-src="https://lh3.googleusercontent.com/KDtPJleJEIuzt_LLpIPXwhXB489KZWuNfVL8l0HgUeCHZfXSMT-4OEj4kp7hR-vNZ4HjmAtaiznlL8D-HmhXPaG3TEyJh8tPXNZAuqP8F_ChHe_fySVKdXrbYdlm5GKZwycTTiO5=s0"/></noscript><figcaption><em>GitKraken File History – Diff View</em></figcaption></figure></div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">对于<strong>推模型，</strong>我们可以使用:<a href="https://www.jenkins.io/" target="_blank" rel="noreferrer noopener"> Jenkins </a>是一个开源的自动化服务器，它使世界各地的开发人员能够可靠地构建、测试和部署他们的软件。</p>
+
+
+
+<p>对于<strong>拉模型，</strong>我们可以使用:<a href="https://argo-cd.readthedocs.io/en/stable/" target="_blank" rel="noreferrer noopener"> ArgoCD </a>是一个持续部署工具，它只通过执行拉来实现对存储库的监控。</p>
+
+
+
+<p>有了GitKraken的力量在你身边，在代码审查中没有任何变化会逃过你的眼睛！你可以从这里下载GitKraken。</p>
+
+
+
+<p>For the <strong>Push Model,</strong> we can use: <a href="https://www.jenkins.io/" target="_blank" rel="noreferrer noopener">Jenkins</a> is an open source automation server that enables developers around the world to reliably build, test, and deploy their software.</p>
+
+
+
+<p>准备好潜入GitOps了吗？</p>
+
+
+
+<p>请记住，如果您的IaC不如您的应用程序代码好，您的基础设施很可能会失败。没有基础设施，任何人都不能使用您的应用程序。因此，最好通过只引入经过测试和审查的代码来保证IaC的安全。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在您的项目中实现GitOps流并不复杂，即使您以前从未使用过Git，也有一些工具可以让它变得简单得多，比如GitKraken。使用GitOps带来了许多其他优势，例如:</p>
+
+
+
+<h2>质量代码</h2>
+
+
+
+<p>自动化过程</p>
+
+
+
+<p>对所有团队透明</p>
+
+
+
+<ul><li>快速部署和回滚</li><li>另一方面，你可能已经在你的项目中应用了GitOps，但是如果你还没有使用GitOps，那么是时候开始了。🚀</li><li>Transparency to all the team</li><li>Fast Deploy and Rollback</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">你可以在作者个人网站上用西班牙语阅读这篇帖子:<a href="https://www.tanx.dev/2021/09/01/que-es-gitops.html" target="_blank" rel="noreferrer noopener"> <em> Qué es GitOps？</em>T3】</a></p>
+
+
+
+<p>On the other hand you may be already applying GitOps to your project, but if you are not using GitOps yet, it’s definitely time to start. 🚀</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如果你用正确的工具装备自己，在GitOps取得成功要容易得多。GitKraken将帮助完成GitOps流程的多个阶段，包括准备、提交、拉请求和代码审查。<br/></p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>You can read this post in Spanish on the author’s personal website: <a href="https://www.tanx.dev/2021/09/01/que-es-gitops.html" target="_blank" rel="noreferrer noopener"><em>¿Qué es GitOps?</em></a></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>Succeeding at GitOps is far easier if you equip yourself with the right tools. GitKraken will help fulfill multiple stages of the GitOps flow, including staging, committing, pull requests, and code review.<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+		</div>
+				</div>    
+</body>
+</html>

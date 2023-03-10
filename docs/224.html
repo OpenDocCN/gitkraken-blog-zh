@@ -1,0 +1,368 @@
+<html>
+<head>
+<title>Why are you being such a git about it? | Git Best Practices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>你为什么对这件事这么迟钝？| Git最佳实践</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/gitkon/git-best-practices#0001-01-01">https://www.gitkraken.com/gitkon/git-best-practices#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<h2>你为什么对这件事这么迟钝？</h2>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper"><iframe title="Why are you being such a git about it? - Git Best Practices" src="https://www.youtube.com/embed/AN-iaHcXgYI?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>Git是当今世界上最流行的源代码控制管理系统。Git可以确保您的代码得到备份和版本控制，还可以让其他开发人员访问您的工作。如果使用得当，Git不仅仅是一种存储或组织代码的方式。Git可以帮助简化复杂的过程，比如发布管理、特性开发，以及与多人同时工作。</p>
+
+
+
+<p>在2021 <a href="https://gitkon.com/" target="_blank" rel="noopener"> GitKon Git Conference </a>的会议中，Joe Glombek分享了他最喜欢的Git最佳实践。剧透:对如何使用Git非常挑剔是可以的！这其实是一件好事。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>无论您喜欢在GUI或CLI中工作，GitKraken Client都可以在您已经工作的地方会见开发人员，并帮助您轻松开发有效的工作流程最佳实践。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>不幸的是，Git利用率低是一个比您想象的更普遍的问题。无数人将Git用作代码的垃圾场，而不是管理良好的软件档案库。</p>
+
+
+
+<p>这里有五个简单的提示，可以确保您通过这些Git工作流最佳实践充分利用Git:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>提示1:提交消息就是一切</strong></h2>
+
+
+
+<p>在下面展示的精彩XKCD 网络漫画中，作者说“随着项目的拖延，提交信息变得越来越少。”</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>我们看到评论从描述性的“创建主循环和定时控制”下降到我的“手在打字”和“哈哈哈”的绝对混乱状态。乔想说这只是连环漫画中的一个笑话，但它可能太真实了。<br/></p>
+
+
+
+<p>在另一个例子中，他分享了一个Twitter用户的实际提交历史记录。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>Dennis在Git历史中浏览“有用的”提交消息来调查一个问题。很明显，这些提交消息没有提供足够的信息来知道在引入bug后从哪里开始查找。</p>
+
+
+
+<p>想象一个场景，你在代码库中看到一些奇怪的东西，但是没有代码内注释。使用Git责备，您可以看到是谁修改了它，但是您会看到一条提交消息，上面只写着“test”不幸的是，做出改变的开发人员外出度假了，所以你不能立即找到他们改变背后的原因。现在，如果你改变了它，或者在别的地方破坏了某些东西，你就有重新引入一个bug的风险。相反，假设你看到了一段代码，自从你最后一次工作以来，它发生了变化，你对它现在的编写方式不满意。再一次，你利用Git责备，你看到一个提交消息，说“修复chrome中的日期格式问题。”在这种情况下，您最好保持原样。一个好的提交消息实际上救了你！</p>
+
+
+
+<p>如果您想要编写一个好的提交消息并遵循<a href="https://www.gitkraken.com/learn/git/commit"> Git commit </a>最佳实践，提交消息应该像回答问题“这个提交做什么？”还可以考虑用动词开始提交消息。例如“修复恢复”或“集成服务”虽然这是一个很好的背景，但它本身是不够的，因为这些短消息仍然没有完全告诉我们在这些提交中发生了什么。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong>细节，细节，细节！</strong></h3>
+
+
+
+<p>GitKraken客户端为您的提交消息提供了两个字段:标题和描述。最好保持标题简短，不超过72个字符，并在描述字段中添加更多细节。</p>
+
+
+
+<p>例如，“修复Chrome中的日期格式问题”比“修复提交消息标题的错误”要好得多。在提交消息描述中，您可以提供更多的细节。在描述中，你可以这样说:“Chrome总是采用MM/DD格式，不管浏览器的区域设置是什么。”虽然这是一个虚构的bug，但是这个例子说明了提交消息可以更加健壮和信息丰富。<br/> <br/>为<a href="https://www.gitkraken.com/learn/git/problems/revert-git-commit" target="_blank" rel="noreferrer noopener"> Git回复</a>提供更多信息也是非常有用的。默认情况下，Git revert生成的消息填充了提交消息标题:“reverts<em>last commit message title</em>”比如<code>Reverts new “Paytastic Checkout” checkout flow</code>。</p>
+
+
+
+<p>如果我们添加描述“客户已经改变主意，希望恢复使用LegacyCart ”,那么我们在顶部会有一个精彩的概述，在描述中会有更多的细节。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>您也可以在命令行上添加提交消息描述。您只需要传入两个消息参数:</p>
+
+
+
+<pre class="wp-block-code"><code>Git commit -m “Title” -m “Description”</code></pre>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong>将提交链接到问题</strong></h3>
+
+
+
+<p>如果您有一个票务系统或待办事项列表，在提交消息中包含项目的标题或票证ID号有时会有所帮助。您甚至可以在描述中提供初始问题的链接。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>如果你已经将GitKraken客户端连接到一个问题跟踪器，比如<a href="https://www.gitkraken.com/integrations/github" target="_blank" rel="noreferrer noopener"> GitHub Issues </a>，你可以输入搜索找到你想要处理的问题，右击该问题，<a href="https://www.gitkraken.com/learn/git/problems/create-git-branch" target="_blank" rel="noreferrer noopener">为该问题创建一个Git分支</a>。通过这种方式添加额外的信息非常容易，因此当您将来回到某个问题时，您可以很快看到围绕该提交发生的所有事情。所有这些都不需要工具之间的上下文切换！</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>提示2:提交和推送，少而频繁</strong></h2>
+
+
+
+<p>当谈到人们应该多久犯一次错误时，最有说服力的论点是“少而常”因为Git是你工作和进度的备份，所以只有在特性完成时才提交是没有意义的。提交部分完成的工作比什么都不做要有用得多。</p>
+
+
+
+<p>尽管确保每个提交都处于可构建或工作状态是一个好的实践，但是只要您在提交消息中声明了这一点，让“正在进行的工作”提交不准备合并也是可以的。</p>
+
+
+
+<p>“少而常”的策略也可以帮助您恢复不需要的功能。从一个更大的提交中提取一小块代码确实很痛苦，但是如果您只需要恢复一个小的更改，就会容易得多。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>提示3: Git壁球</strong></h2>
+
+
+
+<p>一个缺点是，所有那些“少量且经常”提交的消息可能会很快变得非常嘈杂。虽然较小的进行中的提交在本地是有帮助的，但是您不希望所有这些提交消息都出现在最终的Git历史中。清理历史的一个解决方案是合并多个提交，这就是<a href="https://www.gitkraken.com/learn/git/git-squash" target="_blank" rel="noreferrer noopener"> Git squash </a>动作的用武之地。挤压是<a href="https://www.gitkraken.com/learn/git/git-rebase" target="_blank" rel="noreferrer noopener"> Git rebase </a>命令的一部分。</p>
+
+
+
+<p>GitKraken Client使选择您想要组合的多个提交变得非常简单，右键单击选择“挤压x个提交”，其中x是您选择的提交数。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>注意不要掩盖你的错误！你的错误和你的返工讲述了一个故事。它们可以为未来的开发人员提供有价值的解释，同时也记录了您的学习成果。我们应该为这些感到骄傲，因为它显示了你在发展你的手艺。不要隐藏错误。用壁球来整理东西，而不是把东西扫到地毯下。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>提示4:使用Git分支策略</strong></h2>
+
+
+
+<p>有许多Git分支策略;虽然Joe个人最喜欢的是GitHub Flow，但是还有很多。无论您选择哪一种，Git分支策略通常都遵循特性驱动的开发模式。您为您正在处理的每个特性创建一个分支，然后有一个特定版本的状态的一些概念。通常，一个<a href="https://www.gitkraken.com/learn/git/branch" target="_blank" rel="noreferrer noopener"> Git分支</a>或者一个标签会告诉你部署了什么以及在什么时候部署的。</p>
+
+
+
+<p>确保一次只有一个人负责任何一个分支也是很常见的，所以如果你有两个人在处理一个特性，你最好将这个特性分解成子特性。这使得每个开发人员都可以有效地执行“少而多”的提交策略。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>GitKraken客户端具有高级功能，如合并冲突检测，当两个团队成员同时处理同一个文件时，它会提醒用户。与Git的合作从未如此之好。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>仔细看看GitHub流分支策略，您会发现它涉及到为您的特性创建一个分支，该分支映射到一个GitHub问题。然后，您将您的提交添加到该分支，打开一个<a href="https://www.gitkraken.com/learn/git/problems/github-pull-requests" target="_blank" rel="noreferrer noopener"> GitHub pull请求</a>，引发一场讨论，然后一位同事对您的更改执行一次<a href="https://www.gitkraken.com/blog/code-review" target="_blank" rel="noreferrer noopener">代码审查</a>。</p>
+
+
+
+<p>您可能会添加更多的提交，但是一旦那个<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-pull-request-in-git" target="_blank" rel="noreferrer noopener"> Git pull request </a>过程结束，您就可以部署这些更改以进行测试。一旦测试完成，每个人都满意了，你的代码就被合并到主分支中了。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>有理由使用不同的工作流和Git分支最佳实践。各有各的优点需要考虑。选择一个作为你的基线，然后使它适应你的组织、你的需求和你的项目。无论你选择哪一个，关键是要有一个分支策略。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>提示5:使用Rebase和Merge </strong></h2>
+
+
+
+<p>在具有多个并发工作流的较大项目中，您可能会以混乱的分支和合并而告终。分支变得相互关联，很难跟踪发生了什么。GitHub实际上在创建拉取请求时提供了三个选项:</p>
+
+
+
+<ol><li>创建合并提交</li><li>挤压和合并</li><li>重设基础并合并</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">“创建合并提交”是不言自明的。如果pull请求成功，只需<a href="https://www.gitkraken.com/learn/git/problems/merge-git-branch" target="_blank" rel="noreferrer noopener">将建议的分支</a>及其变更直接合并到指定的目标分支中。这是最简单的选择，却留下了最乱的历史。<br/> <br/>“压缩并合并”选项意味着你的整个特性被压缩到一个提交中，然后直接放到主分支或开发分支上。虽然它非常整洁，但是您丢失了许多关于何时、如何以及为什么进行代码更改的文档。这使得改变变得非常困难，也更难理解为什么会发生一些事情。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">“rebase and merge”选项允许您在保持树整洁的同时避免丢失数据。这是乔最喜欢的选择。注意，如果你使用的是<a href="https://www.gitkraken.com/integrations/azure-devops" target="_blank" rel="noreferrer noopener"> Azure DevOps </a>，这个选项被称为“半线性合并”，但是它会产生相同的结果。</p>
+
+
+
+<p>The “create a merge commit” is fairly self-explanatory. If the pull request is successful, just <a href="https://www.gitkraken.com/learn/git/problems/merge-git-branch" target="_blank" rel="noreferrer noopener">merge the suggested branch</a> with its changes directly into the specified target branch.  This is the simplest option, but it leaves the messiest history.<br/><br/>The “squash and merge” option means your entire feature gets squashed into one commit and then plopped straight onto the main or developed branch. While it’s very neat and tidy, you lose a lot of the documentation of when, how, and why code changes were made. This makes reversing changes very difficult and it’s harder to see why something might have happened.</p>
+
+
+
+<p>The “rebase and merge” option allows you to avoid losing data while keeping the tree clean and tidy. This is Joe’s favorite option. Note that if you’re using <a href="https://www.gitkraken.com/integrations/azure-devops" target="_blank" rel="noreferrer noopener">Azure DevOps</a>, this option is called “semi-linear merge,” but it generates the same result.</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">你可以<a href="https://youtu.be/AN-iaHcXgYI?t=1346" target="_blank" rel="noreferrer noopener">跳到GitKon会议视频</a>中的22:26，听听Joe对这个选项更透彻的解释。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p><strong>改写历史</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">对于技巧四和技巧五，您正在重写历史，不是作为一种粉饰历史暴行的行为，而是简单地改变已经被推送到Git存储库的内容。维护您的真实历史当然有它的好处，因为它对学习和代码审查很有用。如果你从不篡改你的历史，也不可能真的把它弄乱。但是，要知道，从长远来看，这种方法是以回购可读性为代价的。一个快速的整理过程会让整个历史更加清晰。</p>
+
+
+
+<h2><strong>Rewriting History</strong></h2>
+
+
+
+<p><strong>推动你改写的历史</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">安全重写历史的关键是确保在开始篡改历史之前，你已经推送了你的库<em>。这可以确保您在外部服务器上有备份，并在推送前给您一个复查的方法。重要的是要注意:因为你正在改变历史，你将不得不执行一个强制推动。如果你正在使用GitKraken客户端，你会收到一个有用的弹出窗口，有一点警告，确定你真的想做一个强制推重写历史。<br/> <br/> GitKraken客户端让你轻松查看你的Git历史，制作和<a href="https://www.gitkraken.com/learn/git/problems/git-commit-amend" target="_blank" rel="noreferrer noopener">修改Git提交消息</a>，挤压提交，利用Git让你的提交历史尽可能的好。像Joe一样，成为一个真正的git，使用<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Client </a>轻松安全地使用世界领先版本控制系统的高级功能。<a href="https://www.gitkraken.com/git-client/try-free" target="_blank" rel="noreferrer noopener">今天免费下载GitKraken客户端</a>！</em></p>
+
+
+
+<h2><strong>Pushing Your Rewritten History</strong></h2>
+
+
+
+<p>The key to rewriting history safely is to make sure you’ve pushed your repository <em>before</em> you start messing with history. This ensures you’ve got your backup on an external server, and it gives you a way to double-check before you push. It’s important to note: because you’re changing history, you will have to perform a force push. If you’re using GitKraken Client, you will receive a helpful pop-up with a little warning, making sure you really want to do a force push rewriting history.<br/><br/>GitKraken Client makes it easy to see your Git history, make and <a href="https://www.gitkraken.com/learn/git/problems/git-commit-amend" target="_blank" rel="noreferrer noopener">amend Git commit messages</a>, squash commits, and leverage Git to make your commit history the best it can be.  Be like Joe and be a real git about your Git history, and use <a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener">GitKraken Client</a> to make it easy and safe to use the advanced functionality of the world’s leading version control system.  <a href="https://www.gitkraken.com/git-client/try-free" target="_blank" rel="noreferrer noopener">Download GitKraken Client free today</a>!</p>
+		</div>
+				</div>    
+</body>
+</html>

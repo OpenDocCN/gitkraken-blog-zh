@@ -1,0 +1,408 @@
+<html>
+<head>
+<title>Git Patch | Learn how to Git apply patch &amp; Git create patch</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Git补丁|了解如何Git应用补丁和Git创建补丁</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/git-patch#0001-01-01">https://www.gitkraken.com/learn/git/git-patch#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>在<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-pull-request-in-git" target="_blank" rel="noreferrer noopener"> Git pull requests </a>出现之前，开发人员创建了Git补丁来与团队成员和项目合作者共享他们的代码。Git补丁是包含代码和<a href="https://www.gitkraken.com/learn/git/commit" target="_blank" rel="noreferrer noopener"> Git提交</a>元数据的文本文件。创建一个Git补丁，本质上就是复制并打包你的工作，然后发送给其他人。应用一个Git补丁需要将某人的工作添加到您的本地<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository" target="_blank" rel="noreferrer noopener"> Git库</a>。</p>
+
+
+
+<p>在本文中，我们将介绍如何使用CLI和<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken客户端</a>创建和应用Git补丁。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>使用内置的CLI、命令面板或在提交图中点击几下，在GitKraken客户端中快速创建和应用Git补丁。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="A-Brief-History-of-Git-Patches"><strong>Git补丁简史</strong></h2>
+
+
+
+<p>在Git的早期阶段，开发人员通过创建Git补丁并通过电子邮件发送给他们的同事来共享他们的代码。那时，Git拉请求并不像今天这样存在，Git补丁是共享代码的最佳选择。</p>
+
+
+
+<p>虽然现在开发人员使用拉请求来共享代码肯定更普遍了，但是仍然有一些著名的项目使用Git补丁。Linux内核、<a href="https://www.drupal.org/" target="_blank" rel="noreferrer noopener"> Drupal </a>和<a href="https://git-scm.com/" target="_blank" rel="noreferrer noopener"> Git </a>项目经常使用Git补丁。如今，使用Git补丁的项目通常会让项目维护人员能够在应用补丁之前全面检查每个Git补丁中的更改，这增加了另一层安全性。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="Git-Create-Patch"><strong> Git创建补丁</strong></h2>
+
+
+
+<p>要创建一个Git补丁，您可以运行一个不同的<code>git format-patch</code>命令，这取决于您是为单次提交创建补丁还是从<a href="https://www.gitkraken.com/learn/git/branch" target="_blank" rel="noreferrer noopener"> Git分支</a>创建补丁。一旦你的Git补丁被创建，你就可以通过电子邮件把它发送给你的团队成员，让他们应用到他们的代码库中</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="Git-Patch-Apply"><strong> Git应用补丁</strong></h2>
+
+
+
+<p>要应用Git补丁，<a href="https://www.gitkraken.com/learn/git/problems/git-checkout-commit" target="_blank" rel="noreferrer noopener"> Git检查您希望应用更改的提交</a>或分支，然后在终端中运行以下命令:</p>
+
+
+
+<p><code>git apply &lt;.patch file&gt;</code></p>
+
+
+
+<p>虽然应用补丁可能比其他Git操作花费更多的时间，但是它的价值在于能够将其他人的工作添加到您的repo中，而不必自己编写代码。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="Git-Patch-Format"><strong> Git补丁格式</strong></h2>
+
+
+
+<p><code>git format-patch</code>命令用于从终端创建Git补丁。该命令的基本语法如下:</p>
+
+
+
+<p><code>git format-patch &lt;commit SHA or branch name&gt;</code></p>
+
+
+
+<p>访问Git的官方网站，了解更多信息和<a href="https://git-scm.com/docs/git-format-patch" target="_blank" rel="noreferrer noopener"> Git补丁格式命令</a>的变体。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="Git-Create-Patch-in-the-CLI"><strong> Git在CLI中创建补丁</strong></h2>
+
+
+
+<p>在从<a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener"> CLI </a>创建Git补丁之前，您需要确定想要在补丁中包含什么文件。这将决定您将使用哪个<code>git format-patch</code>命令变体来创建Git补丁。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong> Git在CLI中通过一次提交创建补丁</strong></h3>
+
+
+
+<p>要创建包含来自单个Git提交的信息的Git补丁，请执行以下步骤:</p>
+
+
+
+<ol><li>在终端中键入<code>git log</code>并点击<kbd>Enter</kbd>以获得您想要为其创建补丁的提交的提交SHA。</li><li>一旦有了提交SHA，运行:</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p><code>git format-patch -1 &lt;commit SHA&gt; -o &lt;name of the directory you want the patch saved to&gt;</code></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>您选择的提交中包含的所有更改将被打包到一个Git补丁中，然后您可以将其发送给其他协作者。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong> Git在CLI中从Git分支创建补丁</strong></h3>
+
+
+
+<p>通过执行下面概述的单个步骤，可以从Git分支创建Git补丁:</p>
+
+
+
+<ol><li>在终端键入<code>git format-patch &lt;branch name&gt; -o &lt;name of the directory you want the patch saved to&gt;</code>并点击<kbd>Enter</kbd></li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>这将创建一个Git补丁，其中包含Git分支上保存的所有信息，包括提交、差异、新文件和任何其他更改。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="How-to-Git-Patch-Apply-in-the-CLI"><strong>如何在CLI中Git应用补丁</strong></h2>
+
+
+
+<p>要在终端中正确应用Git补丁，您需要执行以下步骤:</p>
+
+
+
+<ol><li><a href="https://www.gitkraken.com/learn/git/git-checkout" target="_blank" rel="noreferrer noopener"> Git checkout </a>要应用补丁的相关提交或分支</li><li>运行命令:<code>git apply &lt;.patch file&gt;</code></li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>补丁文件中包含的更改将会反映在您的本地存储库中。现在，您可以继续您的工作流，因为您知道您的本地存储库与其他项目协作者保持同步。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="Git-Create-Patch-with-GitKraken-Client"><strong> Git用GitKraken客户端创建补丁</strong></h2>
+
+
+
+<p>使用GitKraken客户端创建Git补丁有几种简单直观的方法。与在CLI中创建Git修补程序类似，创建Git修补程序的方式取决于您想要创建修补程序的文件类型和数量。无论你如何创建你的Git补丁，GitKraken Client都更容易，<a href="https://www.gitkraken.com/git-client/try-free" target="_blank" rel="noreferrer noopener">现在就免费试用</a>。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong> Git使用GitKraken客户端通过一次提交创建补丁</strong></h3>
+
+
+
+<p>如果您想使用GitKraken客户端创建并发送包含特定提交信息的Git补丁，请执行以下步骤:</p>
+
+
+
+<ol><li>在中央提交图中，右键单击要从中创建补丁的提交</li><li>从下拉菜单中选择<kbd>Create patch from commit</kbd></li><li>GitKraken客户端将提示您将补丁保存到计算机上的指定位置</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong> Git使用GitKraken客户端通过多次提交创建补丁</strong></h3>
+
+
+
+<p>要创建包含来自多次提交的信息的Git补丁，请执行以下步骤:</p>
+
+
+
+<ol><li>按住<kbd>Shift</kbd>或<kbd>Cmd</kbd>并选择您想要创建补丁的提交</li><li>右键单击其中一个选定的提交，并从下拉菜单中选择<kbd>Create patch from commits</kbd></li><li>GitKraken客户端将提示您将补丁保存到计算机上的指定位置</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong> Git用GitKraken客户端从一个未提交的文件创建补丁</strong></h3>
+
+
+
+<p>要创建包含来自尚未提交的单个文件的信息的Git补丁，请执行以下步骤:</p>
+
+
+
+<ol><li>在GitKraken客户端右侧的提交面板中，右键单击要从中创建补丁的未提交文件</li><li>从下拉菜单中选择<kbd>Create patch from file changes</kbd></li><li>GitKraken客户端将提示您将补丁保存到计算机上的指定位置</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong> Git用GitKraken客户端从多个未提交的文件创建补丁</strong></h3>
+
+
+
+<p>为了从尚未提交的多个文件中创建Git补丁，请执行以下步骤:</p>
+
+
+
+<ol><li>从GitKraken客户端右侧的提交面板中，按住<kbd>Shift</kbd>或<kbd>Cmd</kbd>选择您想要创建补丁的未提交的更改</li><li>右键单击其中一个未提交的更改，并从下拉菜单中选择<kbd>Create patch from changes in # files</kbd></li><li>GitKraken客户端将提示您将补丁保存到计算机上的指定位置</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong> Git使用命令面板从所有工作目录变更中创建补丁</strong></h3>
+
+
+
+<p>按照下面列出的步骤，使用GitKraken客户端的命令面板从所有工作目录更改中创建Git补丁！</p>
+
+
+
+<ol><li>通过选择魔棒图标🪄或使用键盘快捷键<kbd>Cmd +  Shift + P</kbd>访问命令调板</li><li>在命令面板中键入<kbd>patch</kbd></li><li>从下拉菜单中选择<kbd>Create patch from all working directory changes</kbd></li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>创建和应用Git补丁并不是一个常见的工作流程，第一次尝试时可能会感到害怕。GitKraken Client使得使用Git补丁变得简单、直观且没有痛苦。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2 id="How-to-Git-Patch-Apply-with-GitKraken-Client"><strong>如何使用GitKraken客户端应用补丁</strong></h2>
+
+
+
+<p>GitKraken客户端要求通过命令面板应用补丁。要应用补丁程序，请执行以下操作:</p>
+
+
+
+<ol><li><a href="https://www.gitkraken.com/learn/git/git-checkout" target="_blank" rel="noreferrer noopener"> Git checkout </a>要应用补丁的分支或提交</li><li>通过选择魔棒图标🪄或使用键盘快捷键<kbd>Cmd +  Shift + P</kbd>进入命令调板</li><li>在命令面板中键入<kbd>patch</kbd></li><li>选择<kbd>Apply patch</kbd>；这将打开您的文件浏览器</li><li>在文件浏览器中，点击您想要应用的<kbd>.patch</kbd>文件，然后选择<kbd>Open</kbd></li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p class="video-responsive">  </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>Git补丁将被应用到您已经签出的分支或提交，并且您可以继续您的工作流。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong> Git去打补丁！</strong></h2>
+
+
+
+<p>恭喜你！现在您知道了如何使用CLI和GitKraken客户端创建和应用Git补丁。这些新获得的知识为您打开了一扇门，让您开始为使用这种独特的Git工作流的开源项目和私有存储库做出贡献。</p>
+
+
+
+<p>知道如何自信地使用Git补丁的开发人员非常少，这对任何团队都非常有帮助。将您的Git补丁知识与GitKraken Client结合起来，使创建和应用Git补丁变得更快更容易！<a href="https://www.gitkraken.com/git-client/try-free" target="_blank" rel="noreferrer noopener">今天免费下载GitKraken客户端</a>。</p>
+		</div>
+				</div>    
+</body>
+</html>

@@ -1,0 +1,327 @@
+<html>
+<head>
+<title>The History of Git | Worse is Better and the Git Ecoysstem</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Git |更差更好和Git生态系统的历史</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/gitkon/history-of-git#0001-01-01">https://www.gitkraken.com/gitkon/history-of-git#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper"><iframe title="GitKon Keynote: Edward Thomson of GitHub npm - Git and its Ecosystem" src="https://www.youtube.com/embed/AhJmv1paL_w?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>2005年4月，Linus Torvalds给了我们一千行C代码，其中点缀着TODOs和关于设计决策的评论。这些代码是“信息经理”的基础，帮助他开发Linux内核。</p>
+
+
+
+<p>Git是主要的版本控制系统。如果有版本控制之战，Git赢了。但是为什么Git会变得如此流行，Git的历史是怎样的？根据Lisp的创造者<a href="https://en.wikipedia.org/wiki/Richard_P._Gabriel" target="_blank" rel="noreferrer noopener"> Richard Gabriel </a>的说法，这是因为“越差越好”当被问及为什么C语言和Unix操作系统会“赢”Lisp时，他半开玩笑地回答了这个问题。他后来继续将“越差越好”定义为一种被广泛接受的整体哲学。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>软件哲学</strong></h2>
+
+
+
+<p><br/>为了符合“越差越好”的理念，一项技术需要满足四个条件:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">1.简单</p>
+
+
+
+<p>2.正确性</p>
+
+
+
+<p>3.一致性</p>
+
+
+
+<p>4.完全</p>
+
+
+
+<p>“越差越好”是一种哲学，与另一种被称为“正确的事情”或有时被称为麻省理工学院哲学的思维方式形成对比。“正确的事情”哲学同样具有简单、正确、一致和完整的首要原则。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">这两种哲学有什么不同？让我们先来看看“正确的事情”哲学。</p>
+
+
+
+<p>‘Worse is better’ is a philosophy that sits in contrast to another way of thinking called ‘the right thing’ or sometimes referred to as the MIT philosophy.  ‘The right thing’ philosophy has the same overarching tenets of simplicity, correctness, consistency, and completeness. </p>
+
+
+
+<p>How do these two philosophies differ? Let’s look first at ‘the right thing’ philosophy. </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在“正确的事情”哲学中，当你看一个系统的设计时，你首先看它的简单性。设计和代码必须简单，无论是在实现方面还是在接口方面。一定要用起来简单。事实上，最后一个，简单易用的UI，是最重要的租户，取代了实现的简单性。<br/> <br/>下一个租户说软件必须正确。不正确是不允许的，所以你最好有一个没有错误的程序。<br/> <br/>软件也必须始终如一地适合‘正确的事情’。事实上，一致性甚至比界面简单性更重要。只要软件保持一致，你可以在简单性方面走一些捷径。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">最后，软件必须完整。它必须是可用的，并且做用户期望它做的所有事情。<br/> <br/>这些听起来都是大房客。</p>
+
+
+
+<p>In ‘the right thing’ philosophy, when you look at the design of a system, you look first at its simplicity. The design and code must be simple, both in terms of its implementation and its interface. It must be simple to use. In fact, that last one, the simple to use UI, is the most important tenant, superseding the simplicity of implementation.<br/><br/>The next tenant says software must be correct. Incorrectness is not allowed, so you should ideally have a bug-free program.<br/><br/>Software must also consistently fit into ‘the right thing’. In fact, consistency is even more important than interface simplicity. You can cut a few corners in the simplicity area as long as the software remains consistent. </p>
+
+
+
+<p><strong>“越差越好”与“正确的事情”</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">“正确的事情”与“越差越好”的哲学相比如何？</p>
+
+
+
+<h2>在“越差越好”的方法中，简单也是第一点，但是有一点扭曲。与其关注用户界面的简单，不如关注实现的简单。代码必须易于理解和扩展。这比简单易用更重要。“越差越好”方法中的正确性要求软件在所有可观察到的方面都应该是正确的，但实际上简单比正确要好得多。简单的实现胜过完全正确，尤其是在早期版本中。<br/> <br/>“越差越好”下的设计需要一致，但实际上最好是去掉设计中处理不太常见情况的部分，而不是在应用程序中引入复杂性或不一致性，因此，实现的简单性再次胜出。<br/> <br/>最后,“越差越好”中的完整性是重要的，但是当实现的简单性受到危害时，它可能会被牺牲掉。“越差越好”的核心是构建简单的可扩展代码，而不一定是好用、一致或完整的代码。诚然，这有点像稻草人的观点，但正如Richard Gabriel逐渐意识到的，坚持“越差越好”哲学的软件比信奉“正确的事情”世界观的软件有更好的存活率。这也是C和Unix最终战胜Lisp的原因。</h2>
+
+
+
+<p>How does ‘the right thing’ compare with the ‘worse is better’ philosophy? </p>
+
+
+
+<p><strong> Linux和Git以及“越差越好”</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">有一个人比其他任何软件工程师都更坚持“最坏就是最好”的哲学，他就是Linus Torvalds。Linus构建了Linux内核和Git，这是世界上最流行的版本控制系统。这是实践“最坏就是最好”哲学的两个极好的例子。</p>
+
+
+
+<h2><strong>Linux and Git and ‘Worse is Better’</strong></h2>
+
+
+
+<p>There’s one person who stands out as adhering to the ‘worst is better’ philosophy better than any other software engineer: Linus Torvalds. Linus built the Linux kernel and also Git, the world’s most popular version control system. Those are two excellent examples of the ‘worst is better’ philosophy in practice.</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">第一次有人听说Linux操作系统要追溯到1991年，当时一个名叫Linus的年轻学生在Minix邮件列表上发帖。Minix是80年代后期的一个类似Unix的操作系统。Linus有一台386计算机，他试图学习如何在很深的底层对它编程，以便在386芯片组上构建一个操作系统。在早期的声明中，Linus指出Linux“永远不会成为一个专业的操作系统”。然而，Linux内核非常受欢迎。它发展得非常快，满足了许多计算机程序员的需求。人们在他的Linux内核和大量“用户空间”代码(如shells)的基础上构建发行版，以与系统(如<a href="https://www.gitkraken.com/blog/what-is-git-bash" target="_blank" rel="noreferrer noopener"> Bash </a>、Zsh或Tcsh)进行交互。</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img decoding="async" src="" alt=" history-of-git-Linus-Torvalds" data-lazy-src="https://lh3.googleusercontent.com/shvVn3xwOaE0vm5oA81n2Q5bG86-VOGUTpfOqJn32IJ_WWOLi8C0h-AyR9mGB5yR9xiey9AzOOu3r7JUkGzQkiRKcXTOEyQ8U3WR2j2cuZmnPRRbhcf4G78JkApLImDVLW1fjHPm=s1600"/><noscript><img decoding="async" src="../Images/63986569eee0991287fb32ae072e85ed.png" alt=" history-of-git-Linus-Torvalds" data-original-src="https://lh3.googleusercontent.com/shvVn3xwOaE0vm5oA81n2Q5bG86-VOGUTpfOqJn32IJ_WWOLi8C0h-AyR9mGB5yR9xiey9AzOOu3r7JUkGzQkiRKcXTOEyQ8U3WR2j2cuZmnPRRbhcf4G78JkApLImDVLW1fjHPm=s1600"/></noscript></figure></div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">像麻省理工学院和自由软件基金会的Gnu/Hurd项目这样的竞争架构从来没有像Linux发行版那样真正成为完整的系统。这是因为他们太专注于架构和获得“恰到好处”的东西，以至于他们从来没有真正把代码拿出来。Linux以其“越差越好”的方式胜出，因为它发布得早，用户可以立即在它的基础上进行构建。Linus刚刚宣布了他正在构建的东西，尽管当时它几乎无法运行，然后全世界都在看着它发展成为一个健壮而强大的操作系统。经过近30年的时间，经过深思熟虑和精心设计的Gnu/Hurd内核仍然没有发布1.0版本。</p>
+
+
+
+<p>The first time anybody heard of the Linux operating system was way back in 1991 when a young student named Linus posted on a Minix mailing list.  Minix was a Unix-like OS from the late 80s. Linus had a 386 computer and was trying to learn how to program it at a very deep, low level to build an operating system on the 386 chip set.<br/><br/>In his early announcement, Linus noted that Linux will “never be a professional operating system”. However, the Linux kernel was incredibly popular. It took off really fast and filled a need that a lot of computer programmers had. People built distributions on top of his Linux kernel and a lot of the “user space” code, such as shells, to interact with the system like <a href="https://www.gitkraken.com/blog/what-is-git-bash" target="_blank" rel="noreferrer noopener">Bash</a>, Zsh, or Tcsh.</p>
+
+
+
+<p><strong>Git前的协作</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Linux内核是作为一个开源项目合作开发的；可以说是世界上有史以来最成功的开源项目。合作者的工作方式是通过邮件列表，很像Linus用来宣布他最初想法的那个。人们交换补丁，在本地机器上编写代码，运行diff，然后将输出发送到邮件列表。如果特定内核子系统的维护者对这一变化感兴趣，他们会在邮件列表中讨论这一变化，并最终将这一变化应用到下一个发行版中。从根本上说，这就是2002年Linux内核的变化。没有真正的版本控制系统。有项目维护者版本的源代码，仅此而已。不过，这个协作系统很快就达到了一个扩展点，在这个点上，手动操作太多了。他们需要一个系统来帮助，这就是<a href="http://www.bitkeeper.org/" target="_blank" rel="noreferrer noopener"> BitKeeper </a>的用武之地。</p>
+
+
+
+<h2><strong>Collaboration before Git</strong></h2>
+
+
+
+<p><strong>从BitKeeper到Git </strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">BitKeeper是第一个分布式版本控制系统。它在邮件列表系统之上增加了严密性，使得协作更加容易。BitKeeper的问题在于它的许可证。这在当时是一种相当新颖的许可模式，BitKeeper对其专有软件的商业使用收费，但给Linux内核开发者一个免费的“开源”许可。他们可以免费使用它，但他们没有源代码，而且许可证禁止逆向工程BitKeeper。它还指出，用户不能试图建立一个竞争的版本控制系统。这导致了一些Linux内核开发者和BitKeeper背后的团队之间的紧张关系。最终，Linux社区决定他们应该寻找其他的选择。</p>
+
+
+
+<h2><strong>From BitKeeper to Git</strong></h2>
+
+
+
+<p>然后是水银</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">在采用BitKeeper和寻找替代方案之间的时间里，有许多其他人在研究分布式版本控制问题。值得注意的是，2005年Matt MacKall在Linux内核邮件列表上发布了Mercurial v 0.1——一个最小的可扩展分布式SCM。</p>
+
+
+
+<h2><strong>Then Came Mercurial</strong></h2>
+
+
+
+<p>In the time between adopting BitKeeper and looking for alternatives, there were a number of other folks working on the distributed version control problem. Of note, in 2005 Matt MacKall posted on the Linux kernel mailing list announcing Mercurial v0.1 – a minimal scalable distributed SCM.</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">虽然Mercurial还处于早期的概念验证阶段，但它已经表现得令人惊讶地好，并赢得了粉丝。在Matt的第一封邮件中，他提到了Mercurial仍需做的一些事情，包括各种清理、打包、文档和测试。这是一个“越差越好”方法的完美例子。有趣的是，在Linux内核邮件列表上，他得到的唯一回应是有人告诉他，这是<strong>太</strong>了，“越差越好。”<br/> <br/>有一种普遍的观点认为，如果一个工具很难使用，格式不好，或者文档不好，那么不管它有多棒，人们都不会使用它。这与“越差越好”的哲学正好相反。事实上，只要代码简单，我们就可以把用户界面的简单性放在一边。Mercurial的代码非常出色，这也是它如此受欢迎的原因。<br/> <br/>同样在2005年4月，Linus在Linux内核邮件列表上发布了一个公告，用的是他最初发布Linux时同样低调的方式。他宣布他正在编写一些脚本来帮助他管理Linux内核邮件列表上的补丁。他说，他的脚本不会是一个源代码控制管理系统或版本控制系统，只是一些特定于他的用例。Git最初只是Linus为帮助他的用例而编写的一些脚本，但是他在开发的早期发布了这些脚本，以防其他贡献者会发现它们很有帮助。</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><picture decoding="async" class="wp-image-5518">
+<source type="image/webp" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1024x561.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1536x841.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-2048x1122.png.webp 2048w" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20561'%3E%3C/svg%3E" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="" alt="history-of-git-Matt-Mackall-mercurial" data-lazy-srcset="https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1024x561.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-300x164.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-768x421.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1536x841.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-2048x1122.png 2048w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1024x561.png"/>
+</picture>
+<noscript><picture decoding="async" class="wp-image-5518">
+<source type="image/webp" srcset="https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1024x561.png.webp 1024w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1536x841.png.webp 1536w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-2048x1122.png.webp 2048w" sizes="(max-width: 1024px) 100vw, 1024px"/>
+<img decoding="async" src="../Images/b634d5de2f2063b5524e357570773606.png" alt="history-of-git-Matt-Mackall-mercurial" srcset="https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1024x561.png 1024w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-300x164.png 300w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-768x421.png 768w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1536x841.png 1536w, https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-2048x1122.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" data-original-src="https://www.gitkraken.com/wp-content/uploads/2021/10/Mercurial-post-1024x561.png"/>
+</picture>
+</noscript></figure></div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p><strong>管理Git(和Linux)开发</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Linus在2005年4月宣布的是Git的第一个版本。如果您在<a href="https://github.com/git/git" target="_blank" rel="noreferrer noopener"> Git源代码镜像库</a>上运行一个Git日志，您可以看到这个项目看起来如何，以及它是如何随着时间的推移而增长的。这些第一批Git日志消息是Git被“自托管”的第一次引用，这意味着Git项目正在使用Git来管理Git。</p>
+
+
+
+<h2>自Linus在2005年发表第一篇文章以来，我们已经走过了漫长的道路。令人惊讶的是，Git的统治地位是如此有影响力和持久，尤其是当你想到它最初只是少数几个文件，只有1250多行代码。它是不完整的，你几乎不能用它做任何事情。在其最初的形式中，Git充其量只是一种分布式文件系统的机制。</h2>
+
+
+
+<p>正如Linus所说，它不是版本控制系统，也不是SCM。它既不一致，也不真正正确，尤其是在缓存方面。这当然不简单，因为你必须是Linus Torvalds才能知道如何使用它。这绝对不是你今天看到的那个饭桶。</p>
+
+
+
+<p>尽管存在这些问题，人们还是开始使用它。具体来说，Linux内核黑客开始使用它，因为它简化了他们的生活，就像它简化了Linus的生活一样。</p>
+
+
+
+<p>黑客的目标是创建补丁让Linus接受，而Linus的目标是管理和接受这些补丁。这正是这个系统所做的。</p>
+
+
+
+<p>最初，没有服务器端组件。这非常符合“越差越好”的哲学:当Gmail这样的服务可以为你做的时候，为什么要建立自己的服务器呢？其核心是通过电子邮件打补丁，它把实际的硬件部分——运行保存补丁的服务器——卸载给已经编写了工作版本的其他人。</p>
+
+
+
+<p>莱纳斯的目标实现了吗？是的。它出现了并被使用。人们开始使用它而不仅仅是Linux内核开发，并且开始使用g it来管理Git开发！有人可以修复Git中的一个bug，并向邮件列表发送一个补丁。</p>
+
+
+
+<p>Originally, there was no server-side component. This very much fits into the ‘worst is better’ philosophy: why build your own server when a service like Gmail can do it for you? At its core, it was about patches over email and it offloaded the actual hard bits—running a server that held the patches—to somebody else who already wrote a working version. </p>
+
+
+
+<p>Was Linus’ goal satisfied? Yes. It got out there and got used. People started using it beyond just Linux kernel development and started using Git to manage Git development!  Somebody could fix a bug in Git and send in a patch to the mailing list.</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git的接口并不简单，但它的代码很简单，这也是它能够被扩展的原因。正如GitHub的联合创始人汤姆·普雷斯顿-沃纳所说，“Git让协作成为可能，但并没有让协作变得容易。”它使一种非常特殊的合作形式成为可能，一种非常分布式的、拥抱开源哲学的合作形式。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p><strong>开放开源</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">如果很难合作，只有某些人掌握着源代码的钥匙，那么开源就不是非常开放的。汤姆和他的朋友克里斯·万斯特拉斯和PJ·凯悦决定解决这个问题，于是想出了GitHub.com。</p>
+
+
+
+<h2>GitHub具有托管公共存储库的能力，使得来回发送更改和讨论这些更改变得非常容易。不需要邮寄补丁和等待，你可以通过推你的代码突然打开一个<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-pull-request-in-git" target="_blank" rel="noreferrer noopener"> Git pull请求</a>。您可以派生一个存储库，并与分支机构合作开发任何类型的开源项目。它真的降低了合作的障碍。这是革命性的。</h2>
+
+
+
+<p>Git的数据结构很简单，代码也非常简单。即使您不了解图论，在阅读Git的格式文档后，您也会对数据结构的简单性印象深刻。简单的数据结构允许人们在Git之上构建其他东西，比如Heroku 中的<a href="https://devcenter.heroku.com/articles/git" target="_blank" rel="noreferrer noopener"> Git端点。Git还允许简单的部署；运行Git推送即可。</a></p>
+
+
+
+<p>GitHub came with the ability to host public repositories, making it really easy to send changes back and forth and discuss those changes. Instead of mailing a patch and waiting, you could suddenly open a <a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-pull-request-in-git" target="_blank" rel="noreferrer noopener">Git pull request</a> by just pushing your code up. You could fork a repository and work with branches to collaborate on any type of open source project.  It really lowered the barriers to collaboration. It was revolutionary.</p>
+
+
+
+<p><strong>进入Git客户端</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git很快从“另一个”版本控制系统变成了全球范围内占主导地位的版本控制系统。随着Git越来越受欢迎，人们开始构建命令行客户端和Git GUI客户端，以使其更易于使用。</p>
+
+
+
+<h2>有一个图表有助于可视化的变化和分支。能够看到<a href="https://www.gitkraken.com/learn/git/git-diff" target="_blank" rel="noreferrer noopener"> Git差异</a>也非常有帮助，这使得审查变更或决定<a href="https://www.gitkraken.com/learn/git/git-rebase" target="_blank" rel="noreferrer noopener"> Git rebase </a>或<a href="https://www.gitkraken.com/learn/git/git-merge" target="_blank" rel="noreferrer noopener"> Git merge </a>是否对某些提交更有意义变得更容易。自从上市以来，开发这些工具的开发人员已经推动用户界面变得越来越直观，满足了“越差越好”和“正确的事情”这两个“简单”的理念。多年来，Git客户端已经从像<a href="https://git-scm.com/docs/gitk/" target="_blank" rel="noreferrer noopener"> gitk </a>这样的初级工具发展到<a href="https://www.gitkraken.com/compare/gitkraken-vs-tortoisegit" target="_blank" rel="noreferrer noopener"> TortoiseGit </a>的点击和指向，并最终发展到<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken Git客户端</a>提供的拖放和漂亮的提交图形，它包括一个GUI和<a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener"> CLI </a>。<br/> <br/> Git给了我们一个版本控制更容易使用和理解的世界。在这个世界里，我们拥有使协作和代码部署更容易的平台。由于这种“越差越好”的方法，Git工具形成了一个非常活跃的生态系统。</h2>
+
+
+
+<p>Git quickly went from just ‘another’ version control system, to <em>the</em> dominant version control system worldwide. As Git’s popularity grew, people started building both command line clients and Git GUI clients to make it easier to use.  </p>
+
+
+
+<p>GitKraken是Git工具的一个完美例子，它已经发展到可以应对新的挑战，具有交互式拉请求管理、合并冲突检测和解决、深度链接等高级功能。<br/></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p><strong>从‘Git’到Git </strong></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">我们也已经从Git仅仅是Linus最初编写并由Junio Himano维护了多年的命令行应用程序，发展到Git作为一套SCM协议，允许您管理<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository" target="_blank" rel="noreferrer noopener"> Git库</a>。像<a href="https://libgit2.org/" target="_blank" rel="noreferrer noopener"> libgit2 </a>、<a href="https://github.com/cristibaluta/Jit" target="_blank" rel="noreferrer noopener"> Jit </a>、<a href="https://www.nodegit.org/" target="_blank" rel="noreferrer noopener"> NodeGit </a>和<a href="https://www.pygit2.org/" target="_blank" rel="noreferrer noopener"> pygit2 </a>这样的库不需要调用shell命令来运行<code>git</code>并解析输出。他们可以直接针对文件系统执行任何<a href="https://www.gitkraken.com/learn/git/commands" target="_blank" rel="noreferrer noopener"> Git命令</a>，比如<a href="https://www.gitkraken.com/learn/git/commit" target="_blank" rel="noreferrer noopener"> Git Commit </a>、<a href="https://www.gitkraken.com/learn/git/branch" target="_blank" rel="noreferrer noopener"> Git Branch </a>或Diff，以各自的编程语言生成输出。这就是Git服务和工具真正可以扩展的方式。</p>
+
+
+
+<h2><strong>From `git` to Git</strong></h2>
+
+
+
+<p><strong>赢家是Git(还有你)</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">Git赢了，因为它信奉“越差越好”的哲学。它不担心是否完整或是否一定正确，至少一开始是这样。Linus构建了一个最小可行的产品，就像他们在开源世界中说的那样“挠自己的痒”。他构建了一个简单且易于实现的小型工具集。他向全世界发布了它们，现在很难低估Git对我们软件开发所有领域的影响。<br/> <br/>尽管Git取得了胜利，但Git仍有一些可以改进的地方。<a href="https://youtu.be/AhJmv1paL_w?t=2216" target="_blank" rel="noreferrer noopener">点击这里查看Edward演讲的最后部分</a>，了解这些领域以及Git如何继续发展。另外，你可以看到2021年<a href="https://gitkon.com/" target="_blank" rel="noreferrer noopener"> GitKon Git大会</a>的现场Q &amp; A。<br/> <br/>充分利用Linus、Edward和所有Git贡献者在最流行的版本控制系统中所做的工作，以及GitKraken团队所做的工作，通过可视化和更好的UI使Git更加可用<a href="https://www.gitkraken.com/download" target="_blank" rel="noreferrer noopener">今天下载GitKraken Git客户端</a>，包括GUI和<a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener"> CLI </a>！</p>
+
+
+
+<h2><strong>The Winner is Git (and You)</strong></h2>
+
+
+
+<p>Git won because it embraced the ‘worse is better’ philosophy. It didn’t worry about being complete or being necessarily correct, at least at first. Linus built a minimum viable product, ‘scratching his own itch’ as they say in the open source world. He built a small set of tools that were simple and easily implemented. He released them to the world and it’s now hard to underestimate the impact that Git has had on all areas of our software development. <br/><br/>Despite the fact that Git has won, there are still some areas where Git can be improved. <a href="https://youtu.be/AhJmv1paL_w?t=2216" target="_blank" rel="noreferrer noopener">Click here to check out the final section of Edward’s talk</a> to hear about these areas and how Git can continue to evolve. Plus, you can see a live Q&amp;A from the 2021 <a href="https://gitkon.com/" target="_blank" rel="noreferrer noopener">GitKon Git conference</a>. <br/><br/>Take advantage now of all the work that Linus, Edward, and all the Git contributors have put into the most popular version control system and all the work the GitKraken team has done to make Git more usable through visualizations and a better UI by <a href="https://www.gitkraken.com/download" target="_blank" rel="noreferrer noopener">downloading the GitKraken Git client</a> today, including a GUI and <a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener">CLI</a>! </p>
+
+
+
+<p/>
+		</div>
+				</div>    
+</body>
+</html>

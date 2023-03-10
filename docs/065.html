@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>Pull Requests and Gitflow</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>拉请求和Gitflow</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/blog/pull-requests-gitflow#0001-01-01">https://www.gitkraken.com/blog/pull-requests-gitflow#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>在我之前的帖子中，我讨论了<strong> <a href="/blog/gitflow" target="_blank" data-type="URL" data-id="/blog/gitflow" rel="noreferrer noopener"> Gitflow模型</a> </strong>以及它如何帮助企业管理发布。在这篇文章中，我将讨论<em>拉式请求</em>及其在开发过程中的重要性。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">什么是拉取请求？</p>
+
+
+
+<h2>拉式请求是一个开发过程，它为讨论和评审已完成的功能提供了一个平台。它的目的是通知团队成员该特性已经完成，可以进行讨论或修改。讨论通常是为了提高代码的质量；这基本上是一个代码审查过程。</h2>
+
+
+
+<p><em> <strong>注意:</strong>在某些网站或工具中，您可能会发现术语“合并请求”而不是“拉请求”。这两个术语的意思是一样的。</em></p>
+
+
+
+<p><em> <strong>注意:</strong>在某些网站或工具中，您可能会发现术语“合并请求”而不是“拉请求”。这两个术语的意思是一样的。</em></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">创建拉取请求之前需要做什么？</p>
+
+
+
+<h3>提交特性<a href="https://support.gitkraken.com/working-with-repositories/branching-and-merging#branches" target="_blank" rel="noreferrer noopener">分支</a>中的代码。请注意，一个特性可以有任意数量的提交。</h3>
+
+
+
+<ol><li>分支中的提交仅反映本地机器(即您的机器)上的更改。因此，提交需要被推送到远程分支。</li><li>然后，你就可以准备好<a href="https://support.gitkraken.com/working-with-repositories/branching-and-merging#rebasing" target="_blank" rel="noreferrer noopener">重组</a>你的分行了。如果在采用特征分支后合并了任何新的拉请求，则需要重新设置基础。</li><li>在重定基础之后，需要解决出现的任何冲突，并且需要将代码推回到远程分支。</li><li>最后，是时候创建一个<a href="/learn/git/tutorials/what-is-a-pull-request-in-git" target="_blank" data-type="URL" data-id="/learn/git/tutorials/what-is-a-pull-request-in-git" rel="noreferrer noopener">拉请求</a>了。</li><li>最后，是时候创建一个<a href="/learn/git/tutorials/what-is-a-pull-request-in-git" target="_blank" data-type="URL" data-id="/learn/git/tutorials/what-is-a-pull-request-in-git" rel="noreferrer noopener">拉请求</a>了。</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><em> <strong>注意:</strong>拉请求需要两个不同的分支。为了创建一个拉请求，执行分支和源分支之间的代码需要有所不同。</em></p>
+
+
+
+<p>拉式请求流程</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">当<a href="https://support.gitkraken.com/working-with-repositories/pull-requests" target="_blank" rel="noreferrer noopener">创建一个拉请求</a>时，您添加一个对您的特性的简要概述，选择代码需要合并到的分支，并选择将审查它的受托人。</p>
+
+
+
+<h2>一旦创建了拉取请求，就可以对其进行讨论或修改。</h2>
+
+
+
+<ol><li>有时在创建拉请求后会发生冲突，您必须解决这些冲突。冲突的可能原因将在本文后面讨论。</li><li>通常，被指派的人审查代码，但是并不强制只有被指派的人执行审查。任何团队成员都可以参与审查过程，并给出他们的反馈或讨论对代码的潜在修改。</li><li>任何反馈或修改都以注释的形式添加到代码行附近。</li><li>开发人员解析评论并回复给审阅者。</li><li>这个过程一直持续到所有的评论都解决为止。</li><li>一旦所有的讨论都解决了，代码就被合并到创建pull请求时选择的分支中。</li><li>这个过程一直持续到所有的评论都解决为止。</li><li><em> <strong>注:</strong>可以对任何分支机构进行拉取请求。通常，对源分支发出拉请求。有时关闭一个拉取请求而不合并它是可以的。这通常发生在删除某个功能时。</em></li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><em>典型的开发周期</em></p>
+
+
+
+<p><em> <strong>注:</strong>可以对任何分支机构进行拉取请求。通常，对源分支发出拉请求。有时关闭一个拉取请求而不合并它是可以的。这通常发生在删除某个功能时。</em></p>
+
+
+
+
+
+<p class="has-text-align-center">什么是合并冲突，它们何时出现在拉请求中？</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">为了更好地解释什么是冲突，考虑一个场景，其中开发人员A从开发分支中取出一个分支，特性A。另一个开发人员，开发人员B，从开发分支中取出一个分支，特性B。</p>
+
+
+
+<h3>现在两位开发人员都在各自的功能分支上工作。开发人员A修改特性A分支中的一行或一段代码。开发人员B也修改了开发人员A已经修改过的相同代码块，但是在特性B分支中。</h3>
+
+
+
+<p>在完成他们的特性之后，两个开发人员都向开发分支创建拉请求；让我们称它们为拉请求A和拉请求B。然后，一个评审者合并拉请求A。一旦拉请求A被合并，拉请求B中就会出现冲突，因为同一代码块被两个开发人员修改。</p>
+
+
+
+<p>为了解决冲突，开发人员B必须通过从开发分支(即，源分支)检索更新来重新确定特征B分支的基础。在检索到更新后，开发人员B在其分支的本地副本中面临代码冲突。现在，他们必须解决冲突，再次提交代码，并将代码推送到远程开发分支。现在代码没有冲突了，所以评审者可以合并拉请求B了。</p>
+
+
+
+<p>要了解使用Git GUI客户端<strong> <a href="https://www.gitkraken.com/" target="_blank" rel="noreferrer noopener"> GitKraken </a> </strong>解决合并冲突 是多么容易，请观看这个快速视频。</p>
+
+
+
+<p><iframe title="What is a Merge Conflict? [Advanced Git Tutorial]" src="https://www.youtube.com/embed/MzpW-k66XE8?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p>
+
+
+
+<p>要了解使用Git GUI客户端<strong> <a href="https://www.gitkraken.com/" target="_blank" rel="noreferrer noopener"> GitKraken </a> </strong>解决合并冲突 是多么容易，请观看这个快速视频。</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper">Gitflow模型中的拉请求</p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>开发分支</strong>:开发人员从他们各自的特性分支创建一个拉请求，将代码合并到开发分支。通常，在特征完成后创建拉请求。检阅者会将提取请求合并到开发分支。在大多数情况下，评审员是技术领导。</p>
+
+
+
+<h2><strong>发布分支</strong>:开发人员从特性或bugfix分支创建一个pull请求，将代码合并到发布分支。通常，当一个bug需要在发布分支中修复时，在发布期间创建拉请求。拉动式请求由技术主管合并。</h2>
+
+
+
+<p><strong>主分支</strong>:发布分支的技术主管或开发人员创建一个拉请求，将代码合并到主分支。通常，拉请求是在代码准备好进行部署的发布期间创建的。拉式请求由创建它的下一级人员或技术负责人合并。</p>
+
+
+
+<p><strong>热修复分支</strong>:开发人员从他们各自的bugfix分支创建一个pull请求，将代码合并到主分支和开发分支。通常，创建拉请求是为了在已部署的代码中提供关键的修复。审阅者合并拉取请求。在大多数情况下，评审员是技术领导。这个合并请求应该被更仔细地审查，因为它将直接把代码合并到主分支。</p>
+
+
+
+<p><em> <strong>注意:</strong>虽然可以跳过拉请求，直接将代码推送到分支，但是不应该避免拉请求，因为它们为代码提供了更好的质量和稳定性。</em></p>
+
+
+
+<p>拉取请求的好处</p>
+
+
+
+<p>使用这个协作平台来讨论对代码的潜在修改。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">提高代码质量。</p>
+
+
+
+<h2>简化接收评审者反馈的流程。</h2>
+
+
+
+<ul><li>地址反馈很容易内联在相关代码附近。</li><li>为代码提供更好的稳定性。</li><li>简化接收评审者反馈的流程。</li><li>地址反馈很容易内联在相关代码附近。</li><li>为代码提供更好的稳定性。</li></ul>
+		</div>
+				</div>    
+</body>
+</html>

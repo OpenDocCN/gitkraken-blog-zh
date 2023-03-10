@@ -1,0 +1,325 @@
+<html>
+<head>
+<title>How to Git Push Force | Solutions to Git Problems</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何获得推动力| Git问题的解决方案</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/learn/git/problems/git-push-force#0001-01-01">https://www.gitkraken.com/learn/git/problems/git-push-force#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<p>Git push命令获取您在本地机器上所做的更改，并更新您的<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-git-remote" target="_blank" rel="noreferrer noopener">远程存储库</a>以反映这些更改。开发人员使用这个命令来更新他们的远程存储库，以便与项目合作者共享最准确的Git历史。</p>
+
+
+
+<p>Git push是更新远程存储库的首选命令。Git push不仅接受您的本地更改并将它们添加到远程，而且不会覆盖远程先前保存的任何Git历史。</p>
+
+
+
+<p>但是，在某些情况下，您需要覆盖远程历史记录。这就是Git push force的用武之地，您可能听说过它被称为“Git force push”或“force pushing”。</p>
+
+
+
+<p>请继续阅读，了解如何在您的工作流中有效、安全地利用Git force pushing。在本文中，我们将介绍如何使用<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken客户端</a>强制推送，首先在<a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener"> CLI </a>中，然后在Git GUI中。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>GitKraken客户端通过撤销/重做按钮等功能，最大限度地降低了Git中可能存在的危险操作的风险，如强制推送。希望您的工作流程更加安全？⬇️ <br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>Git Push Force是如何工作的？</strong></h2>
+
+
+
+<p>与Git push不同，<code>git push –force</code>不要求您的本地存储库与远程存储库完全同步。恰恰相反，Git push force使远程存储库与本地存储库相匹配。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h3><strong>Git推力的风险</strong></h3>
+
+
+
+<p>Git push force会覆盖远程存储库，以完全匹配您运行该命令时本地存储库的样子。这意味着在运行Git push force之前，您需要确保您的本地存储库完全是最新的，包含来自远程的最新更改，否则您将面临丢失提交的风险。</p>
+
+
+
+<p>例如，假设一个团队成员将新的变更推送到一个遥控器上，而您忘记了提取它们。因为您未能提取这些变更，所以它们不会反映在您的本地存储库中。在这种情况下，如果您执行Git push force，您将用本地repo的副本替换远程存储库，实际上删除了团队成员的工作。</p>
+
+
+
+<p>使用Git push force仍然没有确保在运行命令之前获取最新的更改那么简单。可能您的一个或多个团队成员正在基于旧的提交历史处理变更。如果你在这种情况下强行推动，如果你没有将团队成员的贡献融入到你当前的工作中，这可能会使他们变得过时。</p>
+
+
+
+<p>如果你决定要保留你的项目的历史，但仍然想对你的远程回购做一个小的改变，考虑使用<code>git revert &lt;commit&gt;</code>用<a href="https://www.gitkraken.com/learn/git/problems/revert-git-commit" target="_blank" rel="noreferrer noopener">恢复你的提交</a>。这不会像强制推送那样改变项目的历史，并且可以帮助您撤销与代码库冲突的提交。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>什么时候应该使用Git推力？</strong></h2>
+
+
+
+<p>在一些情况下，使用Git push force是最好的做法，尽管可能会有负面影响。</p>
+
+
+
+<p>您可能需要在Git中强制推送的一些常见示例包括:</p>
+
+
+
+<ul><li>在你在本地对一个分支进行Git rebase之后</li><li>在<a href="https://www.gitkraken.com/learn/git/git-squash" target="_blank" rel="noreferrer noopener">挤压已经被推到远程的提交</a>之后</li><li>在敏感数据被意外推送到远程设备并需要删除后</li></ul>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>如果您是Git新手，并且对使用终端感到不确定，GitKraken CLI会根据您的活动为Git命令提供自动建议，甚至会提供它们的简要描述。<br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>用命令行给出推力</strong></h2>
+
+
+
+<p>虽然您可以在任何终端中遵循相同的基本步骤来强制推送，但我们将使用强大的<a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener"> GitKraken CLI </a>来回顾这个过程。</p>
+
+
+
+<p>要访问<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken客户端</a>中的CLI，点击顶部工具栏中的<kbd>Terminal</kbd>按钮。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>您将希望从使用<code>git fetch --all</code>从遥控器获取任何更改开始。执行一个<a href="https://git-scm.com/docs/git-fetch" target="_blank" rel="noreferrer noopener"> Git获取</a>从远程获取任何还没有应用到本地repo的更改，并添加它们。</p>
+
+
+
+<p>虽然这一步对于执行强制推送不是必需的，但是这是一个很好的做法，因为它允许您验证最近没有推送任何您不想覆盖的内容。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>接下来，您应该执行一个<a href="https://www.gitkraken.com/learn/git/problems/git-interactive-rebase" target="_blank" rel="noreferrer noopener">交互式重置</a>来挤压您的提交。这种实践促进了更干净的远程存储库，并使您的团队成员更容易找到您的变更并与之交互。要执行交互式重置基础和压缩一组提交:</p>
+
+
+
+<ol><li>使用<code>git log</code>找到您将开始工作的基础提交的SHA。</li><li>运行<code>git rebase -i &lt;SHA&gt;</code>开始交互式重置基础。</li><li>使用像Vim这样的文本编辑器程序，选择您想要压缩的提交。</li><li>使用<kbd>Escape</kbd>键退出文本编辑器，然后键入<code>:wq</code>。</li><li>最后，基于所有文件编写一个全面的提交消息，然后使用<kbd>Escape</kbd>和<code>:wq</code>完成。</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>作为一般的最佳实践，您可能还想运行<code>git status</code>来确认您的本地分支是否处于预期状态。运行<a href="https://git-scm.com/docs/git-status" target="_blank" rel="noreferrer noopener"> Git status </a>将返回索引文件和当前HEAD commit之间的差异，以及索引文件和工作树之间的差异。</p>
+
+
+
+<p>一旦您采取了这些步骤来为Git push force创建一个更安全的环境，您现在就可以运行下面的命令来强制push到远程存储库:</p>
+
+
+
+<p><code>git push --force</code></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">从CLI考虑的另一个安全措施是使用<code>git push force-with-lease</code>。如果使用此标志发现对远程数据库所做的更改没有反映在您的本地存储库中，则它将无法强制推送。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">回想一下我们过去的例子。如果一个团队成员已经对远程进行了更改，而您没有提取这些更改，那么单独运行Git push force将会覆盖您的团队成员的贡献。但是，如果使用lease运行Git push force，那么force push将会失败，因为它识别出您需要从远程获取更改。如果自上次拉动后遥控器没有发生任何变化，强制推送将继续进行。</p>
+
+
+
+<p>从CLI考虑的另一个安全措施是使用<code>git push force-with-lease</code>。如果使用此标志发现对远程数据库所做的更改没有反映在您的本地存储库中，则它将无法强制推送。</p>
+
+
+
+<p><strong>使用Git GUI获得推力</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">就像如果您要使用<a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener"> CLI </a>，在Git GUI中执行强制推送之前，您会希望先执行一个获取操作。您可以在<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken客户端</a>中通过选择顶部工具栏中<kbd>Pull</kbd>按钮右侧的小<kbd>^ </kbd>箭头来完成此操作。从随后的下拉菜单中，选择<kbd>Fetch All</kbd>。如前所述，首先执行这个操作有助于降低意外覆盖工作的风险。</p>
+
+
+
+<h2><strong>使用Git GUI获得推力</strong></h2>
+
+
+
+<p>就像如果您要使用<a href="https://www.gitkraken.com/cli" target="_blank" rel="noreferrer noopener"> CLI </a>，在Git GUI中执行强制推送之前，您会希望先执行一个获取操作。您可以在<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken客户端</a>中通过选择顶部工具栏中<kbd>Pull</kbd>按钮右侧的小<kbd>^ </kbd>箭头来完成此操作。从随后的下拉菜单中，选择<kbd>Fetch All</kbd>。如前所述，首先执行这个操作有助于降低意外覆盖工作的风险。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">一旦您对本地回购感到满意，您可以使用<kbd>Push</kbd>按钮将您的更改推送到遥控器。使用GitKraken客户端强制推送时，会出现一个横幅，有以下选项:<kbd>Pull (fast forward if possible)</kbd>、<kbd>Force Push</kbd>或<kbd>Cancel</kbd>。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">注意:<kbd>Pull (fast forward if possible)</kbd>获取远程分支上的任何更新，并尝试快进或移动本地分支，以指向与远程分支相同的提交。如果不能快进，将执行<a href="https://www.gitkraken.com/learn/git/git-merge" target="_blank" rel="noreferrer noopener"> Git合并</a>。<kbd>Cancel</kbd>将取消推送。</p>
+
+
+
+<p>在下面的例子中，有几个提交应该被压缩。为此，使用<code>command/ctrl</code>从图中多选所需的提交，然后选择<kbd>Squash 3 commits</kbd>。请注意，本地主分支现在在历史上与远程主分支不同。</p>
+
+
+
+<p>注意:<kbd>Pull (fast forward if possible)</kbd>获取远程分支上的任何更新，并尝试快进或移动本地分支，以指向与远程分支相同的提交。如果不能快进，将执行<a href="https://www.gitkraken.com/learn/git/git-merge" target="_blank" rel="noreferrer noopener"> Git合并</a>。<kbd>Cancel</kbd>将取消推送。</p>
+
+
+
+<p>在下面的例子中，有几个提交应该被压缩。为此，使用<code>command/ctrl</code>从图中多选所需的提交，然后选择<kbd>Squash 3 commits</kbd>。请注意，本地主分支现在在历史上与远程主分支不同。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">既然本地主分支指向了期望的提交，那么是时候Git force push这个更改来从远程历史中删除其他提交了。为此，在GitKraken客户端的顶部工具栏中选择<kbd>Push</kbd>。然后，系统会提示您以下消息:</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>既然本地主分支指向了期望的提交，那么是时候Git force push这个更改来从远程历史中删除其他提交了。为此，在GitKraken客户端的顶部工具栏中选择<kbd>Push</kbd>。然后，系统会提示您以下消息:</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">选择<kbd>Force Push</kbd>，最后再次选择<kbd>Force Push</kbd>确认。因为这是一个潜在的破坏性行动，<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken客户端</a>给你机会仔细检查，确保你想继续进行。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>选择<kbd>Force Push</kbd>，最后再次选择<kbd>Force Push</kbd>确认。因为这是一个潜在的破坏性行动，<a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener"> GitKraken客户端</a>给你机会仔细检查，确保你想继续进行。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">您可以通过检查本地和远程主分支是否指向同一个提交，以及其他不需要的提交是否已被删除，来确认强制推送是否成功。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p><strong>团队的远程回购健康和Git</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">基于我们已经介绍的概念，很容易理解为什么保持一个干净的远程存储库如此重要。当与团队合作时，需要一个干净的远程存储库。有了这么多的接触点和贡献者，建立清晰的存储库标准并与您的合作者尽可能多地促进项目可见性是至关重要的。</p>
+
+
+
+<h2>GitKraken客户端的Git for Teams功能会在您和团队成员处理同一个文件时提醒您，以便您可以避免潜在的合并冲突，深度链接允许您与团队快速共享项目的特定部分。GitKraken Client 让团队协作变得无缝和简单，这样你就可以专注于编写令人惊叹的代码。</h2>
+
+
+
+<p>基于我们已经介绍的概念，很容易理解为什么保持一个干净的远程存储库如此重要。当与团队合作时，需要一个干净的远程存储库。有了这么多的接触点和贡献者，建立清晰的存储库标准并与您的合作者尽可能多地促进项目可见性是至关重要的。</p>
+
+
+
+<p>想要帮助您的团队改善他们的远程存储库的健康状况，避免合并冲突，并提高生产力吗？GitKraken客户端可以帮助您完成所有这些任务，甚至更多。立即下载，向改善团队协作和成功迈出第一步。<br/></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>想要帮助您的团队改善他们的远程存储库的健康状况，避免合并冲突，并提高生产力吗？GitKraken客户端可以帮助您完成所有这些任务，甚至更多。立即下载，向改善团队协作和成功迈出第一步。<br/></p>
+
+</div>
+</div>
+
+
+
+<p/>
+		</div>
+				</div>    
+</body>
+</html>

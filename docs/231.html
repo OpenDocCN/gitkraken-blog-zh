@@ -1,0 +1,272 @@
+<html>
+<head>
+<title>How does Git work under the hood? Learn How Git Works Internally</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Git是如何工作的？了解Git内部是如何工作的</h1>
+<blockquote>原文：<a href="https://www.gitkraken.com/gitkon/how-does-git-work-under-the-hood#0001-01-01">https://www.gitkraken.com/gitkon/how-does-git-work-under-the-hood#0001-01-01</a></blockquote><div><div class="elementor-widget-container">
+			
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><p class="wp-block-embed__wrapper"><iframe title="Git Behind the Scenes: How Does Git Work" src="https://www.youtube.com/embed/gzJk1ruqSok?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">视频</iframe></p></figure>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>Git是什么？</strong></p>
+
+
+
+<h2>Git由Linus Torvalds于2005年创建，旨在维护Linux内核的开发。Git建立在完全分布式、速度、简单设计、处理大型项目的能力和对非线性开发的强大支持的基础之上。围绕Git 的<a href="https://www.gitkraken.com/gitkon/history-of-git" target="_blank" data-type="URL" data-id="https://www.gitkraken.com/gitkon/history-of-git" rel="noreferrer noopener">历史和它的创建存在着大量的传说，包括它为什么和如何得到这个奇特的名字，它最初创建的原因，等等。</a></h2>
+
+
+
+<p>让我们看看Git是如何工作的，以便更好地理解这个强大的版本控制系统(VCS)。我们将介绍什么是Git文件夹，它是如何在内部使用的，使用了什么数据结构，在执行常见操作时Git中实际发生了什么，以及如何从存储库中可能发生的特定数据丢失中恢复。</p>
+
+
+
+<p>Let’s take a look at how Git works under the hood in order to better understand this powerful version control system (VCS). We’ll cover what the Git folder is, how it’s utilized internally, what data structures are used, what really happens in Git when performing common operations, and how to recover from specific data loss that may occur within your repositories.</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">“@GitKraken使Git中难的或多余的部分变得简单。它没有隐藏Git概念。这真是太好了。”–<a href="https://twitter.com/texastoland/status/1108080357247725569" target="_blank" rel="noopener">@德州</a> <br/></p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p>“@GitKraken makes the hard or redundant parts of Git easy. It doesn’t hide Git concepts. It’s as good as it Gits.” – <a href="https://twitter.com/texastoland/status/1108080357247725569" target="_blank" rel="noopener"> @texastoland</a><br/></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>了解Git文件夹</strong></p>
+
+
+
+<h2><code>.git</code>文件夹存在于你机器上的每个本地<a href="https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository" target="_blank" rel="noreferrer noopener"> Git库</a>中。它包含多个用来跟踪你的代码库的文件。</h2>
+
+
+
+<p><strong> Git挂钩</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">当您初始化一个新的存储库时，会自动创建Git hooks文件夹。Git挂钩是在事件之后执行的shell脚本，比如一个<a href="https://www.gitkraken.com/learn/git/commit" target="_blank" rel="noreferrer noopener"> Git commit </a>或push。开发人员使用Git挂钩将用户功能注入常见的Git操作。有17种不同类型的Git挂钩可以实现这一功能。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">例如，如果您想要使用一个<a href="https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy" target="_blank" rel="noreferrer noopener"> Git钩子来帮助您格式化一个提交消息</a>以匹配您的团队所实施的一个标准模式，您将执行以下步骤:</p>
+
+
+
+<h2><strong>Git Hooks</strong></h2>
+
+
+
+<p>导航到<code>.git/hooks</code>目录</p>
+
+
+
+<p>移除。commit-msg Git挂钩示例</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">通过运行<kbd><code>chmod +x prepare-commit-msg</code></kbd>确保准备-提交-消息正常工作</p>
+
+
+
+<ol><li><strong>索引文件</strong></li><li>在Git中，索引文件定义了临时区域。当您运行<code>git add</code>或<code>git rm</code>时，这一点清晰可见。如果您尝试使用<code>cat</code>或<code>HEAD</code>来“抓取”该文件，您将会看到大部分输出是乱码和不清楚的。这是因为存储在索引文件中的<a href="https://git-scm.com/docs/index-format" target="_blank" rel="noreferrer noopener">信息是用二进制</a>表示的，这使得Git和计算机程序更容易阅读，但是人们理解起来有点困难。</li><li>Ensure that the prepare-commit-msg works by running <kbd><code>chmod +x prepare-commit-msg</code></kbd></li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>Git包含索引中每个文件的元数据，比如文件类型和其他相关信息。然而，Git的索引不知道如何自己处理空文件夹。这就是为什么你通常要创建一个名为“Git keep”的文件。</h2>
+
+
+
+<p><strong>头文件</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">头文件是Git文件夹中的另一个文件，是索引文件的附录。头文件跟踪当前签出的内容。</p>
+
+
+
+
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<p>什么是裁判？</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">一个<a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References" target="_blank" rel="noreferrer noopener"> Ref可以是三种不同事物</a>中的一种。</p>
+
+
+
+<h2><strong>HEAD File</strong></h2>
+
+
+
+<p>HEAD——对您当前所在分支的象征性引用。包含指向另一个引用的指针。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">remote——类似于分支，但是存储在GitLab、GitHub等任何云Git提供者中。</p>
+
+
+
+<h2>标签——类似于提交对象，但通常指向提交而不是树。</h2>
+
+
+
+<p>A <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References" target="_blank" rel="noreferrer noopener">Ref can be one of three different things</a>. </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"><strong>提交对象</strong></p>
+
+
+
+<ol><li>提交对象是在门提交期间创建的。如果您运行<code>cat-file-p</code>命令，您可以看到它包含与提交相关的文件树的信息，包括存在什么文件、它跟踪哪个父提交、关于作者提交者的信息以及提交消息。</li><li>所有提交对象共享一些公共属性；它们各自存在于一个对象的文件夹中，该文件夹存储在<code>.git</code>文件夹中，它们的所有路径都是它们的内容之一的阿沙，所有对象都用<code>zlib</code>压缩。</li><li>提交对象有四种类型:</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>tree–存储关于目录树的信息</h2>
+
+
+
+<p>提交-您的更改的快照</p>
+
+
+
+<p>Blob-文件的内容</p>
+
+
+
+<p>标记-指向Git历史中特定点引用</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<ol><li>GitKraken客户端提供的易于阅读的提交图有助于您可视化所有类型的提交对象，以及分支结构和完整的提交历史，让您对项目有更多的控制和了解。<br/></li><li><strong>打包文件</strong></li><li>packfile是一个文件中许多对象的集合。虽然packfile本身没有用zlib压缩，但是里面存储的对象是压缩的。packfile有一个扩展名为<code>.pack </code>的文件，以及一个扩展名为<code>.idx</code>的补充索引文件。这个索引文件只是使从packfile中解包单个对象的速度更快。</li><li>如果您访问Git objects目录，您可能会发现packfiles与对象放在一起。那些不属于该包文件的对象称为松散对象。松散对象可以在以后添加到packfile中，这通常是在运行<code>git gc</code>时自动完成的。只有在检测到相当大的回购规模并运行<code>git gc</code>后，才会触发该流程。</li></ol>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">当您使用网络操作时，Packfiles也会发挥作用。当您运行<code>git push</code>或<code>git pull</code>时，所有文件都被压缩到一个packfile中，以便通过管道传输。抓取克隆也是如此，因为在幕后，<a href="https://www.gitkraken.com/learn/git/git-clone" target="_blank" rel="noreferrer noopener"> Git克隆</a>利用抓取。在这里你可以看到克隆和获取之间的<a href="https://youtu.be/gzJk1ruqSok?t=929" target="_blank" rel="noreferrer noopener">关系被演示</a>。</p>
+
+
+
+<div class="callout">
+<div class="callout-content">
+<p><strong>配置文件</strong></p>
+
+</div>
+</div>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">与提交对象不同，配置文件不是zlib压缩的，这意味着您可以以纯文本文件的形式查看它们。配置文件包含存储库设置、关于远程的信息以及关于被跟踪分支的信息。</p>
+
+
+
+<h2><strong>Packfile</strong></h2>
+
+
+
+<p><strong>使用日志从错误中恢复</strong></p>
+
+
+
+<p>我们都经历过不小心犯了不该犯的错误。假设你刚刚运行了一个<code>git log</code>,发现你做了一些你不打算做的事情。然后您运行一个<code>git reset hard</code>来删除该提交，但是意识到该提交还包括一个您仍然需要的重要文件。这些内容会永远消失吗？你又回到起点了吗？😅</p>
+
+
+
+<p>幸运的是它不是。这就是我们的日志文件夹发挥作用的地方。每次更新ref时，都会更新日志文件夹。也就是说，每次您提交或以某种方式更改引用时，日志文件夹都会存储这些信息。使用日志文件，您仍然能够看到被删除的提交的对象id。即使重置更新了磁头，它也没有删除本地对象。您现在可以<a href="https://www.gitkraken.com/learn/git/git-checkout" target="_blank" rel="noreferrer noopener"> Git checkout </a>提交并获取您需要的重要文件。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">您还可以使用Git的<code>ref log</code>命令来访问这个日志功能。默认情况下，该命令将显示已检出内容的标题，但是您可以使用该命令选择其他引用，只需提供所需引用的名称。因此，如果您想查看对于另一个分支的引用，哪些提交已经被更改，只需运行<code>git ref log</code>并指向该引用。</p>
+
+
+
+<h2><strong>Config File</strong></h2>
+
+
+
+<p><strong>恢复无法到达的物体</strong></p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer">虽然Git reset对于更新ref来说是一个有益的工具，但是需要注意的是它不会修改本地对象。这意味着即使你正在做一个<a href="https://www.gitkraken.com/learn/git/git-rebase" target="_blank" rel="noreferrer noopener"> Git rebase </a>或者一个force push，你仍然能够在对象文件夹中跟踪你的对象。</p>
+
+
+
+<h2>使用Git reset可以使对象不再被ref引用。这些对象被称为不可及对象。<code>git gc</code>默认情况下，两周后删除这些对象，因此有一个短暂的窗口，在此期间数据可能是可恢复的。</h2>
+
+
+
+<p>您可以使用代表Git文件系统检查的<code>git fsck</code>来找到不可到达的对象。<code>git fsck</code>不显示在logs文件夹中跟踪的不可到达的提交对象，所以您需要在运行该命令之前临时删除该文件夹。这将显示任何未完成的不可到达的对象，并允许您访问它们。</p>
+
+
+
+<p>你知道的越多</p>
+
+
+
+<p>了解Git的来龙去脉会让你成为团队和雇主的宝贵财富。如果您想继续增长您的Git知识并添加更多有助于您成功的工具，只需看看现在带有GUI和T2 CLI的GitKraken客户端就可以了。GitKraken客户端以其漂亮的提交图使编码变得简单和可视化，以其撤销错误的能力变得安全，并以其集成兼容性变得强大。</p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2><strong>Recovering Unreachable Objects</strong></h2>
+
+
+
+<p>While Git reset can be a beneficial tool for updating a ref, it’s important to note that it doesn’t modify local objects. This means that even if you’re doing a <a href="https://www.gitkraken.com/learn/git/git-rebase" target="_blank" rel="noreferrer noopener">Git rebase</a> or a force push, you’re still able to track your objects in the object folder. </p>
+
+
+
+<p>Using Git reset makes it so objects are no longer referenced by a ref. Those objects are called unreachable objects. <code>git gc</code> by default removes these objects after two weeks, so there is a brief window where the data may be recoverable.</p>
+
+
+
+<p>You can find unreachable objects using <code>git fsck</code> which stands for Git file system check.  <code>git fsck</code> does not show unreachable commit objects that are tracked within the logs folder, so you’ll need to temporarily get rid of that folder before running the command. This should reveal any outstanding unreachable objects and allow you to access them. </p>
+
+
+
+<p aria-hidden="true" class="wp-block-spacer"/>
+
+
+
+<h2>The More You Know</h2>
+
+
+
+<p>Knowing the ins and outs of Git makes you a valuable asset to your team and employers. If you want to continue to grow your Git knowledge and add more tools that will help you succeed, look no further than the <a href="https://www.gitkraken.com/git-client" target="_blank" rel="noreferrer noopener">GitKraken Client</a>, now with a GUI and <a href="https://www.gitkraken.com/cli">CLI</a>. The GitKraken Client makes coding easy and visual with its beautiful commit graph, safe with its ability to undo mistakes, and powerful with its integration compatibility. </p>
+		</div>
+				</div>    
+</body>
+</html>
